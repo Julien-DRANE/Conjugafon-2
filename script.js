@@ -208,28 +208,25 @@ function genererPhrase(forceGenerate = false) {
         tempsChoisi = tempsOptions[Math.floor(Math.random() * tempsOptions.length)];
     }
 
-    // Sélectionner un verbe au hasard dans le groupe sélectionné
     verbeActuel = verbesGroupe[Math.floor(Math.random() * verbesGroupe.length)];
     if (!verbeActuel) {
         console.error("Aucun verbe disponible pour le groupe sélectionné.");
         return;
     }
 
-    // Choisir un pronom disponible
     pronomChoisi = choisirPronomDisponible(verbeActuel, tempsChoisi);
     if (pronomChoisi === null) {
         console.error(`Aucun pronom disponible pour le verbe "${verbeActuel.infinitif}" au temps "${tempsChoisi}".`);
-        genererPhrase(true); // Tenter de générer une nouvelle phrase
+        genererPhrase(true); 
         return;
     }
 
-    // Vérifier si le pronom est défini
-    if (!pronomChoisi.pronom) {
-        console.error("Pronom est indéfini.");
-        return;
+    // Ajout des "que" et "qu'" pour le subjonctif
+    let pronomAffiche = pronomChoisi.pronom;
+    if (tempsChoisi.includes("subjonctif")) {
+        pronomAffiche = pronomChoisi.pronom.startsWith("il") ? "qu'il" : `que ${pronomChoisi.pronom}`;
     }
 
-    // Stocker le temps et le pronom actuel pour la vérification
     temps = tempsChoisi;
     verbeActuel.pronomActuel = pronomChoisi.pronom;
     verbeActuel.indicePronomActuel = pronomChoisi.indice;
@@ -239,175 +236,10 @@ function genererPhrase(forceGenerate = false) {
     // Mettre à jour l'interface utilisateur avec le verbe et le temps sélectionnés
     document.getElementById('verbe-container').innerText = `Verbe : ${verbeActuel.infinitif}`;
     document.getElementById('temps-container').innerText = `Temps : ${temps.charAt(0).toUpperCase() + temps.slice(1)}`;
-
-    // Décrire le pronom et afficher le message
-    let messageContainer = document.getElementById('message-container');
-    const sujetChoisi = modeTurboActif || modeExtremeActif
-        ? descriptionPronoms[verbeActuel.pronomActuel]
-        : verbeActuel.pronomActuel;
-
-    document.getElementById('phrase-container').innerText = `${sujetChoisi} ___`;
-
-    // Mettre à jour le message selon le mode actif
-    if (modeTurboActif) {
-        messageContainer.innerText = "Écris le pronom personnel et le verbe conjugué. (X2)";
-    } else if (modeExtremeActif) {
-        messageContainer.innerText = "Écris le pronom personnel du verbe conjugué et le cas échéant le genre en écrivant (e). (X3)";
-    } else {
-        messageContainer.innerText = ""; // Réinitialiser le message pour les autres modes
-    }
+    
+    // Afficher la phrase avec le pronom
+    document.getElementById('phrase-container').innerText = `Conjugue le verbe "${verbeActuel.infinitif}" à ${temps} pour "${pronomAffiche}".`;
 }
 
-// Mettre à jour l'historique des réponses
-function mettreAJourHistorique(isCorrect, userResponse = "") {
-    const historiqueContainer = document.getElementById('historique');
-    const nouvelItem = document.createElement('li');
-    const pronom = verbeActuel.pronomActuel;
-    const conjugaisonCorrecte = verbeActuel.conjugaisons[temps][verbeActuel.indicePronomActuel];
-    if (isCorrect) {
-        nouvelItem.textContent = `Verbe : ${verbeActuel.infinitif}, Temps : ${temps}, ${descriptionPronoms[pronom]}, Réponse : ${conjugaisonCorrecte}`;
-    } else {
-        nouvelItem.textContent = `Verbe : ${verbeActuel.infinitif}, Temps : ${temps}, ${descriptionPronoms[pronom]}, Réponse : Incorrecte (Réponse correcte : ${conjugaisonCorrecte})`;
-    }
-    historiqueContainer.appendChild(nouvelItem);
-    console.log(`Historique mis à jour: ${nouvelItem.textContent}`);
-}
-
-// Vérifier la réponse de l'utilisateur
-function verifierReponse() {
-    const reponseUtilisateur = document.getElementById('reponse').value.trim().toLowerCase(); // Convertir en minuscules
-    const pronomActuel = verbeActuel.pronomActuel;
-    const indicePronomActuel = verbeActuel.indicePronomActuel;
-    let conjugaisonCorrecte = "";
-
-    // Récupérer la conjugaison correcte en fonction de l'indice
-    if (verbeActuel.conjugaisons[temps]) {
-        conjugaisonCorrecte = verbeActuel.conjugaisons[temps][indicePronomActuel].toLowerCase();
-    }
-
-    console.log(`Vérification de la réponse pour le verbe "${verbeActuel.infinitif}", temps "${temps}", pronom "${pronomActuel}".`);
-    console.log(`Réponse utilisateur : "${reponseUtilisateur}"`);
-    console.log(`Conjugaison correcte : "${conjugaisonCorrecte}"`);
-
-    if (conjugaisonCorrecte !== "0" && reponseUtilisateur === conjugaisonCorrecte.toLowerCase()) {
-        alert("Bonne réponse !");
-        // Calcul des points : points doublés en mode TURBO et triplés en mode EXTREME
-        const pointsGagnes = coefficients[groupeActuel] * (tempsTurbo.includes(temps) ? 3 : 1);
-        score += modeTurboActif ? pointsGagnes * 2 : (modeExtremeActif ? pointsGagnes * 3 : pointsGagnes);
-        
-        // **Mise à jour de l'élément HTML du score**
-        document.getElementById('score').innerText = score;
-        
-        currentQuestion++;
-        tentatives = 0; // Réinitialiser les tentatives
-
-        // Mettre à jour l'historique uniquement si la réponse est correcte
-        mettreAJourHistorique(true, reponseUtilisateur);
-
-        console.log(`Bonne réponse! Score actuel: ${score}. Question actuelle: ${currentQuestion}/${totalQuestions}.`);
-
-        // Vérifier si le jeu est terminé
-        if (currentQuestion < totalQuestions) {
-            genererPhrase(true); // Générer une nouvelle phrase pour la prochaine question
-        } else {
-            afficherScoreFinal(); // Afficher le score final si le nombre total de questions est atteint
-        }
-    } else {
-        tentatives++;
-        if (tentatives < maxTentativesParQuestion) {
-            alert(`Mauvaise réponse ! -1 point. Tentatives restantes: ${maxTentativesParQuestion - tentatives}`);
-        } else {
-            alert(`Mauvaise réponse ! -1 point.\nNombre maximum de tentatives atteint. La réponse correcte était: "${conjugaisonCorrecte}".`);
-        }
-        score -= 1;
-        
-        // **Mise à jour de l'élément HTML du score**
-        document.getElementById('score').innerText = score;
-        
-        console.log(`Mauvaise réponse! Score actuel: ${score}. Tentatives: ${tentatives}/${maxTentativesParQuestion}.`);
-
-        if (tentatives >= maxTentativesParQuestion) {
-            // Enregistrer l'incorrect après le nombre maximal de tentatives
-            mettreAJourHistorique(false, reponseUtilisateur);
-            tentatives = 0;
-            currentQuestion++;
-
-            if (currentQuestion < totalQuestions) {
-                genererPhrase(true);
-            } else {
-                afficherScoreFinal();
-            }
-        }
-    }
-
-    // Réinitialiser le champ de réponse
-    document.getElementById('reponse').value = "";
-}
-
-// Afficher le score final
-function afficherScoreFinal() {
-    document.getElementById('final-score-value').innerText = score;
-    document.getElementById('final-score').style.display = 'block';
-    console.log(`Score final affiché: ${score}.`);
-}
-
-// Réinitialiser le jeu
-function resetGame() {
-    score = 0;
-    currentQuestion = 0;
-    tentatives = 0;
-    groupesUtilises.clear();
-    historique = []; // Réinitialiser l'historique
-    const historiqueContainer = document.getElementById('historique');
-    historiqueContainer.innerHTML = ''; // Vider l'historique affiché
-    document.getElementById('final-score').style.display = 'none';
-    document.getElementById('score').innerText = score;
-    console.log("Jeu réinitialisé.");
-    genererPhrase(true);
-}
-
-// Détecter l'entrée avec la touche "Entrée"
-function detecterEntree(event) {
-    if (event.key === "Enter") {
-        verifierReponse();
-    }
-}
-
-// Afficher ou masquer la solution
-function toggleSolution() {
-    const solutionBulle = document.getElementById('solution-bulle');
-    const solutionText = document.getElementById('solution-text');
-    const pronomActuel = verbeActuel.pronomActuel;
-    const indicePronomActuel = verbeActuel.indicePronomActuel;
-    const conjugaisonCorrecte = verbeActuel.conjugaisons[temps][indicePronomActuel];
-
-    if (solutionBulle.style.display === 'block') {
-        solutionBulle.style.display = 'none'; // Masquer la bulle si elle est visible
-    } else {
-        if (conjugaisonCorrecte && conjugaisonCorrecte !== "0") {
-            solutionText.innerText = conjugaisonCorrecte;
-            console.log(`Solution affichée: ${conjugaisonCorrecte}`);
-        } else {
-            solutionText.innerText = "Pas de solution disponible.";
-            console.log("Pas de solution disponible à afficher.");
-        }
-        solutionBulle.style.display = 'block'; // Afficher la bulle
-    }
-}
-
-// Charger les verbes au démarrage du jeu et ajouter les écouteurs d'événements une seule fois
-window.onload = () => {
-    chargerVerbes();
-
-    // Ajouter des écouteurs d'événements après le chargement des verbes
-    document.getElementById('reponse').addEventListener('keydown', detecterEntree);
-    document.getElementById('verifier').addEventListener('click', verifierReponse);
-    document.getElementById('bouton-solution').addEventListener('click', toggleSolution);
-    document.getElementById('nouvelle-partie').addEventListener('click', resetGame);
-    document.getElementById('modeTurbo').addEventListener('click', activerModeTurbo);
-    document.getElementById('modeExtreme').addEventListener('click', activerModeExtreme); // Ajout pour le mode EXTREME
-    document.getElementById('modeAleatoire').addEventListener('click', activerModeAleatoire);
-    document.getElementById('premierGroupe').addEventListener('click', () => choisirGroupe('premierGroupe'));
-    document.getElementById('deuxiemeGroupe').addEventListener('click', () => choisirGroupe('deuxiemeGroupe'));
-    document.getElementById('troisiemeGroupe').addEventListener('click', () => choisirGroupe('troisiemeGroupe'));
-};
+// Appeler la fonction de chargement des verbes au chargement de la page
+window.onload = chargerVerbes;
