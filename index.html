@@ -4,20 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de Conjugaison</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers votre fichier CSS -->
 </head>
 <body>
-    <h1>Jeu de Conjugaison</h1>
-    <div id="verbe-container"></div>
-    <div id="temps-container"></div>
-    <div id="phrase-container"></div>
-    <div id="score-container">Score : 0</div>
-    <button id="modeTurbo" onclick="activerMode('turbo')">Mode TURBO (Inactif)</button>
-    <button id="modeExtreme" onclick="activerMode('extreme')">Mode EXTREME (Inactif)</button>
-    <button id="premierGroupe" onclick="choisirGroupe('premierGroupe')">Premier Groupe</button>
-    <button id="deuxiemeGroupe" onclick="choisirGroupe('deuxiemeGroupe')">Deuxième Groupe</button>
-    <button id="troisiemeGroupe" onclick="choisirGroupe('troisiemeGroupe')">Troisième Groupe</button>
-    <button id="modeAleatoire" onclick="activerModeAleatoire()">Mode Aléatoire</button>
-    
+    <header>
+        <h1>Jeu de Conjugaison</h1>
+    </header>
+    <div class="container">
+        <div class="game-area">
+            <div class="left-panel">
+                <h3>Options</h3>
+                <button id="modeTurbo" onclick="activerMode('turbo')">Mode TURBO (Inactif)</button>
+                <button id="modeExtreme" onclick="activerMode('extreme')">Mode EXTREME (Inactif)</button>
+                <button id="premierGroupe" onclick="choisirGroupe('premierGroupe')">Premier Groupe</button>
+                <button id="deuxiemeGroupe" onclick="choisirGroupe('deuxiemeGroupe')">Deuxième Groupe</button>
+                <button id="troisiemeGroupe" onclick="choisirGroupe('troisiemeGroupe')">Troisième Groupe</button>
+                <button id="modeAleatoire" onclick="activerModeAleatoire()">Mode Aléatoire</button>
+            </div>
+            <div class="center-panel">
+                <h2 id="verbe-container"></h2>
+                <div id="temps-container"></div>
+                <div id="phrase-container"></div>
+                <div id="score-container">Score : 0</div>
+            </div>
+            <div class="right-panel">
+                <h3>Historique</h3>
+                <ul id="historique"></ul>
+            </div>
+        </div>
+    </div>
+
     <script src="votre-script.js"></script> <!-- Lien vers votre fichier JavaScript -->
 </body>
 </html>
