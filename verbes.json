@@ -1,413 +1,81 @@
 {
-  "premierGroupe": [
+  "verbs": [
     {
-      "infinitif": "aimer",
-      "conjugaisons": {
-        "présent": ["j'aime", "tu aimes", "il aime", "nous aimons", "vous aimez", "ils aiment"],
-        "futur": ["j'aimerai", "tu aimeras", "il aimera", "nous aimerons", "vous aimerez", "ils aimeront"],
-        "passé composé": ["j'ai aimé", "tu as aimé", "il a aimé", "nous avons aimé", "vous avez aimé", "ils ont aimé"],
-        "imparfait": ["j'aimais", "tu aimais", "il aimait", "nous aimions", "vous aimiez", "ils aimaient"]
+      "infinitive": "être",
+      "conjugations": {
+        "présent": {
+          "je": "suis",
+          "tu": "es",
+          "il/elle": "est",
+          "nous": "sommes",
+          "vous": "êtes",
+          "ils/elles": "sont"
+        },
+        "passé composé": {
+          "je": "ai été",
+          "tu": "as été",
+          "il/elle": "a été",
+          "nous": "avons été",
+          "vous": "avez été",
+          "ils/elles": "ont été"
+        },
+        "imparfait": {
+          "je": "étais",
+          "tu": "étais",
+          "il/elle": "était",
+          "nous": "étions",
+          "vous": "étiez",
+          "ils/elles": "étaient"
+        },
+        "futur simple": {
+          "je": "serai",
+          "tu": "seras",
+          "il/elle": "sera",
+          "nous": "serons",
+          "vous": "serez",
+          "ils/elles": "seront"
+        }
+        // Ajoutez d'autres temps ici
       }
     },
     {
-      "infinitif": "parler",
-      "conjugaisons": {
-        "présent": ["je parle", "tu parles", "il parle", "nous parlons", "vous parlez", "ils parlent"],
-        "futur": ["je parlerai", "tu parleras", "il parlera", "nous parlerons", "vous parlerez", "ils parleront"],
-        "passé composé": ["j'ai parlé", "tu as parlé", "il a parlé", "nous avons parlé", "vous avez parlé", "ils ont parlé"],
-        "imparfait": ["je parlais", "tu parlais", "il parlait", "nous parlions", "vous parliez", "ils parlaient"]
-      }
-    },
-    {
-      "infinitif": "jouer",
-      "conjugaisons": {
-        "présent": ["je joue", "tu joues", "il joue", "nous jouons", "vous jouez", "ils jouent"],
-        "futur": ["je jouerai", "tu joueras", "il jouera", "nous jouerons", "vous jouerez", "ils joueront"],
-        "passé composé": ["j'ai joué", "tu as joué", "il a joué", "nous avons joué", "vous avez joué", "ils ont joué"],
-        "imparfait": ["je jouais", "tu jouais", "il jouait", "nous jouions", "vous jouiez", "ils jouaient"]
-      }
-    },
-    {
-      "infinitif": "travailler",
-      "conjugaisons": {
-        "présent": ["je travaille", "tu travailles", "il travaille", "nous travaillons", "vous travaillez", "ils travaillent"],
-        "futur": ["je travaillerai", "tu travailleras", "il travaillera", "nous travaillerons", "vous travaillerez", "ils travailleront"],
-        "passé composé": ["j'ai travaillé", "tu as travaillé", "il a travaillé", "nous avons travaillé", "vous avez travaillé", "ils ont travaillé"],
-        "imparfait": ["je travaillais", "tu travaillais", "il travaillait", "nous travaillions", "vous travailliez", "ils travaillaient"]
-      }
-    },
-    {
-      "infinitif": "regarder",
-      "conjugaisons": {
-        "présent": ["je regarde", "tu regardes", "il regarde", "nous regardons", "vous regardez", "ils regardent"],
-        "futur": ["je regarderai", "tu regarderas", "il regardera", "nous regarderons", "vous regarderez", "ils regarderont"],
-        "passé composé": ["j'ai regardé", "tu as regardé", "il a regardé", "nous avons regardé", "vous avez regardé", "ils ont regardé"],
-        "imparfait": ["je regardais", "tu regardais", "il regardait", "nous regardions", "vous regardiez", "ils regardaient"]
-      }
-    },
-    {
-      "infinitif": "écouter",
-      "conjugaisons": {
-        "présent": ["j'écoute", "tu écoutes", "il écoute", "nous écoutons", "vous écoutez", "ils écoutent"],
-        "futur": ["j'écouterai", "tu écouteras", "il écoutera", "nous écouterons", "vous écouterez", "ils écouteront"],
-        "passé composé": ["j'ai écouté", "tu as écouté", "il a écouté", "nous avons écouté", "vous avez écouté", "ils ont écouté"],
-        "imparfait": ["j'écoutais", "tu écoutais", "il écoutait", "nous écoutions", "vous écoutiez", "ils écoutaient"]
-      }
-    },
-    {
-      "infinitif": "aider",
-      "conjugaisons": {
-        "présent": ["j'aide", "tu aides", "il aide", "nous aidons", "vous aidez", "ils aident"],
-        "futur": ["j'aiderai", "tu aideras", "il aidera", "nous aiderons", "vous aiderez", "ils aideront"],
-        "passé composé": ["j'ai aidé", "tu as aidé", "il a aidé", "nous avons aidé", "vous avez aidé", "ils ont aidé"],
-        "imparfait": ["j'aidais", "tu aidais", "il aidait", "nous aidions", "vous aidiez", "ils aidaient"]
-      }
-    },
-    {
-      "infinitif": "demander",
-      "conjugaisons": {
-        "présent": ["je demande", "tu demandes", "il demande", "nous demandons", "vous demandez", "ils demandent"],
-        "futur": ["je demanderai", "tu demanderas", "il demandera", "nous demanderons", "vous demanderez", "ils demanderont"],
-        "passé composé": ["j'ai demandé", "tu as demandé", "il a demandé", "nous avons demandé", "vous avez demandé", "ils ont demandé"],
-        "imparfait": ["je demandais", "tu demandais", "il demandait", "nous demandions", "vous demandiez", "ils demandaient"]
-      }
-    },
-    {
-      "infinitif": "marcher",
-      "conjugaisons": {
-        "présent": ["je marche", "tu marches", "il marche", "nous marchons", "vous marchez", "ils marchent"],
-        "futur": ["je marcherai", "tu marcheras", "il marchera", "nous marcherons", "vous marcherez", "ils marcheront"],
-        "passé composé": ["j'ai marché", "tu as marché", "il a marché", "nous avons marché", "vous avez marché", "ils ont marché"],
-        "imparfait": ["je marchais", "tu marchais", "il marchait", "nous marchions", "vous marchiez", "ils marchaient"]
-      }
-    },
-    {
-      "infinitif": "fermer",
-      "conjugaisons": {
-        "présent": ["je ferme", "tu fermes", "il ferme", "nous fermons", "vous fermez", "ils ferment"],
-        "futur": ["je fermerai", "tu fermeras", "il fermera", "nous fermerons", "vous fermerez", "ils fermeront"],
-        "passé composé": ["j'ai fermé", "tu as fermé", "il a fermé", "nous avons fermé", "vous avez fermé", "ils ont fermé"],
-        "imparfait": ["je fermais", "tu fermais", "il fermait", "nous fermions", "vous fermiez", "ils fermaient"]
-      }
-    },
-    {
-      "infinitif": "chercher",
-      "conjugaisons": {
-        "présent": ["je cherche", "tu cherches", "il cherche", "nous cherchons", "vous cherchez", "ils cherchent"],
-        "futur": ["je chercherai", "tu chercheras", "il cherchera", "nous chercherons", "vous chercherez", "ils chercheront"],
-        "passé composé": ["j'ai cherché", "tu as cherché", "il a cherché", "nous avons cherché", "vous avez cherché", "ils ont cherché"],
-        "imparfait": ["je cherchais", "tu cherchais", "il cherchait", "nous cherchions", "vous cherchiez", "ils cherchaient"]
-      }
-    },
-    {
-      "infinitif": "trouver",
-      "conjugaisons": {
-        "présent": ["je trouve", "tu trouves", "il trouve", "nous trouvons", "vous trouvez", "ils trouvent"],
-        "futur": ["je trouverai", "tu trouveras", "il trouvera", "nous trouverons", "vous trouverez", "ils trouveront"],
-        "passé composé": ["j'ai trouvé", "tu as trouvé", "il a trouvé", "nous avons trouvé", "vous avez trouvé", "ils ont trouvé"],
-        "imparfait": ["je trouvais", "tu trouvais", "il trouvait", "nous trouvions", "vous trouviez", "ils trouvaient"]
-      }
-    },
-    {
-      "infinitif": "porter",
-      "conjugaisons": {
-        "présent": ["je porte", "tu portes", "il porte", "nous portons", "vous portez", "ils portent"],
-        "futur": ["je porterai", "tu porteras", "il portera", "nous porterons", "vous porterez", "ils porteront"],
-        "passé composé": ["j'ai porté", "tu as porté", "il a porté", "nous avons porté", "vous avez porté", "ils ont porté"],
-        "imparfait": ["je portais", "tu portais", "il portait", "nous portions", "vous portiez", "ils portaient"]
-      }
-    },
-    {
-      "infinitif": "réparer",
-      "conjugaisons": {
-        "présent": ["je répare", "tu répares", "il répare", "nous réparons", "vous réparez", "ils réparent"],
-        "futur": ["je réparerai", "tu réparerai", "il réparera", "nous réparerons", "vous réparerez", "ils répareront"],
-        "passé composé": ["j'ai réparé", "tu as réparé", "il a réparé", "nous avons réparé", "vous avez réparé", "ils ont réparé"],
-        "imparfait": ["je réparais", "tu réparais", "il réparait", "nous réparions", "vous répariez", "ils réparaient"]
-      }
-    },
-    {
-      "infinitif": "visiter",
-      "conjugaisons": {
-        "présent": ["je visite", "tu visites", "il visite", "nous visitons", "vous visitez", "ils visitent"],
-        "futur": ["je visiterai", "tu visiteras", "il visitera", "nous visiterons", "vous visiterez", "ils visiteront"],
-        "passé composé": ["j'ai visité", "tu as visité", "il a visité", "nous avons visité", "vous avez visité", "ils ont visité"],
-        "imparfait": ["je visitais", "tu visitais", "il visitait", "nous visitions", "vous visitiez", "ils visitaient"]
-      }
-    },
-    {
-      "infinitif": "montrer",
-      "conjugaisons": {
-        "présent": ["je montre", "tu montres", "il montre", "nous montrons", "vous montrez", "ils montrent"],
-        "futur": ["je montrerai", "tu montreras", "il montrera", "nous montrerons", "vous montrerez", "ils montreront"],
-        "passé composé": ["j'ai montré", "tu as montré", "il a montré", "nous avons montré", "vous avez montré", "ils ont montré"],
-        "imparfait": ["je montrais", "tu montrais", "il montrait", "nous montrions", "vous montriez", "ils montraient"]
+      "infinitive": "avoir",
+      "conjugations": {
+        "présent": {
+          "je": "ai",
+          "tu": "as",
+          "il/elle": "a",
+          "nous": "avons",
+          "vous": "avez",
+          "ils/elles": "ont"
+        },
+        "passé composé": {
+          "je": "ai eu",
+          "tu": "as eu",
+          "il/elle": "a eu",
+          "nous": "avons eu",
+          "vous": "avez eu",
+          "ils/elles": "ont eu"
+        },
+        "imparfait": {
+          "je": "avais",
+          "tu": "avais",
+          "il/elle": "avait",
+          "nous": "avions",
+          "vous": "aviez",
+          "ils/elles": "avaient"
+        },
+        "futur simple": {
+          "je": "aurai",
+          "tu": "auras",
+          "il/elle": "aura",
+          "nous": "aurons",
+          "vous": "aurez",
+          "ils/elles": "auront"
+        }
+        // Ajoutez d'autres temps ici
       }
     }
-  ],
-  "deuxiemeGroupe": [
-    {
-      "infinitif": "finir",
-      "conjugaisons": {
-        "présent": ["je finis", "tu finis", "il finit", "nous finissons", "vous finissez", "ils finissent"],
-        "futur": ["je finirai", "tu finiras", "il finira", "nous finirons", "vous finirez", "ils finiront"],
-        "passé composé": ["j'ai fini", "tu as fini", "il a fini", "nous avons fini", "vous avez fini", "ils ont fini"],
-        "imparfait": ["je finissais", "tu finissais", "il finissait", "nous finissions", "vous finissiez", "ils finissaient"]
-      }
-    },
-    {
-      "infinitif": "réfléchir",
-      "conjugaisons": {
-        "présent": ["je réfléchis", "tu réfléchis", "il réfléchit", "nous réfléchissons", "vous réfléchissez", "ils réfléchissent"],
-        "futur": ["je réfléchirai", "tu réfléchiras", "il réfléchira", "nous réfléchirons", "vous réfléchirez", "ils réfléchiront"],
-        "passé composé": ["j'ai réfléchi", "tu as réfléchi", "il a réfléchi", "nous avons réfléchi", "vous avez réfléchi", "ils ont réfléchi"],
-        "imparfait": ["je réfléchissais", "tu réfléchissais", "il réfléchissait", "nous réfléchissions", "vous réfléchissiez", "ils réfléchissaient"]
-      }
-    },
-    {
-      "infinitif": "agir",
-      "conjugaisons": {
-        "présent": ["j'agis", "tu agis", "il agit", "nous agissons", "vous agissez", "ils agissent"],
-        "futur": ["j'agirai", "tu agiras", "il agira", "nous agirons", "vous agirez", "ils agiront"],
-        "passé composé": ["j'ai agi", "tu as agi", "il a agi", "nous avons agi", "vous avez agi", "ils ont agi"],
-        "imparfait": ["j'agissais", "tu agissais", "il agissait", "nous agissions", "vous agissiez", "ils agissaient"]
-      }
-    },
-    {
-      "infinitif": "bâtir",
-      "conjugaisons": {
-        "présent": ["je bâtis", "tu bâtis", "il bâtit", "nous bâtissons", "vous bâtissez", "ils bâtissent"],
-        "futur": ["je bâtirai", "tu bâtiras", "il bâtira", "nous bâtirons", "vous bâtirez", "ils bâtiront"],
-        "passé composé": ["j'ai bâti", "tu as bâti", "il a bâti", "nous avons bâti", "vous avez bâti", "ils ont bâti"],
-        "imparfait": ["je bâtissais", "tu bâtissais", "il bâtissait", "nous bâtissions", "vous bâtissiez", "ils bâtissaient"]
-      }
-    },
-    {
-      "infinitif": "punir",
-      "conjugaisons": {
-        "présent": ["je punis", "tu punis", "il punit", "nous punissons", "vous punissez", "ils punissent"],
-        "futur": ["je punirai", "tu puniras", "il punira", "nous punirons", "vous punirez", "ils puniront"],
-        "passé composé": ["j'ai puni", "tu as puni", "il a puni", "nous avons puni", "vous avez puni", "ils ont puni"],
-        "imparfait": ["je punissais", "tu punissais", "il punissait", "nous punissions", "vous punissiez", "ils punissaient"]
-      }
-    },
-    {
-      "infinitif": "applaudir",
-      "conjugaisons": {
-        "présent": ["j'applaudis", "tu applaudis", "il applaudit", "nous applaudissons", "vous applaudissez", "ils applaudissent"],
-        "futur": ["j'applaudirai", "tu applaudirais", "il applaudira", "nous applaudirons", "vous applaudirez", "ils applaudiront"],
-        "passé composé": ["j'ai applaudi", "tu as applaudi", "il a applaudi", "nous avons applaudi", "vous avez applaudi", "ils ont applaudi"],
-        "imparfait": ["j'applaudissais", "tu applaudissais", "il applaudissait", "nous applaudissions", "vous applaudissiez", "ils applaudissaient"]
-      }
-    },
-    {
-      "infinitif": "démolir",
-      "conjugaisons": {
-        "présent": ["je démolis", "tu démolis", "il démolit", "nous démolissons", "vous démolissez", "ils démolissent"],
-        "futur": ["je démolirai", "tu démoliras", "il démolira", "nous démolirons", "vous démolirez", "ils démoliront"],
-        "passé composé": ["j'ai démoli", "tu as démoli", "il a démoli", "nous avons démoli", "vous avez démoli", "ils ont démoli"],
-        "imparfait": ["je démolissais", "tu démolissais", "il démolissait", "nous démolissions", "vous démolissiez", "ils démolissaient"]
-      }
-    },
-    {
-      "infinitif": "rajeunir",
-      "conjugaisons": {
-        "présent": ["je rajeunis", "tu rajeunis", "il rajeunit", "nous rajeunissons", "vous rajeunissez", "ils rajeunissent"],
-        "futur": ["je rajeunirai", "tu rajeuniras", "il rajeunira", "nous rajeunirons", "vous rajeunirez", "ils rajeuniront"],
-        "passé composé": ["j'ai rajeuni", "tu as rajeuni", "il a rajeuni", "nous avons rajeuni", "vous avez rajeuni", "ils ont rajeuni"],
-        "imparfait": ["je rajeunissais", "tu rajeunissais", "il rajeunissait", "nous rajeunissions", "vous rajeunissiez", "ils rajeunissaient"]
-      }
-    },
-    {
-      "infinitif": "guérir",
-      "conjugaisons": {
-        "présent": ["je guéris", "tu guéris", "il guérit", "nous guérissons", "vous guérissez", "ils guérissent"],
-        "futur": ["je guérirai", "tu guériras", "il guérira", "nous guérirons", "vous guérirez", "ils guériront"],
-        "passé composé": ["j'ai guéri", "tu as guéri", "il a guéri", "nous avons guéri", "vous avez guéri", "ils ont guéri"],
-        "imparfait": ["je guérissais", "tu guérissais", "il guérissait", "nous guérissions", "vous guérissiez", "ils guérissaient"]
-      }
-    },
-    {
-      "infinitif": "frémir",
-      "conjugaisons": {
-        "présent": ["je frémis", "tu frémis", "il frémit", "nous frémissons", "vous frémissez", "ils frémissent"],
-        "futur": ["je frémirai", "tu frémiras", "il frémira", "nous frémirons", "vous frémirez", "ils frémiront"],
-        "passé composé": ["j'ai frémis", "tu as frémis", "il a frémis", "nous avons frémis", "vous avez frémis", "ils ont frémis"],
-        "imparfait": ["je frémissais", "tu frémissais", "il frémissait", "nous frémissions", "vous frémissiez", "ils frémissaient"]
-      }
-    },
-    {
-      "infinitif": "éclaircir",
-      "conjugaisons": {
-        "présent": ["j'éclaircis", "tu éclaircis", "il éclaircit", "nous éclaircissons", "vous éclaircissez", "ils éclaircissent"],
-        "futur": ["j'éclaircirai", "tu éclairciras", "il éclaircira", "nous éclaircirons", "vous éclaircirez", "ils éclairciront"],
-        "passé composé": ["j'ai éclairci", "tu as éclairci", "il a éclairci", "nous avons éclairci", "vous avez éclairci", "ils ont éclairci"],
-        "imparfait": ["j'éclaircissais", "tu éclaircissais", "il éclaircissait", "nous éclaircissions", "vous éclaircissiez", "ils éclaircissaient"]
-      }
-    },
-    {
-      "infinitif": "découvrir",
-      "conjugaisons": {
-        "présent": ["je découvre", "tu découvres", "il découvre", "nous découvrons", "vous découvrez", "ils découvrent"],
-        "futur": ["je découvrirai", "tu découvriras", "il découvrira", "nous découvrirons", "vous découvrirez", "ils découvriront"],
-        "passé composé": ["j'ai découvert", "tu as découvert", "il a découvert", "nous avons découvert", "vous avez découvert", "ils ont découvert"],
-        "imparfait": ["je découvrais", "tu découvrais", "il découvrait", "nous découvrions", "vous découvriez", "ils découvraient"]
-      }
-    },
-    {
-      "infinitif": "saisir",
-      "conjugaisons": {
-        "présent": ["je saisis", "tu saisis", "il saisit", "nous saisissons", "vous saisissez", "ils saisissent"],
-        "futur": ["je saurai", "tu sauras", "il saura", "nous saurons", "vous saurez", "ils sauront"],
-        "passé composé": ["j'ai saisi", "tu as saisi", "il a saisi", "nous avons saisi", "vous avez saisi", "ils ont saisi"],
-        "imparfait": ["je saisissais", "tu saisissais", "il saisissait", "nous saisissions", "vous saisissiez", "ils saisissaient"]
-      }
-    },
-    {
-      "infinitif": "partir",
-      "conjugaisons": {
-        "présent": ["je pars", "tu pars", "il part", "nous partons", "vous partez", "ils partent"],
-        "futur": ["je partirai", "tu partiras", "il partira", "nous partirons", "vous partirez", "ils partiront"],
-        "passé composé": ["je suis parti", "tu es parti", "il est parti", "nous sommes partis", "vous êtes partis", "ils sont partis"],
-        "imparfait": ["je partais", "tu partais", "il partait", "nous partions", "vous partiez", "ils partaient"]
-      }
-    }
-  ],
-  "troisiemeGroupe": [
-    {
-      "infinitif": "prendre",
-      "conjugaisons": {
-        "présent": ["je prends", "tu prends", "il prend", "nous prenons", "vous prenez", "ils prennent"],
-        "futur": ["je prendrai", "tu prendras", "il prendra", "nous prendrons", "vous prendrez", "ils prendront"],
-        "passé composé": ["j'ai pris", "tu as pris", "il a pris", "nous avons pris", "vous avez pris", "ils ont pris"],
-        "imparfait": ["je prenais", "tu prenais", "il prenait", "nous prenions", "vous preniez", "ils prenaient"]
-      }
-    },
-    {
-      "infinitif": "mettre",
-      "conjugaisons": {
-        "présent": ["je mets", "tu mets", "il met", "nous mettons", "vous mettez", "ils mettent"],
-        "futur": ["je mettrai", "tu mettras", "il mettra", "nous mettrons", "vous mettrez", "ils mettront"],
-        "passé composé": ["j'ai mis", "tu as mis", "il a mis", "nous avons mis", "vous avez mis", "ils ont mis"],
-        "imparfait": ["je mettais", "tu mettais", "il mettait", "nous mettions", "vous mettiez", "ils mettaient"]
-      }
-    },
-    {
-      "infinitif": "voir",
-      "conjugaisons": {
-        "présent": ["je vois", "tu vois", "il voit", "nous voyons", "vous voyez", "ils voient"],
-        "futur": ["je verrai", "tu verras", "il verra", "nous verrons", "vous verrez", "ils verront"],
-        "passé composé": ["j'ai vu", "tu as vu", "il a vu", "nous avons vu", "vous avez vu", "ils ont vu"],
-        "imparfait": ["je voyais", "tu voyais", "il voyait", "nous voyions", "vous voyiez", "ils voyaient"]
-      }
-    },
-    {
-      "infinitif": "faire",
-      "conjugaisons": {
-        "présent": ["je fais", "tu fais", "il fait", "nous faisons", "vous faites", "ils font"],
-        "futur": ["je ferai", "tu feras", "il fera", "nous ferons", "vous ferez", "ils feront"],
-        "passé composé": ["j'ai fait", "tu as fait", "il a fait", "nous avons fait", "vous avez fait", "ils ont fait"],
-        "imparfait": ["je faisais", "tu faisais", "il faisait", "nous faisions", "vous faisiez", "ils faisaient"]
-      }
-    },
-    {
-      "infinitif": "dire",
-      "conjugaisons": {
-        "présent": ["je dis", "tu dis", "il dit", "nous disons", "vous dites", "ils disent"],
-        "futur": ["je dirai", "tu diras", "il dira", "nous dirons", "vous direz", "ils diront"],
-        "passé composé": ["j'ai dit", "tu as dit", "il a dit", "nous avons dit", "vous avez dit", "ils ont dit"],
-        "imparfait": ["je disais", "tu disais", "il disait", "nous disions", "vous disiez", "ils disaient"]
-      }
-    },
-    {
-      "infinitif": "pouvoir",
-      "conjugaisons": {
-        "présent": ["je peux", "tu peux", "il peut", "nous pouvons", "vous pouvez", "ils peuvent"],
-        "futur": ["je pourrai", "tu pourras", "il pourra", "nous pourrons", "vous pourrez", "ils pourront"],
-        "passé composé": ["j'ai pu", "tu as pu", "il a pu", "nous avons pu", "vous avez pu", "ils ont pu"],
-        "imparfait": ["je pouvais", "tu pouvais", "il pouvait", "nous pouvions", "vous pouviez", "ils pouvaient"]
-      }
-    },
-    {
-      "infinitif": "vouloir",
-      "conjugaisons": {
-        "présent": ["je veux", "tu veux", "il veut", "nous voulons", "vous voulez", "ils veulent"],
-        "futur": ["je voudrai", "tu voudras", "il voudra", "nous voudrons", "vous voudrez", "ils voudront"],
-        "passé composé": ["j'ai voulu", "tu as voulu", "il a voulu", "nous avons voulu", "vous avez voulu", "ils ont voulu"],
-        "imparfait": ["je voulais", "tu voulais", "il voulait", "nous voulions", "vous vouliez", "ils voulaient"]
-      }
-    },
-    {
-      "infinitif": "devoir",
-      "conjugaisons": {
-        "présent": ["je dois", "tu dois", "il doit", "nous devons", "vous devez", "ils doivent"],
-        "futur": ["je devrai", "tu devras", "il devra", "nous devrons", "vous devrez", "ils devront"],
-        "passé composé": ["j'ai dû", "tu as dû", "il a dû", "nous avons dû", "vous avez dû", "ils ont dû"],
-        "imparfait": ["je devais", "tu devais", "il devait", "nous devions", "vous deviez", "ils devaient"]
-      }
-    },
-    {
-      "infinitif": "lire",
-      "conjugaisons": {
-        "présent": ["je lis", "tu lis", "il lit", "nous lisons", "vous lisez", "ils lisent"],
-        "futur": ["je lirai", "tu liras", "il lira", "nous lirons", "vous lirez", "ils liront"],
-        "passé composé": ["j'ai lu", "tu as lu", "il a lu", "nous avons lu", "vous avez lu", "ils ont lu"],
-        "imparfait": ["je lisais", "tu lisais", "il lisait", "nous lisions", "vous lisiez", "ils lisaient"]
-      }
-    },
-    {
-      "infinitif": "écrire",
-      "conjugaisons": {
-        "présent": ["j'écris", "tu écris", "il écrit", "nous écrivons", "vous écrivez", "ils écrivent"],
-        "futur": ["j'écrirai", "tu écriras", "il écrira", "nous écrirons", "vous écrirez", "ils écriront"],
-        "passé composé": ["j'ai écrit", "tu as écrit", "il a écrit", "nous avons écrit", "vous avez écrit", "ils ont écrit"],
-        "imparfait": ["j'écrivais", "tu écrivais", "il écrivait", "nous écrivions", "vous écriviez", "ils écrivaient"]
-      }
-    },
-    {
-      "infinitif": "vivre",
-      "conjugaisons": {
-        "présent": ["je vis", "tu vis", "il vit", "nous vivons", "vous vivez", "ils vivent"],
-        "futur": ["je vivrai", "tu vivras", "il vivra", "nous vivrons", "vous vivrez", "ils vivront"],
-        "passé composé": ["j'ai vécu", "tu as vécu", "il a vécu", "nous avons vécu", "vous avez vécu", "ils ont vécu"],
-        "imparfait": ["je vivais", "tu vivais", "il vivait", "nous vivions", "vous viviez", "ils vivaient"]
-      }
-    },
-    {
-      "infinitif": "boire",
-      "conjugaisons": {
-        "présent": ["je bois", "tu bois", "il boit", "nous buvons", "vous buvez", "ils boivent"],
-        "futur": ["je boirai", "tu boiras", "il boira", "nous boirons", "vous boirez", "ils boiront"],
-        "passé composé": ["j'ai bu", "tu as bu", "il a bu", "nous avons bu", "vous avez bu", "ils ont bu"],
-        "imparfait": ["je buvais", "tu buvais", "il buvait", "nous buvions", "vous buviez", "ils buvaient"]
-      }
-    },
-    {
-      "infinitif": "courir",
-      "conjugaisons": {
-        "présent": ["je cours", "tu cours", "il court", "nous courons", "vous courez", "ils courent"],
-        "futur": ["je courrai", "tu courras", "il courra", "nous courrons", "vous courrez", "ils courront"],
-        "passé composé": ["j'ai couru", "tu as couru", "il a couru", "nous avons couru", "vous avez couru", "ils ont couru"],
-        "imparfait": ["je courais", "tu courais", "il courait", "nous courions", "vous couriez", "ils couraient"]
-      }
-    },
-    {
-      "infinitif": "savoir",
-      "conjugaisons": {
-        "présent": ["je sais", "tu sais", "il sait", "nous savons", "vous savez", "ils savent"],
-        "futur": ["je saurai", "tu sauras", "il saura", "nous saurons", "vous saurez", "ils sauront"],
-        "passé composé": ["j'ai su", "tu as su", "il a su", "nous avons su", "vous avez su", "ils ont su"],
-        "imparfait": ["je savais", "tu savais", "il savait", "nous savions", "vous saviez", "ils savaient"]
-      }
-    },
-    {
-      "infinitif": "recevoir",
-      "conjugaisons": {
-        "présent": ["je reçois", "tu reçois", "il reçoit", "nous recevons", "vous recevez", "ils reçoivent"],
-        "futur": ["je recevrai", "tu recevras", "il recevra", "nous recevrons", "vous recevrez", "ils recevront"],
-        "passé composé": ["j'ai reçu", "tu as reçu", "il a reçu", "nous avons reçu", "vous avez reçu", "ils ont reçu"],
-        "imparfait": ["je recevais", "tu recevais", "il recevait", "nous recevions", "vous receviez", "ils recevaient"]
-      }
-    }
+    // Ajoutez d'autres verbes ici
   ]
 }
