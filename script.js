@@ -51,6 +51,14 @@ function initializeGame() {
     document.getElementById('spin-btn').addEventListener('click', spinReels);
     document.getElementById('toggle-mode-btn').addEventListener('click', toggleMode);
     document.getElementById('show-answer-btn').addEventListener('click', showCorrectAnswer);
+    
+    // Ajouter l'écouteur d'événement pour la touche Entrée sur le champ de saisie
+    document.getElementById('user-input').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Empêcher tout comportement par défaut
+            checkAnswer();
+        }
+    });
 }
 
 // Fonction pour lancer les rouleaux avec animation
