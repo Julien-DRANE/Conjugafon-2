@@ -1,297 +1,85 @@
-/* Style général du corps de la page */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #FFF8F0; /* Blanc cassé pastel */
-    margin: 0;
-    padding: 0;
-}
-
-/* Style de l'en-tête */
-header {
-    background-color: #AEC6CF; /* Bleu pastel */
-    color: #333333; /* Gris foncé pour le texte */
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-/* Container principal */
 .container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.slot-machine {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
+    justify-content: space-around;
+    margin: 20px 0;
 }
 
-/* Zone de jeu */
-.game-area {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* Panneaux gauche, central et droit */
-.left-panel, .right-panel, .center-panel {
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Panneaux gauche et droit */
-.left-panel, .right-panel {
-    width: 25%;
-    background-color: #FFDFBA; /* Beige pastel */
-    border: 1px solid #FFD1DC; /* Rose pâle */
-    border-radius: 10px;
-    margin: 0 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Panneau central */
-.center-panel {
-    width: 50%;
-    background-color: #FFEBEE; /* Rose très pâle */
-    border: 1px solid #FFE0B2; /* Orange clair pastel */
-    border-radius: 10px;
-    margin: 0 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Titres et textes dans les panneaux */
-.left-panel h3, .right-panel h3, .center-panel h2 {
-    color: #6B5B95; /* Violet pastel */
-}
-
-/* Boutons */
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 20px;
-    background-color: #FFB6C1; /* Rose pastel */
-    color: #333333; /* Gris foncé pour le texte */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1em;
-}
-
-button:hover {
-    background-color: #FF69B4; /* Rose vif pastel */
-}
-
-button.active {
-    background-color: #FF1493; /* Rose profond pastel */
-}
-
-/* Champs de saisie */
-input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    box-sizing: border-box;
-    border: 2px solid #FFB6C1; /* Rose pastel */
-    border-radius: 20px;
-    font-size: 1em;
-    background-color: #FFF0F5; /* Lavande pâle */
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus {
-    border-color: #FF69B4; /* Rose vif pastel */
-    outline: none;
-}
-
-/* Conteneurs de score et grille de score */
-.score-container, .score-grid {
-    margin: 10px 0;
-    font-size: 1.2em;
-    color: #333333; /* Gris foncé */
-}
-
-/* Score final */
-.final-score {
-    margin-top: 20px;
-    font-size: 1.5em;
-    color: #6B5B95; /* Violet pastel */
-    background-color: #FFF0F5; /* Lavande pâle */
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Bulle de solution */
-.solution-bulle {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #E0FFFF; /* Cyan pâle */
-    border: 1px solid #ADD8E6; /* Bleu clair pastel */
-    border-radius: 10px;
-    color: #333333; /* Gris foncé */
-    display: none; /* Masqué par défaut */
-}
-
-/* Liste d'historique */
-#historique {
-    list-style-type: none;
-    padding: 0;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-#historique li {
-    background-color: #FFF0F5; /* Lavande pâle */
-    margin: 5px 0;
-    padding: 10px;
+.slot {
+    width: 100px;
+    height: 50px;
+    border: 2px solid #333;
     border-radius: 5px;
-    border: 1px solid #FFD1DC; /* Rose pâle */
-    font-size: 0.9em;
-    color: #333333; /* Gris foncé */
-}
-
-/* Adaptabilité pour les petits écrans */
-@media (max-width: 768px) {
-    .game-area {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left-panel, .right-panel, .center-panel {
-        width: 90%;
-        margin: 10px 0;
-    }
-
-    button {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    input[type="text"] {
-        width: 90%;
-    }
-}
-/* Styles généraux déjà définis */
-/* ... [Vos styles existants] ... */
-
-/* Styles spécifiques au mode TURBO */
-body.turbo-mode {
-    background-color: #FFE4E1; /* Rose saumon pastel pour un contraste doux */
-}
-
-body.turbo-mode header {
-    background-color: #FF6F61; /* Rose corail pastel pour attirer l'attention */
-    color: #FFFFFF; /* Texte blanc pour une meilleure lisibilité */
-}
-
-body.turbo-mode .left-panel, 
-body.turbo-mode .right-panel, 
-body.turbo-mode .center-panel {
-    background-color: #FFDAB9; /* Pêche pastel pour une apparence différente */
-    border-color: #FFB6C1; /* Rose clair pastel pour les bordures */
-}
-
-body.turbo-mode button {
-    background-color: #FF69B4; /* Rose vif pastel pour les boutons */
-    color: #FFFFFF; /* Texte blanc pour les boutons */
-    border: 2px solid #FF1493; /* Bordure rose profond pastel */
-}
-
-body.turbo-mode button:hover {
-    background-color: #FF1493; /* Rose profond pastel au survol */
-}
-
-body.turbo-mode input[type="text"] {
-    border-color: #FF69B4; /* Bordure rose vif pastel */
-    background-color: #FFE4E1; /* Rose saumon pâle pour le fond des inputs */
-}
-
-body.turbo-mode .score-container, 
-body.turbo-mode .score-grid {
-    color: #D2691E; /* Brun chaud pour le texte du score */
-}
-
-body.turbo-mode .final-score {
-    background-color: #FA8072; /* Saumon pour le score final */
-    color: #FFFFFF; /* Texte blanc */
-}
-
-body.turbo-mode .solution-bulle {
-    background-color: #FFB6C1; /* Rose clair pour la bulle de solution */
-    border-color: #FF69B4; /* Rose vif pastel pour la bordure */
-}
-
-/* Animation subtile pour attirer l'attention en mode TURBO */
-body.turbo-mode header, 
-body.turbo-mode .left-panel, 
-body.turbo-mode .right-panel, 
-body.turbo-mode .center-panel {
-    animation: pulse 2s infinite;
-}
-
-/* Définition de l'animation 'pulse' */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
-    }
-    100% {
-        box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
-    }
-}
-#temps-container {
-    font-size: 1.3em; /* Assurez-vous que c'est la même taille que le verbe */
-    color: #FF69B4; /* Une couleur légèrement différente, vous pouvez ajuster cette couleur selon vos préférences */
-    margin-top: 2px; /* Ajoutez un petit espace entre le verbe et le temps, si nécessaire */
-}
-/* Styles spécifiques au mode Extrême */
-body.extreme-mode {
-    background-color: #FFEFD5; /* Jaune pastel pour le contraste */
-}
-
-body.extreme-mode header {
-    background-color: #FF4500; /* Orange vif pour attirer l'attention */
-    color: #FFFFFF; /* Texte blanc pour une meilleure lisibilité */
-}
-
-body.extreme-mode .left-panel, 
-body.extreme-mode .right-panel, 
-body.extreme-mode .center-panel {
-    background-color: #FFD700; /* Jaune doré pour une apparence distincte */
-    border-color: #FFA07A; /* Saumon clair pour les bordures */
-}
-
-body.extreme-mode button {
-    background-color: #FF6347; /* Tomate pour les boutons */
-    color: #FFFFFF; /* Texte blanc pour les boutons */
-    border: 2px solid #FF4500; /* Bordure orange vif */
-}
-
-body.extreme-mode button:hover {
-    background-color: #FF7F50; /* Corail au survol */
-}
-
-body.extreme-mode input[type="text"] {
-    border-color: #FF6347; /* Bordure tomate */
-    background-color: #FFF0E1; /* Fond crème pour les inputs */
-}
-
-body.extreme-mode .score-container, 
-body.extreme-mode .score-grid {
-    color: #8B0000; /* Rouge sombre pour le texte du score */
-}
-
-body.extreme-mode .final-score {
-    background-color: #FF8C00; /* Orange foncé pour le score final */
-    color: #FFFFFF; /* Texte blanc */
-}
-
-body.extreme-mode .solution-bulle {
-    background-color: #FFE4B5; /* Jaune clair pour la bulle de solution */
-    border-color: #FF4500; /* Bordure orange vif pour la bulle de solution */
-}
-.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-weight: bold;
     font-size: 1.2em;
-    color: #FF4500; /* Couleur orange vif pour attirer l'attention */
-    margin: 10px 0;
 }
+
+.prompt {
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+#user-input {
+    padding: 5px;
+    font-size: 1em;
+    width: 150px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#spin-btn {
+    background-color: #008CBA;
+    color: white;
+}
+
+#toggle-mode-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.extreme-mode {
+    background-color: #ffeb3b;
+}
+
+.extreme-mode .slot {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.extreme-mode button {
+    background-color: #e91e63;
+}
+
