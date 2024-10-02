@@ -1,103 +1,219 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
-    text-align: center;
-    padding: 20px;
+/* Style général */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f0f4c3, #e1bee7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-    max-width: 400px;
+    width: 90%;
+    max-width: 800px;
     margin: 0 auto;
+    background-color: #fffde7;
+    border: 2px solid #f57f17;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 }
 
+/* En-tête */
+header {
+    background-color: #ffcccb;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #f48fb1;
+    border-radius: 10px;
+}
+
+h1.logo {
+    margin: 0;
+    font-size: 36px;
+    color: #333;
+}
+
+/* Grille des points réduite */
+.score-grid {
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.score-grid p {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #fffde7;
+    border: 1px solid #f57f17;
+    border-radius: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+/* Zone de jeu */
+.game-area {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+/* Machine à sous */
 .slot-machine {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
+    width: 100%;
 }
 
 .slot {
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 80px;
     border: 2px solid #333;
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: #fff9c4;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
+.slot.spinning {
+    animation: spin 0.5s ease-out;
+}
+
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+/* Prompt */
 .prompt {
     margin: 20px 0;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+}
+
+#display-pronoun {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #f57f17;
 }
 
 #user-input {
-    padding: 5px;
+    padding: 10px;
     font-size: 1em;
-    width: 150px;
+    width: 200px;
+    border: 2px solid #f57f17;
+    border-radius: 5px;
 }
 
+/* Boutons */
 .buttons {
     margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 button {
-    padding: 10px 15px;
-    margin: 5px;
-    font-size: 1em;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    color: white;
 }
 
 #submit-btn {
     background-color: #4CAF50;
-    color: white;
+}
+
+#submit-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 #spin-btn {
     background-color: #008CBA;
-    color: white;
+}
+
+#spin-btn:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
 }
 
 #show-answer-btn {
     background-color: #ff9800;
-    color: white;
+}
+
+#show-answer-btn:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
 }
 
 #toggle-mode-btn {
     background-color: #f44336;
-    color: white;
 }
 
+#toggle-mode-btn:hover {
+    background-color: #da190b;
+    transform: scale(1.05);
+}
+
+/* Status */
 .status {
     margin-top: 20px;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-around;
 }
 
+.status p {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #e0f7fa;
+    border: 1px solid #81d4fa;
+    border-radius: 5px;
+    color: #333;
+}
+
+/* Messages */
 .message {
     margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     display: none;
+    font-size: 1.1em;
 }
 
 .message.success {
     background-color: #d4edda;
     color: #155724;
+    border: 2px solid #28a745;
 }
 
 .message.error {
     background-color: #f8d7da;
     color: #721c24;
+    border: 2px solid #dc3545;
 }
 
+/* Mode Extrême */
 .extreme-mode {
-    background-color: #ffeb3b;
+    background: linear-gradient(to right, #ffeb3b, #ff5722);
+    transition: background 0.5s;
 }
 
 .extreme-mode .slot {
@@ -108,11 +224,57 @@ button {
 .extreme-mode button {
     background-color: #e91e63;
 }
-@keyframes spin {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100px); }
+
+.extreme-mode button:hover {
+    transform: scale(1.05);
 }
 
-.slot.spinning {
-    animation: spin 0.5s ease-out;
+/* Son Spinning Animation */
+@keyframes spin-animation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slot-machine {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slot {
+        width: 80%;
+        height: 60px;
+        font-size: 1.2em;
+    }
+
+    .prompt {
+        flex-direction: column;
+    }
+
+    #display-pronoun {
+        margin-bottom: 10px;
+    }
+
+    #user-input {
+        width: 80%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 80%;
+        margin: 5px 0;
+    }
+
+    .status {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .status p {
+        margin-bottom: 10px;
+    }
 }
