@@ -29,6 +29,7 @@ function initializeGame() {
     document.getElementById('submit-btn').addEventListener('click', checkAnswer);
     document.getElementById('spin-btn').addEventListener('click', spinReels);
     document.getElementById('toggle-mode-btn').addEventListener('click', toggleMode);
+    document.getElementById('show-answer-btn').addEventListener('click', showCorrectAnswer);
 }
 
 // Spin the reels to select verb, tense, and pronoun
@@ -46,7 +47,10 @@ function spinReels() {
     // Update the UI
     document.getElementById('verb-slot').textContent = currentVerb.infinitive;
     document.getElementById('tense-slot').textContent = currentTense;
-    document.getElementById('pronoun-slot').textContent = formatPronoun(currentPronoun, currentTense);
+    document.getElementById('pronoun-slot').textContent = currentPronoun;
+
+    // Update the pronoun display
+    document.getElementById('display-pronoun').textContent = formatPronoun(currentPronoun, currentTense);
 
     // Reset input and attempts if new question
     document.getElementById('user-input').value = '';
@@ -54,87 +58,168 @@ function spinReels() {
         attempts = 3;
         updateStatus();
     }
+
+    // Clear any existing messages
+    hideMessage();
 }
 
 // Format pronoun based on tense
 function formatPronoun(pronoun, tense) {
-    // Example formatting, can be expanded based on tense requirements
-    if (tense.includes("subjonctif")) {
-        if (pronoun === "je") return "que je";
-        if (pronoun === "il/elle") return "qu’ il";
+    // Gestion des contractions
+    if (pronoun === "je") {
+        // Vérifie si le verbe commence par une voyelle ou un 'h' muet
+        const firstLetter = currentVerb.infinitive.charAt(0).toLowerCase();
+        if (['a', 'e', 'i', 'o', 'u', 'h'].includes(firstLetter)) {
+            return "j’";
+        }
     }
+
+    // Gestion des pronoms spécifiques pour le subjonctif
+    if (tense.includes("subjonctif")) {
+        if (pronoun === "je") return "que je ";
+        if (pronoun === "il/elle") return "qu’il ";
+        if (pronoun === "ils/elles") return "qu’ils/elles ";
+    }
+
+    // Autres pronoms
     return pronoun + " ";
 }
 
-// Check the user's answer
+// Vérifie la réponse de l'utilisateur
 function checkAnswer() {
     const userInput = document.getElementById('user-input').value.trim().toLowerCase();
     if (userInput === "") {
-        alert("Veuillez entrer une conjugaison.");
+        showMessage('error', "Veuillez entrer une conjugaison.");
         return;
     }
 
-    // Get the correct conjugation
+    // Récupère la conjugaison correcte pour le pronom et le temps sélectionnés
     let conjugation = currentVerb.conjugations[currentTense];
     if (!conjugation) {
-        alert("Le temps sélectionné n'est pas disponible.");
+        showMessage('error', "Le temps sélectionné n'est pas disponible.");
         return;
     }
 
     let correctAnswer = conjugation[currentPronoun];
     if (!correctAnswer) {
-        alert("Le pronom sélectionné n'est pas disponible pour ce temps.");
+        showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
         return;
     }
 
-    // Extract the verb part from the correct answer
-    // Assuming the format "auxiliaire + participe passé" for passé composé, etc.
-    let correctVerb = correctAnswer.split(' ').slice(1).join(' '); // Simplification
-    if (currentTense === "présent" || currentTense === "imparfait" || currentTense === "futur simple" || currentTense === "subjonctif imparfait" || currentTense === "subjonctif passé" || currentTense.startsWith("conditionnel")) {
-        correctVerb = correctAnswer.split(' ').slice(0).join(' '); // For tenses without auxiliary
+    // Extraire uniquement la forme du verbe conjugué
+    let correctVerb = "";
+
+    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
+        // Ces temps utilisent un auxiliaire + participe passé
+        let parts = correctAnswer.split(' ');
+        // Si l'auxiliaire est "être", prendre en compte l'accord
+        if (["être"].includes(currentVerb.infinitive)) {
+            // Pour simplifier, on ignore les accords (e)s, (e)/m etc.
+            correctVerb = parts.slice(1).join(' ');
+        } else {
+            correctVerb = parts.slice(1).join(' ');
+        }
+    } else {
+        // Temps simples
+        correctVerb = correctAnswer;
     }
 
+    // Nettoyer la réponse correcte des parenthèses et apostrophes
+    correctVerb = correctVerb.replace(/\(e\)/g, '').replace(/\(s\)/g, '').replace(/’/g, '').replace(/qu’il /g, '').replace(/qu’ils\/elles /g, '').replace(/que je /g, '').trim();
+
+    // Comparaison insensible à la casse
     if (userInput === correctVerb.toLowerCase()) {
-        // Correct answer
+        // Réponse correcte
         let pointsEarned = modeExtreme ? 3 : 1;
         points += pointsEarned;
         document.getElementById('points').textContent = points;
         playSound();
-        alert("Correct ! +" + pointsEarned + " point(s).");
+        showMessage('success', `Correct ! +${pointsEarned} point(s).`);
         spinReels();
     } else {
-        // Incorrect answer
+        // Réponse incorrecte
         attempts--;
         updateStatus();
         if (attempts > 0) {
-            alert("Incorrect. Il vous reste " + attempts + " tentative(s).");
+            showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
         } else {
-            alert("Incorrect. Aucune tentative restante. La bonne réponse était : " + correctVerb);
+            showMessage('error', `Incorrect. La bonne réponse était : ${correctVerb}`);
             spinReels();
         }
     }
 }
 
-// Update the status display
+// Met à jour l'affichage des points et des tentatives
 function updateStatus() {
     document.getElementById('points').textContent = points;
     document.getElementById('attempts').textContent = attempts;
 }
 
-// Toggle between normal and extreme modes
+// Bascule entre le mode normal et le mode extrême
 function toggleMode() {
     modeExtreme = !modeExtreme;
     const container = document.querySelector('.container');
     if (modeExtreme) {
         container.classList.add('extreme-mode');
-        alert("Mode Extrême activé ! Vous marquez trois fois plus de points.");
+        showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
     } else {
         container.classList.remove('extreme-mode');
-        alert("Mode Extrême désactivé.");
+        showMessage('success', "Mode Extrême désactivé.");
     }
 }
 
-// Play success sound
+// Affiche la réponse correcte
+function showCorrectAnswer() {
+    // Récupère la conjugaison correcte pour le pronom et le temps sélectionnés
+    let conjugation = currentVerb.conjugations[currentTense];
+    if (!conjugation) {
+        showMessage('error', "Le temps sélectionné n'est pas disponible.");
+        return;
+    }
+
+    let correctAnswer = conjugation[currentPronoun];
+    if (!correctAnswer) {
+        showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
+        return;
+    }
+
+    // Extraire uniquement la forme du verbe conjugué
+    let correctVerb = "";
+
+    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
+        // Ces temps utilisent un auxiliaire + participe passé
+        let parts = correctAnswer.split(' ');
+        correctVerb = parts.slice(1).join(' ');
+    } else {
+        // Temps simples
+        correctVerb = correctAnswer;
+    }
+
+    // Nettoyer la réponse correcte des parenthèses et apostrophes
+    correctVerb = correctVerb.replace(/\(e\)/g, '').replace(/\(s\)/g, '').replace(/’/g, '').replace(/qu’il /g, '').replace(/qu’ils\/elles /g, '').replace(/que je /g, '').trim();
+
+    // Affiche la réponse dans un message
+    showMessage('success', `La bonne réponse était : ${correctVerb}`);
+}
+
+// Affiche un message intégré
+function showMessage(type, text) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.className = `message ${type}`;
+    messageDiv.textContent = text;
+    messageDiv.style.display = 'block';
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 3000);
+}
+
+// Masque le message
+function hideMessage() {
+    const messageDiv = document.getElementById('message');
+    messageDiv.style.display = 'none';
+}
+
+// Joue le son de succès
 function playSound() {
     const sound = document.getElementById('success-sound');
     sound.play();
