@@ -27,6 +27,14 @@
           "vous": "étiez",
           "ils/elles": "étaient"
         },
+        "passé simple": {
+          "je": "fus",
+          "tu": "fus",
+          "il/elle": "fut",
+          "nous": "fûmes",
+          "vous": "fûtes",
+          "ils/elles": "furent"
+        },
         "futur simple": {
           "je": "serai",
           "tu": "seras",
@@ -34,6 +42,62 @@
           "nous": "serons",
           "vous": "serez",
           "ils/elles": "seront"
+        },
+        "imparfait du subjonctif": {
+          "que je": "fusse",
+          "que tu": "fusses",
+          "qu’il/elle": "fût",
+          "que nous": "fussions",
+          "que vous": "fussiez",
+          "qu’ils/elles": "fussent"
+        },
+        "subjonctif passé": {
+          "que je": "aie été",
+          "que tu": "aies été",
+          "qu’il/elle": "ait été",
+          "que nous": "ayons été",
+          "que vous": "ayez été",
+          "qu’ils/elles": "aient été"
+        },
+        "conditionnel présent": {
+          "je": "serais",
+          "tu": "serais",
+          "il/elle": "serait",
+          "nous": "serions",
+          "vous": "seriez",
+          "ils/elles": "seraient"
+        },
+        "plus-que-parfait": {
+          "j’": "avais été",
+          "tu": "avais été",
+          "il/elle": "avait été",
+          "nous": "avions été",
+          "vous": "aviez été",
+          "ils/elles": "avaient été"
+        },
+        "passé antérieur": {
+          "je": "eus été",
+          "tu": "eus été",
+          "il/elle": "eut été",
+          "nous": "eûmes été",
+          "vous": "eûtes été",
+          "ils/elles": "eurent été"
+        },
+        "futur antérieur": {
+          "je": "aurai été",
+          "tu": "auras été",
+          "il/elle": "aura été",
+          "nous": "aurons été",
+          "vous": "aurez été",
+          "ils/elles": "auront été"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais été",
+          "tu": "aurais été",
+          "il/elle": "aurait été",
+          "nous": "aurions été",
+          "vous": "auriez été",
+          "ils/elles": "auraient été"
         }
       }
     },
@@ -64,6 +128,14 @@
           "vous": "aviez",
           "ils/elles": "avaient"
         },
+        "passé simple": {
+          "je": "eus",
+          "tu": "eus",
+          "il/elle": "eut",
+          "nous": "eûmes",
+          "vous": "eûtes",
+          "ils/elles": "eurent"
+        },
         "futur simple": {
           "je": "aurai",
           "tu": "auras",
@@ -71,8 +143,368 @@
           "nous": "aurons",
           "vous": "aurez",
           "ils/elles": "auront"
+        },
+        "imparfait du subjonctif": {
+          "que j’": "eusse",
+          "que tu": "eusses",
+          "qu’il/elle": "eût",
+          "que nous": "eussions",
+          "que vous": "eussiez",
+          "qu’ils/elles": "eussent"
+        },
+        "subjonctif passé": {
+          "que j’": "aie eu",
+          "que tu": "aies eu",
+          "qu’il/elle": "ait eu",
+          "que nous": "ayons eu",
+          "que vous": "ayez eu",
+          "qu’ils/elles": "aient eu"
+        },
+        "conditionnel présent": {
+          "je": "aurais",
+          "tu": "aurais",
+          "il/elle": "aurait",
+          "nous": "aurions",
+          "vous": "auriez",
+          "ils/elles": "auraient"
+        },
+        "plus-que-parfait": {
+          "j’": "avais eu",
+          "tu": "avais eu",
+          "il/elle": "avait eu",
+          "nous": "avions eu",
+          "vous": "aviez eu",
+          "ils/elles": "avaient eu"
+        },
+        "passé antérieur": {
+          "je": "eus eu",
+          "tu": "eus eu",
+          "il/elle": "eut eu",
+          "nous": "eûmes eu",
+          "vous": "eûtes eu",
+          "ils/elles": "eurent eu"
+        },
+        "futur antérieur": {
+          "je": "aurai eu",
+          "tu": "auras eu",
+          "il/elle": "aura eu",
+          "nous": "aurons eu",
+          "vous": "aurez eu",
+          "ils/elles": "auront eu"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais eu",
+          "tu": "aurais eu",
+          "il/elle": "aurait eu",
+          "nous": "aurions eu",
+          "vous": "auriez eu",
+          "ils/elles": "auraient eu"
+        }
+      }
+    },
+    {
+      "infinitive": "faire",
+      "conjugations": {
+        "présent": {
+          "je": "fais",
+          "tu": "fais",
+          "il/elle": "fait",
+          "nous": "faisons",
+          "vous": "faites",
+          "ils/elles": "font"
+        },
+        "passé composé": {
+          "je": "ai fait",
+          "tu": "as fait",
+          "il/elle": "a fait",
+          "nous": "avons fait",
+          "vous": "avez fait",
+          "ils/elles": "ont fait"
+        },
+        "imparfait": {
+          "je": "faisais",
+          "tu": "faisais",
+          "il/elle": "faisait",
+          "nous": "faisions",
+          "vous": "faisiez",
+          "ils/elles": "faisaient"
+        },
+        "passé simple": {
+          "je": "fis",
+          "tu": "fis",
+          "il/elle": "fit",
+          "nous": "fîmes",
+          "vous": "fîtes",
+          "ils/elles": "firent"
+        },
+        "futur simple": {
+          "je": "ferai",
+          "tu": "feras",
+          "il/elle": "fera",
+          "nous": "ferons",
+          "vous": "ferez",
+          "ils/elles": "feront"
+        },
+        "imparfait du subjonctif": {
+          "que je": "fisse",
+          "que tu": "fisses",
+          "qu’il/elle": "fît",
+          "que nous": "fissions",
+          "que vous": "fissiez",
+          "qu’ils/elles": "fissent"
+        },
+        "subjonctif passé": {
+          "que je": "aie fait",
+          "que tu": "aies fait",
+          "qu’il/elle": "ait fait",
+          "que nous": "ayons fait",
+          "que vous": "ayez fait",
+          "qu’ils/elles": "aient fait"
+        },
+        "conditionnel présent": {
+          "je": "ferais",
+          "tu": "ferais",
+          "il/elle": "ferait",
+          "nous": "ferions",
+          "vous": "feriez",
+          "ils/elles": "feraient"
+        },
+        "plus-que-parfait": {
+          "j’": "avais fait",
+          "tu": "avais fait",
+          "il/elle": "avait fait",
+          "nous": "avions fait",
+          "vous": "aviez fait",
+          "ils/elles": "avaient fait"
+        },
+        "passé antérieur": {
+          "je": "eus fait",
+          "tu": "eus fait",
+          "il/elle": "eut fait",
+          "nous": "eûmes fait",
+          "vous": "eûtes fait",
+          "ils/elles": "eurent fait"
+        },
+        "futur antérieur": {
+          "je": "aurai fait",
+          "tu": "auras fait",
+          "il/elle": "aura fait",
+          "nous": "aurons fait",
+          "vous": "aurez fait",
+          "ils/elles": "auront fait"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais fait",
+          "tu": "aurais fait",
+          "il/elle": "aurait fait",
+          "nous": "aurions fait",
+          "vous": "auriez fait",
+          "ils/elles": "auraient fait"
+        }
+      }
+    },
+    {
+      "infinitive": "dire",
+      "conjugations": {
+        "présent": {
+          "je": "dis",
+          "tu": "dis",
+          "il/elle": "dit",
+          "nous": "disons",
+          "vous": "dites",
+          "ils/elles": "disent"
+        },
+        "passé composé": {
+          "je": "ai dit",
+          "tu": "as dit",
+          "il/elle": "a dit",
+          "nous": "avons dit",
+          "vous": "avez dit",
+          "ils/elles": "ont dit"
+        },
+        "imparfait": {
+          "je": "disais",
+          "tu": "disais",
+          "il/elle": "disait",
+          "nous": "disions",
+          "vous": "disiez",
+          "ils/elles": "disaient"
+        },
+        "passé simple": {
+          "je": "dis",
+          "tu": "dis",
+          "il/elle": "dit",
+          "nous": "dîmes",
+          "vous": "dîtes",
+          "ils/elles": "dirent"
+        },
+        "futur simple": {
+          "je": "dirai",
+          "tu": "diras",
+          "il/elle": "dira",
+          "nous": "dirons",
+          "vous": "direz",
+          "ils/elles": "diront"
+        },
+        "imparfait du subjonctif": {
+          "que je": "disse",
+          "que tu": "disses",
+          "qu’il/elle": "dît",
+          "que nous": "disions",
+          "que vous": "disiez",
+          "qu’ils/elles": "dissent"
+        },
+        "subjonctif passé": {
+          "que je": "aie dit",
+          "que tu": "aies dit",
+          "qu’il/elle": "ait dit",
+          "que nous": "ayons dit",
+          "que vous": "ayez dit",
+          "qu’ils/elles": "aient dit"
+        },
+        "conditionnel présent": {
+          "je": "dirais",
+          "tu": "dirais",
+          "il/elle": "dirait",
+          "nous": "dirions",
+          "vous": "diriez",
+          "ils/elles": "diraient"
+        },
+        "plus-que-parfait": {
+          "j’": "avais dit",
+          "tu": "avais dit",
+          "il/elle": "avait dit",
+          "nous": "avions dit",
+          "vous": "aviez dit",
+          "ils/elles": "avaient dit"
+        },
+        "passé antérieur": {
+          "je": "eus dit",
+          "tu": "eus dit",
+          "il/elle": "eut dit",
+          "nous": "eûmes dit",
+          "vous": "eûtes dit",
+          "ils/elles": "eurent dit"
+        },
+        "futur antérieur": {
+          "je": "aurai dit",
+          "tu": "auras dit",
+          "il/elle": "aura dit",
+          "nous": "aurons dit",
+          "vous": "aurez dit",
+          "ils/elles": "auront dit"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais dit",
+          "tu": "aurais dit",
+          "il/elle": "aurait dit",
+          "nous": "aurions dit",
+          "vous": "auriez dit",
+          "ils/elles": "auraient dit"
+        }
+      }
+    },
+    {
+      "infinitive": "pouvoir",
+      "conjugations": {
+        "présent": {
+          "je": "peux",
+          "tu": "peux",
+          "il/elle": "peut",
+          "nous": "pouvons",
+          "vous": "pouvez",
+          "ils/elles": "peuvent"
+        },
+        "passé composé": {
+          "je": "ai pu",
+          "tu": "as pu",
+          "il/elle": "a pu",
+          "nous": "avons pu",
+          "vous": "avez pu",
+          "ils/elles": "ont pu"
+        },
+        "imparfait": {
+          "je": "pouvais",
+          "tu": "pouvais",
+          "il/elle": "pouvait",
+          "nous": "pouvions",
+          "vous": "pouviez",
+          "ils/elles": "pouvaient"
+        },
+        "passé simple": {
+          "je": "pus",
+          "tu": "pus",
+          "il/elle": "put",
+          "nous": "pûmes",
+          "vous": "pûtes",
+          "ils/elles": "purent"
+        },
+        "futur simple": {
+          "je": "pourrai",
+          "tu": "pourras",
+          "il/elle": "pourra",
+          "nous": "pourrons",
+          "vous": "pourrez",
+          "ils/elles": "pourront"
+        },
+        "imparfait du subjonctif": {
+          "que je": "pusse",
+          "que tu": "pusses",
+          "qu’il/elle": "pût",
+          "que nous": "pusions",
+          "que vous": "pussiez",
+          "qu’ils/elles": "pussent"
+        },
+        "subjonctif passé": {
+          "que je": "aie pu",
+          "que tu": "aies pu",
+          "qu’il/elle": "ait pu",
+          "que nous": "ayons pu",
+          "que vous": "ayez pu",
+          "qu’ils/elles": "aient pu"
+        },
+        "conditionnel présent": {
+          "je": "pourrais",
+          "tu": "pourrais",
+          "il/elle": "pourrait",
+          "nous": "pourrions",
+          "vous": "pourriez",
+          "ils/elles": "pourraient"
+        },
+        "plus-que-parfait": {
+          "j’": "avais pu",
+          "tu": "avais pu",
+          "il/elle": "avait pu",
+          "nous": "avions pu",
+          "vous": "aviez pu",
+          "ils/elles": "avaient pu"
+        },
+        "passé antérieur": {
+          "je": "eus pu",
+          "tu": "eus pu",
+          "il/elle": "eut pu",
+          "nous": "eûmes pu",
+          "vous": "eûtes pu",
+          "ils/elles": "eurent pu"
+        },
+        "futur antérieur": {
+          "je": "aurai pu",
+          "tu": "auras pu",
+          "il/elle": "aura pu",
+          "nous": "aurons pu",
+          "vous": "aurez pu",
+          "ils/elles": "auront pu"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais pu",
+          "tu": "aurais pu",
+          "il/elle": "aurait pu",
+          "nous": "aurions pu",
+          "vous": "auriez pu",
+          "ils/elles": "auraient pu"
         }
       }
     }
+    // Ajoutez les 30 autres verbes ici en suivant la même structure
   ]
 }
