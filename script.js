@@ -1,141 +1,141 @@
-// Variables globales 
-let verbes, verbesTurbo, verbesExtreme; 
-let groupeActuel = "premierGroupe";
+// script.js
 
-const sujets = ["je", "tu", "il", "elle", "on", "nous", "vous", "ils", "elles"];
-const coefficients = { premierGroupe: 1, deuxiemeGroupe: 2, troisiemeGroupe: 3, extreme: 3 };
-let score = 0, currentQuestion = 0, modeAleatoireActif = true, modeTurboActif = false, modeExtremeActif = false;
-let groupesUtilises = new Set();
+let verbsData = [];
+let currentVerb = null;
+let currentTense = null;
+let currentPronoun = null;
+let modeExtreme = false;
+let points = 0;
+let attempts = 3;
 
-// Options de temps
-const tempsOptions = {
-    normal: ["présent", "futur", "imparfait", "passé composé"],
-    turbo: ["présent", "futur", "imparfait", "passé composé", "imparfait du subjonctif", "conditionnel présent", "subjonctif présent", "impératif", "passé simple", "participe présent"],
-    extreme: ["passé antérieur", "passé simple", "plus-que-parfait", "futur antérieur", "subjonctif passé", "subjonctif imparfait", "subjonctif plus-que-parfait", "conditionnel passé"]
-};
+// Tenses for normal and extreme modes
+const normalTenses = ["présent", "passé composé", "imparfait", "passé simple", "futur simple"];
+const extremeTenses = ["subjonctif imparfait", "subjonctif passé", "conditionnel présent", "plus-que-parfait", "passé antérieur", "futur antérieur", "conditionnel passé première forme"];
 
-// Charger les verbes depuis les fichiers JSON
-async function chargerVerbes() {
-    try {
-        const [response, responseTurbo, responseExtreme] = await Promise.all([
-            fetch('verbes.json'), 
-            fetch('verbes_turbo.json'), 
-            fetch('verbes_extreme.json')
-        ]);
+const pronouns = ["je", "tu", "il/elle", "nous", "vous", "ils/elles"];
 
-        if (!response.ok || !responseTurbo.ok || !responseExtreme.ok) throw new Error('Erreur lors du chargement des fichiers JSON');
+// Load JSON data
+fetch('verbs.json')
+    .then(response => response.json())
+    .then(data => {
+        verbsData = data.verbs;
+        initializeGame();
+    })
+    .catch(error => console.error('Error loading JSON:', error));
 
-        verbes = await response.json();
-        verbesTurbo = await responseTurbo.json();
-        verbesExtreme = await responseExtreme.json();
-        
-        genererPhrase(true);
-    } catch (error) {
-        console.error('Erreur : ', error);
+// Initialize the game
+function initializeGame() {
+    spinReels();
+    document.getElementById('submit-btn').addEventListener('click', checkAnswer);
+    document.getElementById('spin-btn').addEventListener('click', spinReels);
+    document.getElementById('toggle-mode-btn').addEventListener('click', toggleMode);
+}
+
+// Spin the reels to select verb, tense, and pronoun
+function spinReels() {
+    // Select a random verb
+    currentVerb = verbsData[Math.floor(Math.random() * verbsData.length)];
+
+    // Select a random tense based on mode
+    let tenses = modeExtreme ? extremeTenses : normalTenses;
+    currentTense = tenses[Math.floor(Math.random() * tenses.length)];
+
+    // Select a random pronoun
+    currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+
+    // Update the UI
+    document.getElementById('verb-slot').textContent = currentVerb.infinitive;
+    document.getElementById('tense-slot').textContent = currentTense;
+    document.getElementById('pronoun-slot').textContent = formatPronoun(currentPronoun, currentTense);
+
+    // Reset input and attempts if new question
+    document.getElementById('user-input').value = '';
+    if (attempts === 0 || attempts === 3) {
+        attempts = 3;
+        updateStatus();
     }
 }
 
-// Activer le mode (Normal, Turbo, ou Extrême)
-function activerMode(mode) {
-    if (mode === 'turbo') {
-        modeTurboActif = !modeTurboActif;
-        toggleButton('modeTurbo', modeTurboActif, "Mode TURBO (Actif)", "Mode TURBO (Inactif)");
-    } else if (mode === 'extreme') {
-        modeExtremeActif = !modeExtremeActif;
-        toggleButton('modeExtreme', modeExtremeActif, "Mode EXTREME (Actif)", "Mode EXTREME (Inactif)");
+// Format pronoun based on tense
+function formatPronoun(pronoun, tense) {
+    // Example formatting, can be expanded based on tense requirements
+    if (tense.includes("subjonctif")) {
+        if (pronoun === "je") return "que je";
+        if (pronoun === "il/elle") return "qu’ il";
     }
-
-    // Afficher ou masquer les boutons en fonction du mode
-    const boutonsGroupes = document.querySelectorAll('#premierGroupe, #deuxiemeGroupe, #troisiemeGroupe, #modeAleatoire');
-    boutonsGroupes.forEach(bouton => {
-        bouton.style.display = (modeTurboActif || modeExtremeActif) ? 'none' : 'inline-block';
-    });
-
-    genererPhrase(true);
+    return pronoun + " ";
 }
 
-// Fonction pour activer ou désactiver les boutons
-function toggleButton(buttonId, isActive, activeText, inactiveText) {
-    const button = document.getElementById(buttonId);
-    button.classList.toggle('active', isActive);
-    button.innerText = isActive ? activeText : inactiveText;
-}
-
-// Choisir un groupe de verbes
-function choisirGroupe(groupe) {
-    groupeActuel = groupe;
-    modeAleatoireActif = false;
-    genererPhrase(true);
-}
-
-// Générer une phrase aléatoire
-function genererPhrase(forceGenerate = false) {
-    if (!forceGenerate && currentQuestion > 0) return;
-
-    let verbesGroupe, tempsChoisi;
-    
-    if (modeExtremeActif) {
-        verbesGroupe = verbesExtreme.verbes;
-        tempsChoisi = tempsOptions.extreme[Math.floor(Math.random() * tempsOptions.extreme.length)];
-    } else if (modeTurboActif) {
-        verbesGroupe = verbesTurbo.TURBO;
-        tempsChoisi = tempsOptions.turbo[Math.floor(Math.random() * tempsOptions.turbo.length)];
-    } else {
-        verbesGroupe = verbes[groupeActuel];
-        tempsChoisi = tempsOptions.normal[Math.floor(Math.random() * tempsOptions.normal.length)];
-    }
-
-    const verbeActuel = verbesGroupe[Math.floor(Math.random() * verbesGroupe.length)];
-    const pronomChoisi = choisirPronomDisponible(verbeActuel, tempsChoisi);
-
-    if (!pronomChoisi) {
-        console.error(`Aucun pronom disponible pour le verbe "${verbeActuel.infinitif}" au temps "${tempsChoisi}".`);
-        genererPhrase(true); 
+// Check the user's answer
+function checkAnswer() {
+    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
+    if (userInput === "") {
+        alert("Veuillez entrer une conjugaison.");
         return;
     }
 
-    // Calculer les points selon le temps et le groupe
-    let points = calculerPoints(tempsChoisi);
-    score += points;
+    // Get the correct conjugation
+    let conjugation = currentVerb.conjugations[currentTense];
+    if (!conjugation) {
+        alert("Le temps sélectionné n'est pas disponible.");
+        return;
+    }
 
-    const pronomAffiche = tempsChoisi.includes("subjonctif") ? (pronomChoisi.pronom.startsWith("il") ? "qu'il" : `que ${pronomChoisi.pronom}`) : pronomChoisi.pronom;
-    
-    console.log(`Phrase générée: Verbe "${verbeActuel.infinitif}", Temps "${tempsChoisi}", Pronom "${pronomChoisi.pronom}".`);
-    document.getElementById('verbe-container').innerText = `Verbe : ${verbeActuel.infinitif}`;
-    document.getElementById('temps-container').innerText = `Temps : ${tempsChoisi.charAt(0).toUpperCase() + tempsChoisi.slice(1)}`;
-    document.getElementById('phrase-container').innerText = `Conjugue le verbe "${verbeActuel.infinitif}" à ${tempsChoisi} pour "${pronomAffiche}".`;
-    document.getElementById('score-container').innerText = `Score : ${score}`;
+    let correctAnswer = conjugation[currentPronoun];
+    if (!correctAnswer) {
+        alert("Le pronom sélectionné n'est pas disponible pour ce temps.");
+        return;
+    }
+
+    // Extract the verb part from the correct answer
+    // Assuming the format "auxiliaire + participe passé" for passé composé, etc.
+    let correctVerb = correctAnswer.split(' ').slice(1).join(' '); // Simplification
+    if (currentTense === "présent" || currentTense === "imparfait" || currentTense === "futur simple" || currentTense === "subjonctif imparfait" || currentTense === "subjonctif passé" || currentTense.startsWith("conditionnel")) {
+        correctVerb = correctAnswer.split(' ').slice(0).join(' '); // For tenses without auxiliary
+    }
+
+    if (userInput === correctVerb.toLowerCase()) {
+        // Correct answer
+        let pointsEarned = modeExtreme ? 3 : 1;
+        points += pointsEarned;
+        document.getElementById('points').textContent = points;
+        playSound();
+        alert("Correct ! +" + pointsEarned + " point(s).");
+        spinReels();
+    } else {
+        // Incorrect answer
+        attempts--;
+        updateStatus();
+        if (attempts > 0) {
+            alert("Incorrect. Il vous reste " + attempts + " tentative(s).");
+        } else {
+            alert("Incorrect. Aucune tentative restante. La bonne réponse était : " + correctVerb);
+            spinReels();
+        }
+    }
 }
 
-// Fonction pour calculer les points en fonction du temps
-function calculerPoints(temps) {
-    const pointsParTemps = {
-        "présent": 1,
-        "futur": 2,
-        "imparfait": 4,
-        "passé composé": 3,
-        "imparfait du subjonctif": 4,
-        "conditionnel présent": 3,
-        "subjonctif présent": 4,
-        "impératif": 2,
-        "passé simple": 3,
-        "participe présent": 1,
-        "passé antérieur": 3,
-        "plus-que-parfait": 4,
-        "futur antérieur": 2,
-        "subjonctif passé": 4,
-        "subjonctif imparfait": 4,
-        "subjonctif plus-que-parfait": 4,
-        "conditionnel passé": 3
-    };
-    return pointsParTemps[temps] * coefficients[groupeActuel] || 0;
+// Update the status display
+function updateStatus() {
+    document.getElementById('points').textContent = points;
+    document.getElementById('attempts').textContent = attempts;
 }
 
-// Choisir un pronom disponible (fonction d'exemple, à compléter selon votre logique)
-function choisirPronomDisponible(verbe, temps) {
-    // Logique pour choisir un pronom disponible
-    // ...
+// Toggle between normal and extreme modes
+function toggleMode() {
+    modeExtreme = !modeExtreme;
+    const container = document.querySelector('.container');
+    if (modeExtreme) {
+        container.classList.add('extreme-mode');
+        alert("Mode Extrême activé ! Vous marquez trois fois plus de points.");
+    } else {
+        container.classList.remove('extreme-mode');
+        alert("Mode Extrême désactivé.");
+    }
 }
 
-// Appeler la fonction de chargement des verbes au chargement de la page
-window.onload = chargerVerbes;
+// Play success sound
+function playSound() {
+    const sound = document.getElementById('success-sound');
+    sound.play();
+}
