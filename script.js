@@ -224,3 +224,43 @@ function playSound() {
     const sound = document.getElementById('success-sound');
     sound.play();
 }
+function spinReels() {
+    // Ajouter la classe 'spinning' pour lancer l'animation
+    document.getElementById('verb-slot').classList.add('spinning');
+    document.getElementById('tense-slot').classList.add('spinning');
+    document.getElementById('pronoun-slot').classList.add('spinning');
+
+    // Utiliser un timeout pour attendre la fin de l'animation
+    setTimeout(() => {
+        // Sélectionner un nouveau verbe, temps et pronom
+        currentVerb = verbsData[Math.floor(Math.random() * verbsData.length)];
+        let tenses = modeExtreme ? extremeTenses : normalTenses;
+        currentTense = tenses[Math.floor(Math.random() * tenses.length)];
+        currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+
+        // Mettre à jour les slots
+        document.getElementById('verb-slot').textContent = currentVerb.infinitive;
+        document.getElementById('tense-slot').textContent = currentTense;
+        document.getElementById('pronoun-slot').textContent = currentPronoun;
+
+        // Mettre à jour le pronom affiché
+        document.getElementById('display-pronoun').textContent = formatPronoun(currentPronoun, currentTense);
+
+        // Réinitialiser les tentatives si nécessaire
+        if (attempts === 0 || attempts === 3) {
+            attempts = 3;
+            updateStatus();
+        }
+
+        // Réinitialiser l'input
+        document.getElementById('user-input').value = '';
+
+        // Retirer la classe 'spinning'
+        document.getElementById('verb-slot').classList.remove('spinning');
+        document.getElementById('tense-slot').classList.remove('spinning');
+        document.getElementById('pronoun-slot').classList.remove('spinning');
+
+        // Masquer tout message affiché
+        hideMessage();
+    }, 500); // Durée de l'animation en millisecondes
+}
