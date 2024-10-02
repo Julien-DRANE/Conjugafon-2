@@ -1,5 +1,6 @@
 // script.js
 
+// Variables globales
 let verbsData = [];
 let currentVerb = null;
 let currentTense = null;
@@ -8,13 +9,33 @@ let modeExtreme = false;
 let points = 0;
 let attempts = 3;
 
-// Tenses for normal and extreme modes
-const normalTenses = ["présent", "passé composé", "imparfait", "passé simple", "futur simple"];
-const extremeTenses = ["subjonctif imparfait", "subjonctif passé", "conditionnel présent", "plus-que-parfait", "passé antérieur", "futur antérieur", "conditionnel passé première forme"];
+// Définition des temps pour les modes normal et extrême
+const normalTenses = [
+    "présent",
+    "passé composé",
+    "imparfait",
+    "passé simple",
+    "futur simple"
+];
+const extremeTenses = [
+    "subjonctif imparfait",
+    "subjonctif passé",
+    "conditionnel présent",
+    "plus-que-parfait",
+    "passé antérieur",
+    "futur antérieur",
+    "conditionnel passé première forme"
+];
 
+// Liste des pronoms personnels
 const pronouns = ["je", "tu", "il/elle", "nous", "vous", "ils/elles"];
 
-// Load JSON data
+// Fonction pour normaliser les chaînes (supprimer les accents et mettre en minuscules)
+function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+// Charger les données JSON
 fetch('verbs.json')
     .then(response => response.json())
     .then(data => {
@@ -23,7 +44,7 @@ fetch('verbs.json')
     })
     .catch(error => console.error('Error loading JSON:', error));
 
-// Initialize the game
+// Initialiser le jeu
 function initializeGame() {
     spinReels();
     document.getElementById('submit-btn').addEventListener('click', checkAnswer);
@@ -32,42 +53,58 @@ function initializeGame() {
     document.getElementById('show-answer-btn').addEventListener('click', showCorrectAnswer);
 }
 
-// Spin the reels to select verb, tense, and pronoun
+// Fonction pour lancer les rouleaux avec animation
 function spinReels() {
-    // Select a random verb
-    currentVerb = verbsData[Math.floor(Math.random() * verbsData.length)];
+    const verbSlot = document.getElementById('verb-slot');
+    const tenseSlot = document.getElementById('tense-slot');
+    const pronounSlot = document.getElementById('pronoun-slot');
 
-    // Select a random tense based on mode
-    let tenses = modeExtreme ? extremeTenses : normalTenses;
-    currentTense = tenses[Math.floor(Math.random() * tenses.length)];
+    // Ajouter la classe 'spinning' pour lancer l'animation
+    verbSlot.classList.add('spinning');
+    tenseSlot.classList.add('spinning');
+    pronounSlot.classList.add('spinning');
 
-    // Select a random pronoun
-    currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+    // Temporisation correspondant à la durée de l'animation CSS
+    setTimeout(() => {
+        // Sélectionner un verbe aléatoire
+        currentVerb = verbsData[Math.floor(Math.random() * verbsData.length)];
 
-    // Update the UI
-    document.getElementById('verb-slot').textContent = currentVerb.infinitive;
-    document.getElementById('tense-slot').textContent = currentTense;
-    document.getElementById('pronoun-slot').textContent = currentPronoun;
+        // Sélectionner un temps aléatoire basé sur le mode
+        let tenses = modeExtreme ? extremeTenses : normalTenses;
+        currentTense = tenses[Math.floor(Math.random() * tenses.length)];
 
-    // Update the pronoun display
-    document.getElementById('display-pronoun').textContent = formatPronoun(currentPronoun, currentTense);
+        // Sélectionner un pronom aléatoire
+        currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
 
-    // Reset input and attempts if new question
-    document.getElementById('user-input').value = '';
-    if (attempts === 0 || attempts === 3) {
-        attempts = 3;
-        updateStatus();
-    }
+        // Mettre à jour les rouleaux avec les nouvelles valeurs
+        verbSlot.textContent = currentVerb.infinitive;
+        tenseSlot.textContent = currentTense;
+        pronounSlot.textContent = currentPronoun;
 
-    // Clear any existing messages
-    hideMessage();
+        // Mettre à jour l'affichage du pronom
+        document.getElementById('display-pronoun').textContent = formatPronoun(currentPronoun, currentTense);
+
+        // Réinitialiser l'input et les tentatives si nécessaire
+        document.getElementById('user-input').value = '';
+        if (attempts === 0 || attempts === 3) {
+            attempts = 3;
+            updateStatus();
+        }
+
+        // Retirer la classe 'spinning' après l'animation
+        verbSlot.classList.remove('spinning');
+        tenseSlot.classList.remove('spinning');
+        pronounSlot.classList.remove('spinning');
+
+        // Masquer tout message affiché précédemment
+        hideMessage();
+    }, 500); // Durée de l'animation en millisecondes (à ajuster si nécessaire)
 }
 
-// Format pronoun based on tense
+// Fonction pour formater le pronom affiché
 function formatPronoun(pronoun, tense) {
-    // Gestion des contractions
+    // Gestion des contractions pour "je" devant une voyelle ou un 'h' muet
     if (pronoun === "je") {
-        // Vérifie si le verbe commence par une voyelle ou un 'h' muet
         const firstLetter = currentVerb.infinitive.charAt(0).toLowerCase();
         if (['a', 'e', 'i', 'o', 'u', 'h'].includes(firstLetter)) {
             return "j’";
@@ -85,92 +122,15 @@ function formatPronoun(pronoun, tense) {
     return pronoun + " ";
 }
 
-// Vérifie la réponse de l'utilisateur
+// Fonction pour vérifier la réponse de l'utilisateur
 function checkAnswer() {
-    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
+    const userInput = document.getElementById('user-input').value.trim();
     if (userInput === "") {
         showMessage('error', "Veuillez entrer une conjugaison.");
         return;
     }
 
-    // Récupère la conjugaison correcte pour le pronom et le temps sélectionnés
-    let conjugation = currentVerb.conjugations[currentTense];
-    if (!conjugation) {
-        showMessage('error', "Le temps sélectionné n'est pas disponible.");
-        return;
-    }
-
-    let correctAnswer = conjugation[currentPronoun];
-    if (!correctAnswer) {
-        showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
-        return;
-    }
-
-    // Extraire uniquement la forme du verbe conjugué
-    let correctVerb = "";
-
-    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
-        // Ces temps utilisent un auxiliaire + participe passé
-        let parts = correctAnswer.split(' ');
-        // Si l'auxiliaire est "être", prendre en compte l'accord
-        if (["être"].includes(currentVerb.infinitive)) {
-            // Pour simplifier, on ignore les accords (e)s, (e)/m etc.
-            correctVerb = parts.slice(1).join(' ');
-        } else {
-            correctVerb = parts.slice(1).join(' ');
-        }
-    } else {
-        // Temps simples
-        correctVerb = correctAnswer;
-    }
-
-    // Nettoyer la réponse correcte des parenthèses et apostrophes
-    correctVerb = correctVerb.replace(/\(e\)/g, '').replace(/\(s\)/g, '').replace(/’/g, '').replace(/qu’il /g, '').replace(/qu’ils\/elles /g, '').replace(/que je /g, '').trim();
-
-    // Comparaison insensible à la casse
-    if (userInput === correctVerb.toLowerCase()) {
-        // Réponse correcte
-        let pointsEarned = modeExtreme ? 3 : 1;
-        points += pointsEarned;
-        document.getElementById('points').textContent = points;
-        playSound();
-        showMessage('success', `Correct ! +${pointsEarned} point(s).`);
-        spinReels();
-    } else {
-        // Réponse incorrecte
-        attempts--;
-        updateStatus();
-        if (attempts > 0) {
-            showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
-        } else {
-            showMessage('error', `Incorrect. La bonne réponse était : ${correctVerb}`);
-            spinReels();
-        }
-    }
-}
-
-// Met à jour l'affichage des points et des tentatives
-function updateStatus() {
-    document.getElementById('points').textContent = points;
-    document.getElementById('attempts').textContent = attempts;
-}
-
-// Bascule entre le mode normal et le mode extrême
-function toggleMode() {
-    modeExtreme = !modeExtreme;
-    const container = document.querySelector('.container');
-    if (modeExtreme) {
-        container.classList.add('extreme-mode');
-        showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
-    } else {
-        container.classList.remove('extreme-mode');
-        showMessage('success', "Mode Extrême désactivé.");
-    }
-}
-
-// Affiche la réponse correcte
-function showCorrectAnswer() {
-    // Récupère la conjugaison correcte pour le pronom et le temps sélectionnés
+    // Récupérer la conjugaison correcte pour le pronom et le temps sélectionnés
     let conjugation = currentVerb.conjugations[currentTense];
     if (!conjugation) {
         showMessage('error', "Le temps sélectionné n'est pas disponible.");
@@ -196,71 +156,118 @@ function showCorrectAnswer() {
     }
 
     // Nettoyer la réponse correcte des parenthèses et apostrophes
-    correctVerb = correctVerb.replace(/\(e\)/g, '').replace(/\(s\)/g, '').replace(/’/g, '').replace(/qu’il /g, '').replace(/qu’ils\/elles /g, '').replace(/que je /g, '').trim();
+    correctVerb = correctVerb
+        .replace(/\(e\)/g, '')
+        .replace(/\(s\)/g, '')
+        .replace(/’/g, '')
+        .replace(/qu’il /g, '')
+        .replace(/qu’ils\/elles /g, '')
+        .replace(/que je /g, '')
+        .trim();
 
-    // Affiche la réponse dans un message
+    // Comparaison insensible à la casse et sans accents
+    if (normalizeString(userInput) === normalizeString(correctVerb)) {
+        // Réponse correcte
+        let pointsEarned = modeExtreme ? 3 : 1;
+        points += pointsEarned;
+        document.getElementById('points').textContent = points;
+        playSound();
+        showMessage('success', `Correct ! +${pointsEarned} point(s).`);
+        spinReels();
+    } else {
+        // Réponse incorrecte
+        attempts--;
+        updateStatus();
+        if (attempts > 0) {
+            showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
+        } else {
+            showMessage('error', `Incorrect. La bonne réponse était : ${correctVerb}`);
+            spinReels();
+        }
+    }
+}
+
+// Fonction pour mettre à jour l'affichage des points et des tentatives
+function updateStatus() {
+    document.getElementById('points').textContent = points;
+    document.getElementById('attempts').textContent = attempts;
+}
+
+// Fonction pour basculer entre le mode normal et extrême
+function toggleMode() {
+    modeExtreme = !modeExtreme;
+    const container = document.querySelector('.container');
+    if (modeExtreme) {
+        container.classList.add('extreme-mode');
+        showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
+    } else {
+        container.classList.remove('extreme-mode');
+        showMessage('success', "Mode Extrême désactivé.");
+    }
+}
+
+// Fonction pour afficher la réponse correcte
+function showCorrectAnswer() {
+    // Récupérer la conjugaison correcte pour le pronom et le temps sélectionnés
+    let conjugation = currentVerb.conjugations[currentTense];
+    if (!conjugation) {
+        showMessage('error', "Le temps sélectionné n'est pas disponible.");
+        return;
+    }
+
+    let correctAnswer = conjugation[currentPronoun];
+    if (!correctAnswer) {
+        showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
+        return;
+    }
+
+    // Extraire uniquement la forme du verbe conjugué
+    let correctVerb = "";
+
+    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
+        // Ces temps utilisent un auxiliaire + participe passé
+        let parts = correctAnswer.split(' ');
+        correctVerb = parts.slice(1).join(' ');
+    } else {
+        // Temps simples
+        correctVerb = correctAnswer;
+    }
+
+    // Nettoyer la réponse correcte des parenthèses et apostrophes
+    correctVerb = correctVerb
+        .replace(/\(e\)/g, '')
+        .replace(/\(s\)/g, '')
+        .replace(/’/g, '')
+        .replace(/qu’il /g, '')
+        .replace(/qu’ils\/elles /g, '')
+        .replace(/que je /g, '')
+        .trim();
+
+    // Afficher la réponse dans un message
     showMessage('success', `La bonne réponse était : ${correctVerb}`);
 }
 
-// Affiche un message intégré
+// Fonction pour afficher un message intégré
 function showMessage(type, text) {
     const messageDiv = document.getElementById('message');
     messageDiv.className = `message ${type}`;
     messageDiv.textContent = text;
     messageDiv.style.display = 'block';
+    // Masquer le message après 3 secondes
     setTimeout(() => {
         messageDiv.style.display = 'none';
     }, 3000);
 }
 
-// Masque le message
+// Fonction pour masquer le message
 function hideMessage() {
     const messageDiv = document.getElementById('message');
     messageDiv.style.display = 'none';
 }
 
-// Joue le son de succès
+// Fonction pour jouer le son de succès
 function playSound() {
     const sound = document.getElementById('success-sound');
+    sound.currentTime = 0; // Réinitialiser le son
     sound.play();
-}
-function spinReels() {
-    // Ajouter la classe 'spinning' pour lancer l'animation
-    document.getElementById('verb-slot').classList.add('spinning');
-    document.getElementById('tense-slot').classList.add('spinning');
-    document.getElementById('pronoun-slot').classList.add('spinning');
-
-    // Utiliser un timeout pour attendre la fin de l'animation
-    setTimeout(() => {
-        // Sélectionner un nouveau verbe, temps et pronom
-        currentVerb = verbsData[Math.floor(Math.random() * verbsData.length)];
-        let tenses = modeExtreme ? extremeTenses : normalTenses;
-        currentTense = tenses[Math.floor(Math.random() * tenses.length)];
-        currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
-
-        // Mettre à jour les slots
-        document.getElementById('verb-slot').textContent = currentVerb.infinitive;
-        document.getElementById('tense-slot').textContent = currentTense;
-        document.getElementById('pronoun-slot').textContent = currentPronoun;
-
-        // Mettre à jour le pronom affiché
-        document.getElementById('display-pronoun').textContent = formatPronoun(currentPronoun, currentTense);
-
-        // Réinitialiser les tentatives si nécessaire
-        if (attempts === 0 || attempts === 3) {
-            attempts = 3;
-            updateStatus();
-        }
-
-        // Réinitialiser l'input
-        document.getElementById('user-input').value = '';
-
-        // Retirer la classe 'spinning'
-        document.getElementById('verb-slot').classList.remove('spinning');
-        document.getElementById('tense-slot').classList.remove('spinning');
-        document.getElementById('pronoun-slot').classList.remove('spinning');
-
-        // Masquer tout message affiché
-        hideMessage();
-    }, 500); // Durée de l'animation en millisecondes
 }
