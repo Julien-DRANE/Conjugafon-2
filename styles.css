@@ -108,3 +108,11 @@ button {
 .extreme-mode button {
     background-color: #e91e63;
 }
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+.slot.spinning {
+    animation: spin 0.5s ease-out;
+}
