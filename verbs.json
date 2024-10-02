@@ -35,7 +35,6 @@
           "vous": "serez",
           "ils/elles": "seront"
         }
-        // Ajoutez d'autres temps ici
       }
     },
     {
@@ -73,9 +72,7 @@
           "vous": "aurez",
           "ils/elles": "auront"
         }
-        // Ajoutez d'autres temps ici
       }
     }
-    // Ajoutez d'autres verbes ici
   ]
 }
