@@ -16,17 +16,22 @@
         </div>
         
         <div class="prompt">
-            <span id="display-pronoun">Je</span> <input type="text" id="user-input" placeholder="Conjuguez le verbe">
+            <span id="display-pronoun">Je </span><input type="text" id="user-input" placeholder="Conjuguez le verbe">
         </div>
         
-        <button id="submit-btn">Vérifier</button>
-        <button id="spin-btn">Tourner</button>
-        <button id="toggle-mode-btn">Mode Extrême</button>
+        <div class="buttons">
+            <button id="submit-btn">Vérifier</button>
+            <button id="spin-btn">Tourner</button>
+            <button id="show-answer-btn">Réponse</button>
+            <button id="toggle-mode-btn">Mode Extrême</button>
+        </div>
         
         <div class="status">
             <p>Points : <span id="points">0</span></p>
             <p>Tentatives restantes : <span id="attempts">3</span></p>
         </div>
+        
+        <div class="message" id="message"></div>
         
         <audio id="success-sound" src="success.mp3"></audio>
     </div>
