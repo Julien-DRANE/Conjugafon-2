@@ -1,0 +1,81 @@
+{
+  "verbs": [
+    {
+      "infinitive": "être",
+      "conjugations": {
+        "présent": {
+          "je": "suis",
+          "tu": "es",
+          "il/elle": "est",
+          "nous": "sommes",
+          "vous": "êtes",
+          "ils/elles": "sont"
+        },
+        "passé composé": {
+          "je": "ai été",
+          "tu": "as été",
+          "il/elle": "a été",
+          "nous": "avons été",
+          "vous": "avez été",
+          "ils/elles": "ont été"
+        },
+        "imparfait": {
+          "je": "étais",
+          "tu": "étais",
+          "il/elle": "était",
+          "nous": "étions",
+          "vous": "étiez",
+          "ils/elles": "étaient"
+        },
+        "futur simple": {
+          "je": "serai",
+          "tu": "seras",
+          "il/elle": "sera",
+          "nous": "serons",
+          "vous": "serez",
+          "ils/elles": "seront"
+        }
+        // Ajoutez d'autres temps ici
+      }
+    },
+    {
+      "infinitive": "avoir",
+      "conjugations": {
+        "présent": {
+          "je": "ai",
+          "tu": "as",
+          "il/elle": "a",
+          "nous": "avons",
+          "vous": "avez",
+          "ils/elles": "ont"
+        },
+        "passé composé": {
+          "je": "ai eu",
+          "tu": "as eu",
+          "il/elle": "a eu",
+          "nous": "avons eu",
+          "vous": "avez eu",
+          "ils/elles": "ont eu"
+        },
+        "imparfait": {
+          "je": "avais",
+          "tu": "avais",
+          "il/elle": "avait",
+          "nous": "avions",
+          "vous": "aviez",
+          "ils/elles": "avaient"
+        },
+        "futur simple": {
+          "je": "aurai",
+          "tu": "auras",
+          "il/elle": "aura",
+          "nous": "aurons",
+          "vous": "aurez",
+          "ils/elles": "auront"
+        }
+        // Ajoutez d'autres temps ici
+      }
+    }
+    // Ajoutez d'autres verbes ici
+  ]
+}
