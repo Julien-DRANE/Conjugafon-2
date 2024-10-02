@@ -2,38 +2,35 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de Conjugaison</title>
-    <link rel="stylesheet" href="style.css"> <!-- Lien vers votre fichier CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Jeu de Conjugaison</h1>
-    </header>
     <div class="container">
-        <div class="game-area">
-            <div class="left-panel">
-                <h3>Options</h3>
-                <button id="modeTurbo" onclick="activerMode('turbo')">Mode TURBO (Inactif)</button>
-                <button id="modeExtreme" onclick="activerMode('extreme')">Mode EXTREME (Inactif)</button>
-                <button id="premierGroupe" onclick="choisirGroupe('premierGroupe')">Premier Groupe</button>
-                <button id="deuxiemeGroupe" onclick="choisirGroupe('deuxiemeGroupe')">Deuxième Groupe</button>
-                <button id="troisiemeGroupe" onclick="choisirGroupe('troisiemeGroupe')">Troisième Groupe</button>
-                <button id="modeAleatoire" onclick="activerModeAleatoire()">Mode Aléatoire</button>
-            </div>
-            <div class="center-panel">
-                <h2 id="verbe-container"></h2>
-                <div id="temps-container"></div>
-                <div id="phrase-container"></div>
-                <div id="score-container">Score : 0</div>
-            </div>
-            <div class="right-panel">
-                <h3>Historique</h3>
-                <ul id="historique"></ul>
-            </div>
+        <h1>Jeu de Conjugaison</h1>
+        
+        <div class="slot-machine">
+            <div class="slot" id="verb-slot">Verbe</div>
+            <div class="slot" id="tense-slot">Temps</div>
+            <div class="slot" id="pronoun-slot">Pronom</div>
         </div>
+        
+        <div class="prompt">
+            <span id="display-pronoun">Je</span> <input type="text" id="user-input" placeholder="Conjuguez le verbe">
+        </div>
+        
+        <button id="submit-btn">Vérifier</button>
+        <button id="spin-btn">Tourner</button>
+        <button id="toggle-mode-btn">Mode Extrême</button>
+        
+        <div class="status">
+            <p>Points : <span id="points">0</span></p>
+            <p>Tentatives restantes : <span id="attempts">3</span></p>
+        </div>
+        
+        <audio id="success-sound" src="success.mp3"></audio>
     </div>
 
-    <script src="votre-script.js"></script> <!-- Lien vers votre fichier JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
