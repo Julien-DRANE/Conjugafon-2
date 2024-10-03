@@ -18,7 +18,7 @@ const normalTenses = [
     "futur simple"
 ];
 const extremeTenses = [
-    "imparfait du subjonctif",
+    "imparfait du subjonctif", // Correction ici
     "subjonctif passé",
     "conditionnel présent",
     "plus-que-parfait",
@@ -42,7 +42,7 @@ fetch('verbs.json')
         verbsData = data.verbs;
         initializeGame();
     })
-    .catch(error => console.error('Erreur lors du chargement du JSON:', error));
+    .catch(error => console.error('Error loading JSON:', error));
 
 // Initialiser le jeu
 function initializeGame() {
@@ -120,7 +120,7 @@ function formatPronoun(pronoun, tense) {
     }
 
     // Gestion des pronoms spécifiques pour le subjonctif
-    if (tense.includes("subjonctif")) {
+    if (tense.includes("subjonctif") || tense.includes("imparfait du subjonctif")) { // Ajustement ici
         if (pronoun === "je") return "que je ";
         if (pronoun === "il/elle") return "qu’il ";
         if (pronoun === "ils/elles") return "qu’ils/elles ";
@@ -151,18 +151,8 @@ function checkAnswer() {
         return;
     }
 
-    // Nettoyer la réponse correcte des parenthèses et apostrophes sans retirer l'auxiliaire
-    let cleanCorrectAnswer = correctAnswer
-        .replace(/\(e\)/g, '')
-        .replace(/\(s\)/g, '')
-        .replace(/’/g, '')
-        .replace(/qu’il /g, '')
-        .replace(/qu’ils\/elles /g, '')
-        .replace(/que je /g, '')
-        .trim();
-
     // Comparaison insensible à la casse et sans accents
-    if (normalizeString(userInput) === normalizeString(cleanCorrectAnswer)) {
+    if (normalizeString(userInput) === normalizeString(correctAnswer)) {
         // Réponse correcte
         let pointsEarned = modeExtreme ? 3 : 1;
         points += pointsEarned;
@@ -178,7 +168,7 @@ function checkAnswer() {
         if (attempts > 0) {
             showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
         } else {
-            showMessage('error', `Incorrect. La bonne réponse était : ${cleanCorrectAnswer}`);
+            showMessage('error', `Incorrect. La bonne réponse était : ${correctAnswer}`);
             spinReels();
         }
     }
@@ -220,18 +210,8 @@ function showCorrectAnswer() {
         return;
     }
 
-    // Nettoyer la réponse correcte des parenthèses et apostrophes sans retirer l'auxiliaire
-    let cleanCorrectAnswer = correctAnswer
-        .replace(/\(e\)/g, '')
-        .replace(/\(s\)/g, '')
-        .replace(/’/g, '')
-        .replace(/qu’il /g, '')
-        .replace(/qu’ils\/elles /g, '')
-        .replace(/que je /g, '')
-        .trim();
-
     // Afficher la réponse dans un message
-    showMessage('success', `La bonne réponse était : ${cleanCorrectAnswer}`);
+    showMessage('success', `La bonne réponse était : ${correctAnswer}`);
 }
 
 // Fonction pour afficher un message intégré
