@@ -187,7 +187,6 @@ function checkAnswer() {
         attempts--;
         updateStatus();
         playSound('wrong-sound'); // Jouer le son "wrong"
-
         if (attempts > 0) {
             showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
         } else {
@@ -277,7 +276,7 @@ function hideMessage() {
     messageDiv.style.display = 'none';
 }
 
-// Fonction pour jouer un son
+// Fonction pour jouer un son spécifique
 function playSound(soundId) {
     const sound = document.getElementById(soundId);
     sound.currentTime = 0; // Réinitialiser le son
