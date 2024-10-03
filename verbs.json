@@ -808,6 +808,612 @@
         }
       }
     },
+	{
+      "infinitive": "montrer",
+      "conjugations": {
+        "présent": {
+          "je": "montre",
+          "tu": "montres",
+          "il/elle": "montre",
+          "nous": "montrons",
+          "vous": "montrez",
+          "ils/elles": "montrent"
+        },
+        "passé composé": {
+          "je": "ai montré",
+          "tu": "as montré",
+          "il/elle": "a montré",
+          "nous": "avons montré",
+          "vous": "avez montré",
+          "ils/elles": "ont montré"
+        },
+        "imparfait": {
+          "je": "montrais",
+          "tu": "montrais",
+          "il/elle": "montrait",
+          "nous": "montrions",
+          "vous": "montriez",
+          "ils/elles": "montraient"
+        },
+        "passé simple": {
+          "je": "montrai",
+          "tu": "montras",
+          "il/elle": "montra",
+          "nous": "montrâmes",
+          "vous": "montrâtes",
+          "ils/elles": "montrèrent"
+        },
+        "futur simple": {
+          "je": "montrerai",
+          "tu": "montrerais",
+          "il/elle": "montrera",
+          "nous": "montrerons",
+          "vous": "montrerez",
+          "ils/elles": "montreront"
+        },
+        "imparfait du subjonctif": {
+          "je": "montrasse",
+          "tu": "montrasses",
+          "il/elle": "montrât",
+          "nous": "montrassions",
+          "vous": "montrassiez",
+          "ils/elles": "montrassent"
+        },
+        "subjonctif passé": {
+          "je": "aie montré",
+          "tu": "aies montré",
+          "il/elle": "ait montré",
+          "nous": "ayons montré",
+          "vous": "ayez montré",
+          "ils/elles": "aient montré"
+        },
+        "conditionnel présent": {
+          "je": "montrerais",
+          "tu": "montrerais",
+          "il/elle": "montrerait",
+          "nous": "montrerions",
+          "vous": "montreriez",
+          "ils/elles": "montraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais montré",
+          "tu": "avais montré",
+          "il/elle": "avait montré",
+          "nous": "avions montré",
+          "vous": "aviez montré",
+          "ils/elles": "avaient montré"
+        },
+        "passé antérieur": {
+          "je": "eus montré",
+          "tu": "eus montré",
+          "il/elle": "eut montré",
+          "nous": "eûmes montré",
+          "vous": "eûtes montré",
+          "ils/elles": "eurent montré"
+        },
+        "futur antérieur": {
+          "je": "aurai montré",
+          "tu": "auras montré",
+          "il/elle": "aura montré",
+          "nous": "aurons montré",
+          "vous": "aurez montré",
+          "ils/elles": "auront montré"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais montré",
+          "tu": "aurais montré",
+          "il/elle": "aurait montré",
+          "nous": "aurions montré",
+          "vous": "auriez montré",
+          "ils/elles": "auraient montré"
+        }
+      }
+    },
+    {
+      "infinitive": "continuer",
+      "conjugations": {
+        "présent": {
+          "je": "continue",
+          "tu": "continues",
+          "il/elle": "continue",
+          "nous": "continuons",
+          "vous": "continuez",
+          "ils/elles": "continuent"
+        },
+        "passé composé": {
+          "je": "ai continué",
+          "tu": "as continué",
+          "il/elle": "a continué",
+          "nous": "avons continué",
+          "vous": "avez continué",
+          "ils/elles": "ont continué"
+        },
+        "imparfait": {
+          "je": "continuais",
+          "tu": "continuais",
+          "il/elle": "continuait",
+          "nous": "continuions",
+          "vous": "continuiez",
+          "ils/elles": "continuaient"
+        },
+        "passé simple": {
+          "je": "continuai",
+          "tu": "continuais",
+          "il/elle": "continua",
+          "nous": "continuâmes",
+          "vous": "continuâtes",
+          "ils/elles": "continuèrent"
+        },
+        "futur simple": {
+          "je": "continuerai",
+          "tu": "continueras",
+          "il/elle": "continuera",
+          "nous": "continuerons",
+          "vous": "continueriez",
+          "ils/elles": "continueront"
+        },
+        "imparfait du subjonctif": {
+          "je": "continuasse",
+          "tu": "continuasses",
+          "il/elle": "continuât",
+          "nous": "continuassions",
+          "vous": "continuassiez",
+          "ils/elles": "continuassent"
+        },
+        "subjonctif passé": {
+          "je": "aie continué",
+          "tu": "aies continué",
+          "il/elle": "ait continué",
+          "nous": "ayons continué",
+          "vous": "ayez continué",
+          "ils/elles": "aient continué"
+        },
+        "conditionnel présent": {
+          "je": "continuerais",
+          "tu": "continuerais",
+          "il/elle": "continuerait",
+          "nous": "continuerions",
+          "vous": "continueriez",
+          "ils/elles": "continueraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais continué",
+          "tu": "avais continué",
+          "il/elle": "avait continué",
+          "nous": "avions continué",
+          "vous": "aviez continué",
+          "ils/elles": "avaient continué"
+        },
+        "passé antérieur": {
+          "je": "eus continué",
+          "tu": "eus continué",
+          "il/elle": "eut continué",
+          "nous": "eûmes continué",
+          "vous": "eûtes continué",
+          "ils/elles": "eurent continué"
+        },
+        "futur antérieur": {
+          "je": "aurai continué",
+          "tu": "auras continué",
+          "il/elle": "aura continué",
+          "nous": "aurons continué",
+          "vous": "aurez continué",
+          "ils/elles": "auront continué"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais continué",
+          "tu": "aurais continué",
+          "il/elle": "aurait continué",
+          "nous": "aurions continué",
+          "vous": "auriez continué",
+          "ils/elles": "auraient continué"
+        }
+      }
+    },
+    {
+      "infinitive": "jouer",
+      "conjugations": {
+        "présent": {
+          "je": "joue",
+          "tu": "joues",
+          "il/elle": "joue",
+          "nous": "jouons",
+          "vous": "jouez",
+          "ils/elles": "jouent"
+        },
+        "passé composé": {
+          "je": "ai joué",
+          "tu": "as joué",
+          "il/elle": "a joué",
+          "nous": "avons joué",
+          "vous": "avez joué",
+          "ils/elles": "ont joué"
+        },
+        "imparfait": {
+          "je": "jouais",
+          "tu": "jouais",
+          "il/elle": "jouait",
+          "nous": "jouions",
+          "vous": "jouiez",
+          "ils/elles": "jouaient"
+        },
+        "passé simple": {
+          "je": "jouai",
+          "tu": "jouas",
+          "il/elle": "joua",
+          "nous": "jouâmes",
+          "vous": "jouâtes",
+          "ils/elles": "jouèrent"
+        },
+        "futur simple": {
+          "je": "jouerai",
+          "tu": "joueras",
+          "il/elle": "jouera",
+          "nous": "jouerons",
+          "vous": "jouerez",
+          "ils/elles": "joueront"
+        },
+        "imparfait du subjonctif": {
+          "je": "jouasse",
+          "tu": "jouasses",
+          "il/elle": "jouât",
+          "nous": "jouassions",
+          "vous": "jouassiez",
+          "ils/elles": "jouassent"
+        },
+        "subjonctif passé": {
+          "je": "aie joué",
+          "tu": "aies joué",
+          "il/elle": "ait joué",
+          "nous": "ayons joué",
+          "vous": "ayez joué",
+          "ils/elles": "aient joué"
+        },
+        "conditionnel présent": {
+          "je": "jouerais",
+          "tu": "jouerais",
+          "il/elle": "jouerait",
+          "nous": "jouerions",
+          "vous": "joueriez",
+          "ils/elles": "joueraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais joué",
+          "tu": "avais joué",
+          "il/elle": "avait joué",
+          "nous": "avions joué",
+          "vous": "aviez joué",
+          "ils/elles": "avaient joué"
+        },
+        "passé antérieur": {
+          "je": "eus joué",
+          "tu": "eus joué",
+          "il/elle": "eut joué",
+          "nous": "eûmes joué",
+          "vous": "eûtes joué",
+          "ils/elles": "eurent joué"
+        },
+        "futur antérieur": {
+          "je": "aurai joué",
+          "tu": "auras joué",
+          "il/elle": "aura joué",
+          "nous": "aurons joué",
+          "vous": "aurez joué",
+          "ils/elles": "auront joué"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais joué",
+          "tu": "aurais joué",
+          "il/elle": "aurait joué",
+          "nous": "aurions joué",
+          "vous": "auriez joué",
+          "ils/elles": "auraient joué"
+        }
+      }
+    },
+    {
+      "infinitive": "finir",
+      "conjugations": {
+        "présent": {
+          "je": "finis",
+          "tu": "finis",
+          "il/elle": "finit",
+          "nous": "finissons",
+          "vous": "finissez",
+          "ils/elles": "finissent"
+        },
+        "passé composé": {
+          "je": "ai fini",
+          "tu": "as fini",
+          "il/elle": "a fini",
+          "nous": "avons fini",
+          "vous": "avez fini",
+          "ils/elles": "ont fini"
+        },
+        "imparfait": {
+          "je": "finissais",
+          "tu": "finissais",
+          "il/elle": "finissait",
+          "nous": "finissions",
+          "vous": "finissiez",
+          "ils/elles": "finissaient"
+        },
+        "passé simple": {
+          "je": "finis",
+          "tu": "finis",
+          "il/elle": "finit",
+          "nous": "finîmes",
+          "vous": "finîtes",
+          "ils/elles": "finirent"
+        },
+        "futur simple": {
+          "je": "finirai",
+          "tu": "finiras",
+          "il/elle": "finira",
+          "nous": "finirons",
+          "vous": "finirez",
+          "ils/elles": "finiront"
+        },
+        "imparfait du subjonctif": {
+          "je": "finisse",
+          "tu": "finisses",
+          "il/elle": "finît",
+          "nous": "finissions",
+          "vous": "finissiez",
+          "ils/elles": "finissent"
+        },
+        "subjonctif passé": {
+          "je": "aie fini",
+          "tu": "aies fini",
+          "il/elle": "ait fini",
+          "nous": "ayons fini",
+          "vous": "ayez fini",
+          "ils/elles": "aient fini"
+        },
+        "conditionnel présent": {
+          "je": "finirais",
+          "tu": "finirais",
+          "il/elle": "finirait",
+          "nous": "finirions",
+          "vous": "finiriez",
+          "ils/elles": "finiraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais fini",
+          "tu": "avais fini",
+          "il/elle": "avait fini",
+          "nous": "avions fini",
+          "vous": "aviez fini",
+          "ils/elles": "avaient fini"
+        },
+        "passé antérieur": {
+          "je": "eus fini",
+          "tu": "eus fini",
+          "il/elle": "eut fini",
+          "nous": "eûmes fini",
+          "vous": "eûtes fini",
+          "ils/elles": "eurent fini"
+        },
+        "futur antérieur": {
+          "je": "aurai fini",
+          "tu": "auras fini",
+          "il/elle": "aura fini",
+          "nous": "aurons fini",
+          "vous": "aurez fini",
+          "ils/elles": "auront fini"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais fini",
+          "tu": "aurais fini",
+          "il/elle": "aurait fini",
+          "nous": "aurions fini",
+          "vous": "auriez fini",
+          "ils/elles": "auraient fini"
+        }
+      }
+    },
+    {
+      "infinitive": "perdre",
+      "conjugations": {
+        "présent": {
+          "je": "perds",
+          "tu": "perds",
+          "il/elle": "perd",
+          "nous": "perdons",
+          "vous": "perdez",
+          "ils/elles": "perdent"
+        },
+        "passé composé": {
+          "je": "ai perdu",
+          "tu": "as perdu",
+          "il/elle": "a perdu",
+          "nous": "avons perdu",
+          "vous": "avez perdu",
+          "ils/elles": "ont perdu"
+        },
+        "imparfait": {
+          "je": "perdais",
+          "tu": "perdais",
+          "il/elle": "perdait",
+          "nous": "perdions",
+          "vous": "perdiez",
+          "ils/elles": "perdaient"
+        },
+        "passé simple": {
+          "je": "perdis",
+          "tu": "perdis",
+          "il/elle": "perdit",
+          "nous": "perdîmes",
+          "vous": "perdîtes",
+          "ils/elles": "perdirent"
+        },
+        "futur simple": {
+          "je": "perdrai",
+          "tu": "perdras",
+          "il/elle": "perdra",
+          "nous": "perdrons",
+          "vous": "perdrez",
+          "ils/elles": "perdront"
+        },
+        "imparfait du subjonctif": {
+          "je": "perdisse",
+          "tu": "perdisses",
+          "il/elle": "perdît",
+          "nous": "perdissions",
+          "vous": "perdissiez",
+          "ils/elles": "perdissent"
+        },
+        "subjonctif passé": {
+          "je": "aie perdu",
+          "tu": "aies perdu",
+          "il/elle": "ait perdu",
+          "nous": "ayons perdu",
+          "vous": "ayez perdu",
+          "ils/elles": "aient perdu"
+        },
+        "conditionnel présent": {
+          "je": "perdrais",
+          "tu": "perdrais",
+          "il/elle": "perdrait",
+          "nous": "perdrions",
+          "vous": "perdriez",
+          "ils/elles": "perdraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais perdu",
+          "tu": "avais perdu",
+          "il/elle": "avait perdu",
+          "nous": "avions perdu",
+          "vous": "aviez perdu",
+          "ils/elles": "avaient perdu"
+        },
+        "passé antérieur": {
+          "je": "eus perdu",
+          "tu": "eus perdu",
+          "il/elle": "eut perdu",
+          "nous": "eûmes perdu",
+          "vous": "eûtes perdu",
+          "ils/elles": "eurent perdu"
+        },
+        "futur antérieur": {
+          "je": "aurai perdu",
+          "tu": "auras perdu",
+          "il/elle": "aura perdu",
+          "nous": "aurons perdu",
+          "vous": "aurez perdu",
+          "ils/elles": "auront perdu"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais perdu",
+          "tu": "aurais perdu",
+          "il/elle": "aurait perdu",
+          "nous": "aurions perdu",
+          "vous": "auriez perdu",
+          "ils/elles": "auraient perdu"
+        }
+      }
+    },
+	{
+      "infinitive": "répondre",
+      "conjugations": {
+        "présent": {
+          "je": "réponds",
+          "tu": "réponds",
+          "il/elle": "répond",
+          "nous": "répondons",
+          "vous": "répondez",
+          "ils/elles": "répondent"
+        },
+        "passé composé": {
+          "je": "ai répondu",
+          "tu": "as répondu",
+          "il/elle": "a répondu",
+          "nous": "avons répondu",
+          "vous": "avez répondu",
+          "ils/elles": "ont répondu"
+        },
+        "imparfait": {
+          "je": "répondais",
+          "tu": "répondais",
+          "il/elle": "répondait",
+          "nous": "répondions",
+          "vous": "répondiez",
+          "ils/elles": "répondaient"
+        },
+        "passé simple": {
+          "je": "répondis",
+          "tu": "répondis",
+          "il/elle": "répondit",
+          "nous": "répondîmes",
+          "vous": "répondîtes",
+          "ils/elles": "répondirent"
+        },
+        "futur simple": {
+          "je": "répondrai",
+          "tu": "répondras",
+          "il/elle": "répondra",
+          "nous": "répondrons",
+          "vous": "répondrez",
+          "ils/elles": "répondront"
+        },
+        "imparfait du subjonctif": {
+          "je": "répondisse",
+          "tu": "répondisses",
+          "il/elle": "répondît",
+          "nous": "répondissions",
+          "vous": "répondissiez",
+          "ils/elles": "répondissent"
+        },
+        "subjonctif passé": {
+          "je": "aie répondu",
+          "tu": "aies répondu",
+          "il/elle": "ait répondu",
+          "nous": "ayons répondu",
+          "vous": "ayez répondu",
+          "ils/elles": "aient répondu"
+        },
+        "conditionnel présent": {
+          "je": "répondrais",
+          "tu": "répondrais",
+          "il/elle": "répondrait",
+          "nous": "répondrions",
+          "vous": "répondriez",
+          "ils/elles": "répondraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais répondu",
+          "tu": "avais répondu",
+          "il/elle": "avait répondu",
+          "nous": "avions répondu",
+          "vous": "aviez répondu",
+          "ils/elles": "avaient répondu"
+        },
+        "passé antérieur": {
+          "je": "eus répondu",
+          "tu": "eus répondu",
+          "il/elle": "eut répondu",
+          "nous": "eûmes répondu",
+          "vous": "eûtes répondu",
+          "ils/elles": "eurent répondu"
+        },
+        "futur antérieur": {
+          "je": "aurai répondu",
+          "tu": "auras répondu",
+          "il/elle": "aura répondu",
+          "nous": "aurons répondu",
+          "vous": "aurez répondu",
+          "ils/elles": "auront répondu"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais répondu",
+          "tu": "aurais répondu",
+          "il/elle": "aurait répondu",
+          "nous": "aurions répondu",
+          "vous": "auriez répondu",
+          "ils/elles": "auraient répondu"
+        }
+      }
+    },
     {
       "infinitive": "devoir",
       "conjugations": {
