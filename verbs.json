@@ -751,12 +751,12 @@
           "ils/elles": "viendront"
         },
         "imparfait du subjonctif": {
-          "je": "vîntisse",
-          "tu": "vîntisses",
-          "il/elle": "vîntît",
-          "nous": "vîntissions",
-          "vous": "vîntissiez",
-          "ils/elles": "vîntissent"
+          "je": "vinsse",
+          "tu": "vinsses",
+          "il/elle": "vînt",
+          "nous": "vinssions",
+          "vous": "vinssiez",
+          "ils/elles": "vinssent"
         },
         "subjonctif passé": {
           "je": "aie venu",
