@@ -25,6 +25,10 @@ let attemptsLeft = 3;
 let points = 0;
 let extremeMode = false;
 
+// Sons
+const successSound = new Audio('sounds/success-sound.mp3');
+const wrongSound = new Audio('sounds/wrong-sound.mp3');
+
 // JSON des conjugaisons de verbes (à remplir avec votre JSON des conjugaisons)
 let verbData = {};
 
@@ -86,6 +90,9 @@ function checkAnswer() {
         document.getElementById("message").classList.add("success");
         document.getElementById("message").style.display = "block";
 
+        // Jouer le son de réussite
+        successSound.play();
+
         // Afficher l'image "Bonne Réponse !" pendant 1,3 seconde
         const goodAnswerImg = document.getElementById("good-answer-img");
         goodAnswerImg.style.display = "block"; // Afficher l'image
@@ -106,6 +113,9 @@ function checkAnswer() {
         document.getElementById("message").classList.remove("success");
         document.getElementById("message").classList.add("error");
         document.getElementById("message").style.display = "block";
+
+        // Jouer le son d'erreur
+        wrongSound.play();
     }
 
     document.getElementById("user-input").value = "";
