@@ -221,3 +221,19 @@ body.extreme-mode .slot {
     width: 100%; /* Assure que les slots occupent toute la largeur */
     margin: 10px auto; /* Centre les slots dans leur conteneur */
 }
+/* Conteneur de l'image de bonne réponse */
+#good-answer-img-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100; /* S'assurer que l'image soit au-dessus des autres éléments */
+}
+
+/* Style de l'image de bonne réponse */
+#good-answer-img {
+    max-width: 300px;
+    display: none; /* Cacher l'image par défaut */
+    transform: scale(1); /* Taille initiale */
+    transition: transform 1.3s ease-in-out; /* Transition pour l'animation */
+}
