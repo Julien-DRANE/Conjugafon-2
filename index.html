@@ -7,47 +7,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="logo">Jeu de Conjugaison</h1>
-        </header>
-        
-        <div class="game-area">
-            <div class="slot-machine">
-                <div class="slot" id="verb-slot">Verbe</div>
-                <div class="slot" id="tense-slot">Temps</div>
-                <div class="slot" id="pronoun-slot">Pronom</div>
-            </div>
-
-            <div class="prompt">
-                <div id="display-pronoun">je</div>
-                <input type="text" id="user-input" placeholder="Écris la conjugaison">
-                <button id="submit-btn" class="primary-button">Vérifier</button>
-            </div>
-            
-            <!-- Image de bonne réponse -->
-            <img id="good-answer-img" src="bonne_reponse.png" alt="Bonne Réponse !" class="good-answer" style="display: none;">
-
-            <!-- Boutons de contrôle -->
-            <div class="buttons">
-                <button id="spin-btn">Spin</button>
-                <button id="show-answer-btn">Voir la Réponse</button>
-                <button id="toggle-mode-btn">Mode Extrême</button>
-            </div>
-
-            <!-- Message de validation -->
-            <div id="message" class="message"></div>
-
-            <!-- Affichage des points -->
-            <div class="score-grid">
-                <p>Points : <span id="points">0</span></p>
-                <p>Tentatives restantes : <span id="attempts">3</span></p>
-            </div>
+    <div id="game-container">
+        <!-- Contenu du jeu -->
+        <div id="slots">
+            <div id="verb-slot" class="slot">Verbe</div>
+            <div id="tense-slot" class="slot">Temps</div>
+            <div id="pronoun-slot" class="slot">Pronom</div>
         </div>
+        <div id="answer-section">
+            <input type="text" id="user-input" placeholder="Entrez le verbe conjugué">
+            <button id="submit-btn">Vérifier</button>
+        </div>
+        <p id="message" class="message"></p>
+        <div id="points-display">
+            Points: <span id="points">0</span>
+        </div>
+        <button id="spin-btn">Changer Verbe</button>
+        <button id="toggle-mode-btn">Mode Extrême</button>
+        <button id="show-answer-btn">Montrer Réponse</button>
 
-        <!-- Fichiers audio à la racine -->
-        <audio id="success-sound" src="success.mp3"></audio>
-        <audio id="wrong-sound" src="wrong.mp3"></audio>
+        <!-- Image de bonne réponse -->
+        <div id="good-answer-img-container">
+            <img id="good-answer-img" src="bonne_reponse.png" alt="Bonne Réponse !">
+        </div>
     </div>
 
     <script src="script.js"></script>
