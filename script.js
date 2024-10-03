@@ -9,25 +9,6 @@ let extremeMode = false;
 // JSON des conjugaisons de verbes (A remplir avec votre JSON des conjugaisons)
 let verbData = {};
 
-// Définition des temps pour les modes normal et extrême
-const normalTenses = [
-    "présent",
-    "passé composé",
-    "imparfait",
-    "passé simple",
-    "futur simple"
-];
-
-const extremeTenses = [
-    "imparfait du subjonctif", // Nom corrigé selon votre fichier JSON
-    "subjonctif passé",
-    "conditionnel présent",
-    "plus-que-parfait",
-    "passé antérieur",
-    "futur antérieur",
-    "conditionnel passé première forme"
-];
-
 // Charger le JSON depuis un fichier local
 fetch('verbs.json')
     .then(response => response.json())
@@ -48,26 +29,21 @@ function toggleExtremeMode() {
 
 // Fonction pour faire tourner les slots
 function spin() {
-    // Sélectionner aléatoirement un verbe et un temps en fonction du mode
     let verbs = verbData.verbs;
     let randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
     currentVerb = randomVerb.infinitive;
 
-    let tenses = extremeMode ? extremeTenses : normalTenses; // Choisir les temps selon le mode
+    let tenses = extremeMode ? extremeTenses : normalTenses;
     currentTense = tenses[Math.floor(Math.random() * tenses.length)];
 
     let pronouns = Object.keys(randomVerb.conjugations[currentTense]);
     currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
 
-    // Afficher les valeurs des slots
     document.getElementById("verb-slot").textContent = currentVerb;
     document.getElementById("tense-slot").textContent = currentTense;
     document.getElementById("pronoun-slot").textContent = currentPronoun;
-
-    // Afficher le pronom dans la zone de saisie
     document.getElementById("display-pronoun").textContent = currentPronoun;
 
-    // Réinitialiser le champ de saisie et les messages d'état
     document.getElementById("user-input").value = "";
     document.getElementById("message").style.display = "none";
 }
@@ -78,7 +54,7 @@ function checkAnswer() {
     let expectedAnswer = verbData.verbs.find(v => v.infinitive === currentVerb).conjugations[currentTense][currentPronoun].toLowerCase();
 
     if (userInput === expectedAnswer) {
-        points += extremeMode ? 3 : 1; // Points triplés en mode extrême
+        points += extremeMode ? 3 : 1;
         attemptsLeft = 3;
         document.getElementById("points").textContent = points;
         document.getElementById("message").textContent = "Bonne réponse !";
@@ -86,7 +62,15 @@ function checkAnswer() {
         document.getElementById("message").classList.add("success");
         document.getElementById("message").style.display = "block";
         document.getElementById("success-sound").play();
-        spin();
+
+        // Afficher l'image "Bonne Réponse !" pendant 1,5 seconde
+        const goodAnswerImg = document.getElementById("good-answer-img");
+        goodAnswerImg.style.display = "block";
+        setTimeout(() => {
+            goodAnswerImg.style.display = "none";
+        }, 1500);
+
+        spin(); // Recharger un nouveau verbe
     } else {
         attemptsLeft -= 1;
         if (attemptsLeft > 0) {
@@ -102,9 +86,7 @@ function checkAnswer() {
         document.getElementById("wrong-sound").play();
     }
 
-    // Réinitialiser le champ de saisie après la vérification
     document.getElementById("user-input").value = "";
-
     document.getElementById("attempts").textContent = attemptsLeft;
 }
 
