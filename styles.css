@@ -290,3 +290,11 @@ body.extreme-mode .slot {
     text-shadow: 2px 2px 4px #ffa726; /* Ajouter une ombre pour le rendre plus visible */
     padding: 10px;
 }
+/* Styles pour le mode Duo */
+body.duo-mode {
+    background-color: #f3e5f5; /* Couleur violette douce */
+}
+
+body.duo-mode #game-title {
+    color: #7b1fa2; /* Couleur plus sombre pour le titre */
+}
