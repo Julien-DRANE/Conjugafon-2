@@ -72,29 +72,6 @@ function spin() {
     document.getElementById("message").style.display = "none";
 }
 
-// Fonction pour afficher l'image de bonne réponse avec effet de grossissement
-function showGoodAnswerImage() {
-    const goodAnswerImg = document.getElementById("good-answer-img");
-
-    if (goodAnswerImg) {
-        // Affichez l'image et démarrez l'animation
-        goodAnswerImg.style.display = "block";  // Afficher l'image
-        goodAnswerImg.style.opacity = "1";      // Rendre l'image visible
-        goodAnswerImg.style.transform = "translate(-50%, -50%) scale(1.3)"; // Appliquer le zoom (vous pouvez ajuster la valeur du scale)
-
-        // Après 1,3 seconde, masquer à nouveau l'image
-        setTimeout(() => {
-            goodAnswerImg.style.opacity = "0"; // Masquer l'image en la rendant transparente
-            goodAnswerImg.style.transform = "translate(-50%, -50%) scale(1)"; // Réinitialiser l'échelle
-            setTimeout(() => {
-                goodAnswerImg.style.display = "none"; // Cacher complètement l'image après l'animation
-            }, 300); // Attendre que l'opacité se termine avant de cacher l'image complètement
-        }, 1300);
-    } else {
-        console.error("L'image de bonne réponse n'a pas été trouvée. Assurez-vous que l'élément existe et que l'ID est correct.");
-    }
-}
-
 // Fonction pour vérifier la réponse
 function checkAnswer() {
     let userInput = document.getElementById("user-input").value.trim().toLowerCase();
@@ -109,11 +86,12 @@ function checkAnswer() {
         document.getElementById("message").classList.add("success");
         document.getElementById("message").style.display = "block";
 
-        // Jouer le son de bonne réponse
-        document.getElementById("success-sound").play();
-
-        // Afficher l'image de bonne réponse avec animation
-        showGoodAnswerImage();
+        // Afficher l'image "Bonne Réponse !" pendant 1,3 seconde
+        const goodAnswerImg = document.getElementById("good-answer-img");
+        goodAnswerImg.style.display = "block"; // Afficher l'image
+        setTimeout(() => {
+            goodAnswerImg.style.display = "none"; // Cacher l'image après 1,3 seconde
+        }, 1300);
 
         spin(); // Recharger un nouveau verbe
     } else {
@@ -128,9 +106,6 @@ function checkAnswer() {
         document.getElementById("message").classList.remove("success");
         document.getElementById("message").classList.add("error");
         document.getElementById("message").style.display = "block";
-
-        // Jouer le son de mauvaise réponse
-        document.getElementById("wrong-sound").play();
     }
 
     document.getElementById("user-input").value = "";
