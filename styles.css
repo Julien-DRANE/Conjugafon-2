@@ -6,11 +6,9 @@ body, html {
     background: linear-gradient(to right, #f0f4c3, #e1bee7);
     height: 100%;
     width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Évite le défilement horizontal */
+    overflow-x: hidden;
 }
 
-/* Conteneur principal occupant toute la largeur */
 .container {
     width: 100%;
     background-color: #fffde7;
@@ -21,7 +19,7 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh; /* Assure que le conteneur prend au moins la hauteur de la fenêtre */
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -37,7 +35,7 @@ header {
 
 h1.logo {
     margin: 0;
-    font-size: 24px;
+    font-size: 36px;
     color: #333;
 }
 
@@ -48,7 +46,6 @@ h1.logo {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    flex-wrap: wrap;
 }
 
 .score-grid p {
@@ -80,13 +77,11 @@ h1.logo {
     gap: 10px;
     margin: 10px 0;
     width: 100%;
-    flex-wrap: wrap; /* Permet aux slots de s'adapter à la largeur */
-    justify-content: center;
 }
 
 .slot {
-    width: 180px;
-    height: 110px;
+    width: 150px;
+    height: 100px;
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
@@ -94,7 +89,7 @@ h1.logo {
     justify-content: center;
     background-color: #fff9c4;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.8em;
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
@@ -114,14 +109,14 @@ h1.logo {
     margin-bottom: 10px;
     font-weight: bold;
     color: #f57f17;
-    font-size: 1.1em;
+    font-size: 1.5em;
 }
 
 #user-input {
     padding: 10px;
-    font-size: 1em;
+    font-size: 1.2em;
     width: 90%;
-    max-width: 300px;
+    max-width: 400px;
     border: 2px solid #f57f17;
     border-radius: 5px;
     text-align: center;
@@ -129,9 +124,9 @@ h1.logo {
 
 /* Bouton Vérifier */
 .primary-button {
-    padding: 12px 24px;
+    padding: 15px 30px;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -151,9 +146,8 @@ h1.logo {
 .buttons {
     margin: 20px 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 button {
@@ -164,8 +158,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     color: white;
-    width: 30%;
-    min-width: 100px;
 }
 
 #spin-btn {
@@ -195,36 +187,15 @@ button {
     transform: scale(1.05);
 }
 
-/* Status */
-.status {
-    margin-top: 20px;
-    font-size: 1em;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.status p {
-    margin: 5px 0;
-    padding: 8px 12px;
-    background-color: #e0f7fa;
-    border: 1px solid #81d4fa;
-    border-radius: 5px;
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Messages */
+/* Messages de succès ou d'erreur */
 .message {
     margin-top: 20px;
     padding: 15px;
     border-radius: 10px;
     display: none;
-    font-size: 1em;
+    font-size: 1.2em;
     width: 90%;
-    max-width: 300px;
+    max-width: 400px;
     text-align: center;
 }
 
@@ -249,7 +220,7 @@ button {
 .extreme-mode .slot {
     background-color: #2196f3;
     color: #fff;
-    font-size: 1.1em;
+    font-size: 1.5em;
 }
 
 .extreme-mode .primary-button {
@@ -270,182 +241,25 @@ button {
     transform: scale(1.05);
 }
 
-.extreme-mode .extreme-bonus {
-    background-color: #1e88e5;
-    color: white;
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    h1.logo {
-        font-size: 20px;
-    }
-
-    .score-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .score-grid p {
-        font-size: 16px;
-    }
-
     .slot-machine {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 15px;
     }
 
     .slot {
-        width: 80px;
-        height: 50px;
-        font-size: 1em;
+        width: 120px;
+        height: 80px;
+        font-size: 1.2em;
     }
 
     .prompt {
         width: 100%;
     }
 
-    #user-input {
-        width: 95%;
-    }
-
-    .primary-button {
-        width: 95%;
-        max-width: none;
-    }
-
-    .buttons button {
-        width: 45%; /* Deux boutons côte à côte */
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .status {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .status p {
-        font-size: 14px;
-    }
-
-    .message {
-        width: 95%;
-    }
-
-    /* Réorganisation des slots sur mobile */
-    .slot-machine {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        gap: 10px;
+    .prompt input {
         width: 100%;
     }
-
-    .slot:nth-child(3) {
-        grid-column: 1 / -1; /* Le troisième slot occupe toute la largeur */
-    }
-}
-
-@media (max-width: 480px) {
-    h1.logo {
-        font-size: 18px;
-    }
-
-    .score-grid p {
-        font-size: 14px;
-    }
-
-    .slot-machine {
-        gap: 6px;
-    }
-
-    .slot {
-        width: 70px;
-        height: 45px;
-        font-size: 0.9em;
-    }
-
-    #display-pronoun {
-        font-size: 1em;
-    }
-
-    #user-input {
-        padding: 8px;
-    }
-
-    .primary-button {
-        padding: 10px 18px;
-        font-size: 14px;
-    }
-
-    .buttons button {
-        width: 90%;
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .status p {
-        font-size: 12px;
-    }
-
-    .message {
-        font-size: 0.9em;
-    }
-
-    /* Réorganisation des slots sur très petits écrans */
-    .slot-machine {
-        grid-template-columns: 1fr; /* Tous les slots sur une seule colonne */
-    }
-
-    .slot:nth-child(1),
-    .slot:nth-child(2) {
-        grid-column: 1 / 1;
-    }
-
-    .slot:nth-child(3) {
-        grid-column: 1 / 1;
-    }
-}
-/* Bouton Compétition */
-.secondary-button {
-    background-color: #9c27b0; /* Violet */
-}
-
-.secondary-button:hover {
-    background-color: #7b1fa2;
-    transform: scale(1.05);
-}
-
-/* Compteurs */
-.score-grid {
-    margin-top: 10px;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.score-grid p {
-    margin: 5px 0;
-    padding: 8px 12px;
-    background-color: #fffde7;
-    border: 1px solid #f57f17;
-    border-radius: 5px;
-    display: inline-block;
-    color: #6050dc; /* Bleu Majorelle */
-    font-size: 18px;
-    font-weight: bold;
 }
