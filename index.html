@@ -39,8 +39,12 @@
 
     <!-- Image de bonne réponse -->
     <div id="good-answer-img-container">
-        <img id="good-answer-img" src="images/bonne_reponse.png" alt="Bonne Réponse !">
+        <img id="good-answer-img" src="images/bonne_reponse.png" alt="Bonne Réponse !" style="display:none; transform: scale(1); transition: transform 1s;">
     </div>
+
+    <!-- Sons du jeu -->
+    <audio id="success-sound" src="sounds/success.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="sounds/wrong.mp3" preload="auto"></audio>
 
     <!-- Fichiers JavaScript -->
     <script src="script.js"></script>
