@@ -26,8 +26,8 @@ let points = 0;
 let extremeMode = false;
 
 // Sons
-const successSound = new Audio('sounds/success-sound.mp3');
-const wrongSound = new Audio('sounds/wrong-sound.mp3');
+const successSound = new Audio('sounds/success.mp3'); // Nom du fichier modifié
+const wrongSound = new Audio('sounds/wrong.mp3'); // Nom du fichier modifié
 
 // JSON des conjugaisons de verbes (à remplir avec votre JSON des conjugaisons)
 let verbData = {};
