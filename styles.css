@@ -8,10 +8,11 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Évite le défilement horizontal */
 }
 
 .container {
-    width: 100%;
+    width: 95%;
     max-width: 800px;
     margin: 0 auto;
     background-color: #fffde7;
@@ -22,7 +23,8 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh; /* Occuper toute la hauteur de l'écran */
+    max-height: 100vh; /* Limite la hauteur à la hauteur de la fenêtre */
+    overflow-y: auto; /* Ajoute le défilement vertical si nécessaire */
     box-sizing: border-box;
 }
 
@@ -38,28 +40,28 @@ header {
 
 h1.logo {
     margin: 0;
-    font-size: 36px;
+    font-size: 24px; /* Réduction de la taille de la police pour les petits écrans */
     color: #333;
 }
 
-/* Grille des points réduite */
+/* Grille des points */
 .score-grid {
     margin-top: 10px;
-    font-size: 18px; /* Augmentation de la taille de la police */
+    font-size: 16px; /* Ajustement de la taille de la police */
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Espacement entre les points */
+    justify-content: space-around;
+    width: 100%;
 }
 
 .score-grid p {
     margin: 0;
-    padding: 10px 15px;
+    padding: 8px 12px;
     background-color: #fffde7;
     border: 1px solid #f57f17;
     border-radius: 5px;
     display: inline-block;
     color: #6050dc; /* Bleu Majorelle */
-    font-size: 24px; /* Taille de la police agrandie */
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -67,7 +69,7 @@ h1.logo {
 .game-area {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 0;
     align-items: center;
     width: 100%;
 }
@@ -75,15 +77,17 @@ h1.logo {
 /* Machine à sous */
 .slot-machine {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 10px; /* Rapprocher les slots */
+    gap: 10px;
     margin: 10px 0;
     width: 100%;
+    flex-wrap: wrap; /* Permet aux slots de s'adapter à la largeur */
 }
 
 .slot {
-    width: 120px;
-    height: 80px;
+    width: 100px; /* Réduction de la largeur pour les petits écrans */
+    height: 60px; /* Réduction de la hauteur */
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
@@ -91,7 +95,7 @@ h1.logo {
     justify-content: center;
     background-color: #fff9c4;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em; /* Ajustement de la taille de la police */
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
@@ -109,24 +113,24 @@ h1.logo {
 /* Prompt */
 .prompt {
     margin: 20px 0;
-    font-size: 1.4em;
+    font-size: 1.2em;
     display: flex;
-    flex-direction: column; /* Vertical pour aligner le pronom et l'input */
+    flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
 #display-pronoun {
-    margin-bottom: 10px; /* Espacement entre le pronom et l'input */
+    margin-bottom: 10px;
     font-weight: bold;
     color: #f57f17;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 #user-input {
     padding: 10px;
     font-size: 1em;
-    width: 80%;
+    width: 90%;
     max-width: 300px;
     border: 2px solid #f57f17;
     border-radius: 5px;
@@ -135,8 +139,8 @@ h1.logo {
 
 /* Bouton Vérifier */
 .primary-button {
-    padding: 10px 20px;
-    margin-top: 10px; /* Espacement au-dessus du bouton */
+    padding: 12px 24px;
+    margin-top: 10px;
     font-size: 16px;
     border: none;
     border-radius: 10px;
@@ -144,7 +148,7 @@ h1.logo {
     transition: background-color 0.3s, transform 0.3s;
     color: white;
     background-color: #4CAF50;
-    width: 80%;
+    width: 90%;
     max-width: 300px;
 }
 
@@ -159,7 +163,7 @@ h1.logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Espacement entre les boutons */
+    gap: 10px;
 }
 
 button {
@@ -170,6 +174,8 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     color: white;
+    width: 30%; /* Ajustement de la largeur des boutons */
+    min-width: 100px; /* Largeur minimale */
 }
 
 #spin-btn {
@@ -202,21 +208,21 @@ button {
 /* Status */
 .status {
     margin-top: 20px;
-    font-size: 1.2em;
+    font-size: 1em;
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Espacement entre les éléments de statut */
+    justify-content: space-around;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .status p {
-    margin: 0;
-    padding: 10px 15px;
+    margin: 5px 0;
+    padding: 8px 12px;
     background-color: #e0f7fa;
     border: 1px solid #81d4fa;
     border-radius: 5px;
     color: #333;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -226,8 +232,8 @@ button {
     padding: 15px;
     border-radius: 10px;
     display: none;
-    font-size: 1.1em;
-    width: 80%;
+    font-size: 1em;
+    width: 90%;
     max-width: 300px;
     text-align: center;
 }
@@ -251,72 +257,88 @@ button {
 }
 
 .extreme-mode .slot {
-    background-color: #ff5722;
+    background-color: #2196f3;
     color: #fff;
-    font-size: 1.2em; /* Réduction de la taille de la police pour les temps */
+    font-size: 1.1em;
 }
 
 .extreme-mode .primary-button {
-    background-color: #e91e63;
+    background-color: #1e88e5;
 }
 
 .extreme-mode .primary-button:hover {
+    background-color: #1565c0;
     transform: scale(1.05);
 }
 
 .extreme-mode button {
-    background-color: #e91e63;
+    background-color: #1e88e5;
 }
 
 .extreme-mode button:hover {
+    background-color: #1565c0;
     transform: scale(1.05);
 }
 
-/* Animations supplémentaires (facultatif) */
-@keyframes spin-animation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.extreme-mode .extreme-bonus {
+    background-color: #1e88e5;
+    color: white;
+}
+
+/* Symbole "X3" Animation */
+.extreme-mode .extreme-bonus {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    h1.logo {
+        font-size: 20px;
+    }
+
+    .score-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .score-grid p {
+        font-size: 16px;
+    }
+
     .slot-machine {
         flex-direction: column;
         align-items: center;
-        gap: 5px; /* Réduire l'espacement sur mobile */
+        gap: 8px;
     }
 
     .slot {
-        width: 80%;
-        height: 60px;
-        font-size: 1.2em;
+        width: 80px;
+        height: 50px;
+        font-size: 1em;
     }
 
     .prompt {
-        flex-direction: column;
-    }
-
-    #display-pronoun {
-        margin-bottom: 10px;
+        width: 100%;
     }
 
     #user-input {
-        width: 100%;
-        max-width: none;
+        width: 95%;
     }
 
     .primary-button {
-        width: 100%;
+        width: 95%;
         max-width: none;
     }
 
-    .buttons {
-        flex-direction: column;
-        gap: 5px; /* Réduire l'espacement sur mobile */
-    }
-
-    button {
-        width: 100%;
+    .buttons button {
+        width: 80%;
         max-width: none;
     }
 
@@ -327,11 +349,57 @@ button {
     }
 
     .status p {
-        margin-bottom: 10px;
+        font-size: 14px;
     }
 
     .message {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1.logo {
+        font-size: 18px;
+    }
+
+    .score-grid p {
+        font-size: 14px;
+    }
+
+    .slot-machine {
+        gap: 6px;
+    }
+
+    .slot {
+        width: 70px;
+        height: 45px;
+        font-size: 0.9em;
+    }
+
+    #display-pronoun {
+        font-size: 1em;
+    }
+
+    #user-input {
+        padding: 8px;
+    }
+
+    .primary-button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .buttons button {
         width: 90%;
-        max-width: none;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .status p {
+        font-size: 12px;
+    }
+
+    .message {
+        font-size: 0.9em;
     }
 }
