@@ -75,19 +75,24 @@ function spin() {
 // Fonction pour afficher l'image de bonne réponse avec effet de grossissement
 function showGoodAnswerImage() {
     const goodAnswerImg = document.getElementById("good-answer-img");
-    goodAnswerImg.style.display = "block";
-    goodAnswerImg.style.transform = "scale(1)"; // Réinitialiser l'effet de zoom
 
-    // Déclencher l'animation de zoom
-    setTimeout(() => {
-        goodAnswerImg.style.transform = "scale(1.5)"; // Agrandir l'image
-    }, 0);
+    if (goodAnswerImg) {
+        // Affichez l'image et démarrez l'animation
+        goodAnswerImg.style.display = "block";  // Afficher l'image
+        goodAnswerImg.style.opacity = "1";      // Rendre l'image visible
+        goodAnswerImg.style.transform = "translate(-50%, -50%) scale(1.3)"; // Appliquer le zoom (vous pouvez ajuster la valeur du scale)
 
-    // Masquer l'image après 1,3 seconde
-    setTimeout(() => {
-        goodAnswerImg.style.display = "none";
-        goodAnswerImg.style.transform = "scale(1)"; // Réinitialiser l'animation
-    }, 1300);
+        // Après 1,3 seconde, masquer à nouveau l'image
+        setTimeout(() => {
+            goodAnswerImg.style.opacity = "0"; // Masquer l'image en la rendant transparente
+            goodAnswerImg.style.transform = "translate(-50%, -50%) scale(1)"; // Réinitialiser l'échelle
+            setTimeout(() => {
+                goodAnswerImg.style.display = "none"; // Cacher complètement l'image après l'animation
+            }, 300); // Attendre que l'opacité se termine avant de cacher l'image complètement
+        }, 1300);
+    } else {
+        console.error("L'image de bonne réponse n'a pas été trouvée. Assurez-vous que l'élément existe et que l'ID est correct.");
+    }
 }
 
 // Fonction pour vérifier la réponse
