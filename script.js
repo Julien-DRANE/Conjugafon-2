@@ -18,7 +18,7 @@ const normalTenses = [
     "futur simple"
 ];
 const extremeTenses = [
-    "subjonctif imparfait",
+    "imparfait du subjonctif",
     "subjonctif passé",
     "conditionnel présent",
     "plus-que-parfait",
