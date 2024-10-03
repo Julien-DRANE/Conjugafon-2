@@ -151,8 +151,17 @@ function checkAnswer() {
         return;
     }
 
-    // Extraire la forme complète du verbe conjugué
-    let correctVerb = correctAnswer;
+    // Extraire uniquement la forme du verbe conjugué
+    let correctVerb = "";
+
+    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
+        // Ces temps utilisent un auxiliaire + participe passé
+        let parts = correctAnswer.split(' ');
+        correctVerb = parts.slice(1).join(' ');
+    } else {
+        // Temps simples
+        correctVerb = correctAnswer;
+    }
 
     // Nettoyer la réponse correcte des parenthèses et apostrophes
     correctVerb = correctVerb
@@ -197,13 +206,17 @@ function updateStatus() {
 function toggleMode() {
     modeExtreme = !modeExtreme;
     const container = document.querySelector('.container');
+    const multiplierSymbol = document.getElementById('multiplier-symbol');
+
     if (modeExtreme) {
         container.classList.add('extreme-mode');
         showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
+        multiplierSymbol.classList.add('show'); // Afficher le symbole X3
         spinReels(); // Recharger un nouveau verbe et temps en mode extrême
     } else {
         container.classList.remove('extreme-mode');
         showMessage('success', "Mode Extrême désactivé.");
+        multiplierSymbol.classList.remove('show'); // Masquer le symbole X3
         spinReels(); // Recharger un nouveau verbe et temps en mode normal
     }
 }
@@ -223,8 +236,17 @@ function showCorrectAnswer() {
         return;
     }
 
-    // Extraire la forme complète du verbe conjugué
-    let correctVerb = correctAnswer;
+    // Extraire uniquement la forme du verbe conjugué
+    let correctVerb = "";
+
+    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
+        // Ces temps utilisent un auxiliaire + participe passé
+        let parts = correctAnswer.split(' ');
+        correctVerb = parts.slice(1).join(' ');
+    } else {
+        // Temps simples
+        correctVerb = correctAnswer;
+    }
 
     // Nettoyer la réponse correcte des parenthèses et apostrophes
     correctVerb = correctVerb
