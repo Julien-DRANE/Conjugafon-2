@@ -86,6 +86,21 @@ function checkAnswer() {
         document.getElementById("message").classList.add("success");
         document.getElementById("message").style.display = "block";
 
+        // Jouer le son de bonne réponse
+        document.getElementById("success-sound").play();
+
+        // Afficher l'image "Bonne Réponse !" pendant 1,5 seconde
+        const goodAnswerImg = document.getElementById("good-answer-img");
+        goodAnswerImg.style.display = "block";
+        goodAnswerImg.style.transform = "scale(1)"; // Réinitialiser le zoom
+        setTimeout(() => {
+            goodAnswerImg.style.transform = "scale(1.5)";
+        }, 0); // Démarrer le zoom
+
+        setTimeout(() => {
+            goodAnswerImg.style.display = "none";
+        }, 1500);
+
         spin(); // Recharger un nouveau verbe
     } else {
         attemptsLeft -= 1;
@@ -99,6 +114,9 @@ function checkAnswer() {
         document.getElementById("message").classList.remove("success");
         document.getElementById("message").classList.add("error");
         document.getElementById("message").style.display = "block";
+
+        // Jouer le son de mauvaise réponse
+        document.getElementById("wrong-sound").play();
     }
 
     document.getElementById("user-input").value = "";
