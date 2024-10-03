@@ -19,7 +19,7 @@ const extremeTenses = [
 
 const duoTenses = [
     "passé simple",
-    "imparfait du subjonctif"
+    "futur antérieur"
 ];
 
 // Variables globales
