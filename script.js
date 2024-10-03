@@ -72,6 +72,24 @@ function spin() {
     document.getElementById("message").style.display = "none";
 }
 
+// Fonction pour afficher l'image de bonne réponse avec effet de grossissement
+function showGoodAnswerImage() {
+    const goodAnswerImg = document.getElementById("good-answer-img");
+    goodAnswerImg.style.display = "block";
+    goodAnswerImg.style.transform = "scale(1)"; // Réinitialiser l'effet de zoom
+
+    // Déclencher l'animation de zoom
+    setTimeout(() => {
+        goodAnswerImg.style.transform = "scale(1.5)"; // Agrandir l'image
+    }, 0);
+
+    // Masquer l'image après 1,3 seconde
+    setTimeout(() => {
+        goodAnswerImg.style.display = "none";
+        goodAnswerImg.style.transform = "scale(1)"; // Réinitialiser l'animation
+    }, 1300);
+}
+
 // Fonction pour vérifier la réponse
 function checkAnswer() {
     let userInput = document.getElementById("user-input").value.trim().toLowerCase();
@@ -89,17 +107,8 @@ function checkAnswer() {
         // Jouer le son de bonne réponse
         document.getElementById("success-sound").play();
 
-        // Afficher l'image "Bonne Réponse !" pendant 1,5 seconde
-        const goodAnswerImg = document.getElementById("good-answer-img");
-        goodAnswerImg.style.display = "block";
-        goodAnswerImg.style.transform = "scale(1)"; // Réinitialiser le zoom
-        setTimeout(() => {
-            goodAnswerImg.style.transform = "scale(1.5)";
-        }, 0); // Démarrer le zoom
-
-        setTimeout(() => {
-            goodAnswerImg.style.display = "none";
-        }, 1500);
+        // Afficher l'image de bonne réponse avec animation
+        showGoodAnswerImage();
 
         spin(); // Recharger un nouveau verbe
     } else {
