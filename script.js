@@ -151,17 +151,8 @@ function checkAnswer() {
         return;
     }
 
-    // Extraire uniquement la forme du verbe conjugué
-    let correctVerb = "";
-
-    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
-        // Ces temps utilisent un auxiliaire + participe passé
-        let parts = correctAnswer.split(' ');
-        correctVerb = parts.slice(1).join(' ');
-    } else {
-        // Temps simples
-        correctVerb = correctAnswer;
-    }
+    // Extraire la forme complète du verbe conjugué
+    let correctVerb = correctAnswer;
 
     // Nettoyer la réponse correcte des parenthèses et apostrophes
     correctVerb = correctVerb
@@ -232,17 +223,8 @@ function showCorrectAnswer() {
         return;
     }
 
-    // Extraire uniquement la forme du verbe conjugué
-    let correctVerb = "";
-
-    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
-        // Ces temps utilisent un auxiliaire + participe passé
-        let parts = correctAnswer.split(' ');
-        correctVerb = parts.slice(1).join(' ');
-    } else {
-        // Temps simples
-        correctVerb = correctAnswer;
-    }
+    // Extraire la forme complète du verbe conjugué
+    let correctVerb = correctAnswer;
 
     // Nettoyer la réponse correcte des parenthèses et apostrophes
     correctVerb = correctVerb
