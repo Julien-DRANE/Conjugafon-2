@@ -85,8 +85,8 @@ h1.logo {
 }
 
 .slot {
-    width: 100px;
-    height: 60px;
+    width: 180px;
+    height: 110px;
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
