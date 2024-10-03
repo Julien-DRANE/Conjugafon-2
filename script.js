@@ -1,6 +1,3 @@
-window.onload = function() {
-    showGoodAnswerImage();
-};
 // Déclaration des temps pour les modes normal et extrême
 const normalTenses = [
     "présent",
