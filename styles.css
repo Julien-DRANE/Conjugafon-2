@@ -280,3 +280,13 @@ body.extreme-mode .slot {
         transform: translate(-50%, -50%) scale(1);
     }
 }
+/* Style du titre "Conjugafond" */
+#game-title {
+    font-family: 'Pacifico', cursive; /* Appliquer la police Pacifico */
+    text-align: center; /* Centrer le titre */
+    font-size: 48px; /* Taille de police plus grande */
+    margin: 20px 0; /* Marges autour du titre */
+    color: #f57f17; /* Couleur du texte */
+    text-shadow: 2px 2px 4px #ffa726; /* Ajouter une ombre pour le rendre plus visible */
+    padding: 10px;
+}
