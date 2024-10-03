@@ -1,4 +1,8 @@
 /* Style général */
+* {
+    box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur et la hauteur */
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -12,14 +16,13 @@ body, html {
 }
 
 .container {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Occupe toute la largeur disponible */
+    height: 100vh; /* Occupe toute la hauteur de la fenêtre */
     background-color: #fffde7;
     border: 2px solid #f57f17;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,14 +39,14 @@ header {
 
 h1.logo {
     margin: 0;
-    font-size: 36px;
+    font-size: 2em; /* Ajusté pour une meilleure lisibilité */
     color: #333;
 }
 
 /* Grille des points réduite */
 .score-grid {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 1em;
     display: flex;
     justify-content: space-around;
 }
@@ -62,10 +65,9 @@ h1.logo {
 .game-area {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 0;
     align-items: center;
-    flex-grow: 1;
-    overflow-y: auto;
+    flex: 1; /* Prend tout l'espace disponible */
 }
 
 /* Machine à sous */
@@ -77,8 +79,8 @@ h1.logo {
 }
 
 .slot {
-    width: 120px;
-    height: 80px;
+    width: 100px;
+    height: 70px;
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
@@ -86,7 +88,7 @@ h1.logo {
     justify-content: center;
     background-color: #fff9c4;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em;
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
@@ -104,7 +106,7 @@ h1.logo {
 /* Prompt */
 .prompt {
     margin: 20px 0;
-    font-size: 1.4em;
+    font-size: 1.2em;
     display: flex;
     align-items: center;
 }
@@ -118,7 +120,7 @@ h1.logo {
 #user-input {
     padding: 10px;
     font-size: 1em;
-    width: 200px;
+    width: 60%;
     border: 2px solid #f57f17;
     border-radius: 5px;
 }
@@ -134,7 +136,7 @@ h1.logo {
 button {
     padding: 10px 20px;
     margin: 10px;
-    font-size: 16px;
+    font-size: 1em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -181,9 +183,10 @@ button {
 /* Status */
 .status {
     margin-top: 20px;
-    font-size: 1.2em;
+    font-size: 1em;
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 .status p {
@@ -202,6 +205,8 @@ button {
     border-radius: 10px;
     display: none;
     font-size: 1.1em;
+    width: 80%;
+    text-align: center;
 }
 
 .message.success {
@@ -225,7 +230,7 @@ button {
 .extreme-mode .slot {
     background-color: #ff5722;
     color: #fff;
-    font-size: 1.2em; /* Réduction de la taille de la police pour les temps */
+    font-size: 1em; /* Réduction de la taille de la police pour les temps */
 }
 
 .extreme-mode button {
@@ -236,31 +241,47 @@ button {
     transform: scale(1.05);
 }
 
-/* Symbole X3 pour Mode Extrême */
-.x3-symbol {
+/* Symbole Animé X3 */
+.extreme-mode::before {
+    content: 'X3';
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    background-color: rgba(255, 87, 34, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
     font-weight: bold;
-    color: #ff5722;
-    animation: blink 1s infinite;
-    display: none; /* Masqué par défaut */
+    animation: pulse 1s infinite;
+    font-size: 1.2em;
 }
 
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0.5; }
-}
-
-/* Son Spinning Animation */
-@keyframes spin-animation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    h1.logo {
+        font-size: 1.8em;
+    }
+
     .slot-machine {
         flex-direction: column;
         align-items: center;
@@ -269,7 +290,8 @@ button {
     .slot {
         width: 80%;
         height: 60px;
-        font-size: 1.2em;
+        font-size: 1em;
+        margin-bottom: 10px;
     }
 
     .prompt {
@@ -281,7 +303,7 @@ button {
     }
 
     #user-input {
-        width: 80%;
+        width: 100%;
     }
 
     .buttons {
@@ -289,7 +311,7 @@ button {
     }
 
     button {
-        width: 80%;
+        width: 100%;
         margin: 5px 0;
     }
 
@@ -300,5 +322,16 @@ button {
 
     .status p {
         margin-bottom: 10px;
+    }
+
+    .message {
+        width: 100%;
+    }
+
+    /* Symbole Animé X3 ajusté pour mobile */
+    .extreme-mode::before {
+        top: 5px;
+        right: 5px;
+        font-size: 1em;
     }
 }
