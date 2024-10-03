@@ -85,14 +85,22 @@ h1.logo {
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Aligner verticalement */
+    justify-content: center; /* Aligner horizontalement */
     background-color: #fff9c4;
     font-weight: bold;
     font-size: 1.8em;
+    text-align: center; /* Alignement du texte */
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
+}
+
+/* Centrer le texte dans les slots */
+.slot p {
+    margin: 0;
+    padding: 0;
+    line-height: 1; /* Ajuster l'interligne si nécessaire */
 }
 
 /* Prompt */
