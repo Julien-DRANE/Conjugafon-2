@@ -298,3 +298,11 @@ body.duo-mode {
 body.duo-mode #game-title {
     color: #7b1fa2; /* Couleur plus sombre pour le titre */
 }
+/* Style pour le mode Duo */
+body.duo-mode {
+    background: linear-gradient(135deg, #ffcc80, #80d8ff); /* Deux couleurs (orange et bleu clair) */
+}
+
+body.duo-mode #game-title {
+    color: #3f51b5; /* Changer la couleur du titre en mode Duo */
+}
