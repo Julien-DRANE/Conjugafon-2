@@ -682,28 +682,28 @@
           "ils/elles": "avaient venu"
         },
         "passé antérieur": {
-          "j'": "eus venu",
-          "tu": "eus venu",
-          "il/elle": "eut venu",
-          "nous": "eûmes venu",
-          "vous": "eûtes venu",
-          "ils/elles": "eurent venu"
+          "je": "fus venu",
+          "tu": "fus venu",
+          "il/elle": "fut venu",
+          "nous": "fûmes venu",
+          "vous": "fûtes venu",
+          "ils/elles": "furent venu"
         },
         "futur antérieur": {
-          "j'": "aurai venu",
-          "tu": "auras venu",
-          "il/elle": "aura venu",
-          "nous": "aurons venu",
-          "vous": "aurez venu",
-          "ils/elles": "auront venu"
+          "je": "serai venu",
+          "tu": "seras venu",
+          "il/elle": "sera venu",
+          "nous": "serons venu",
+          "vous": "serez venu",
+          "ils/elles": "seront venu"
         },
         "conditionnel passé première forme": {
-          "j'": "aurais venu",
-          "tu": "aurais venu",
-          "il/elle": "aurait venu",
-          "nous": "aurions venu",
-          "vous": "auriez venu",
-          "ils/elles": "auraient venu"
+          "je": "serais venu",
+          "tu": "serais venu",
+          "il/elle": "serait venu",
+          "nous": "serions venu",
+          "vous": "seriez venu",
+          "ils/elles": "seraient venu"
         }
       }
     },
