@@ -75,7 +75,56 @@ function spin() {
     document.getElementById("user-input").value = "";
     document.getElementById("message").style.display = "none";
 }
+// Affiche la bulle de "Bonne Réponse !"
+function showGoodAnswerBubble() {
+    const bubble = document.getElementById("good-answer-bubble");
+    bubble.style.display = "block"; // Afficher la bulle
+    setTimeout(() => {
+        bubble.style.display = "none"; // Cacher la bulle après 1,3 seconde
+    }, 1300);
+}
 
+// Fonction pour vérifier la réponse
+function checkAnswer() {
+    let userInput = document.getElementById("user-input").value.trim().toLowerCase();
+    let expectedAnswer = verbData.verbs.find(v => v.infinitive === currentVerb).conjugations[currentTense][currentPronoun].toLowerCase();
+
+    if (userInput === expectedAnswer) {
+        points += extremeMode ? 3 : 1;
+        attemptsLeft = 3;
+        document.getElementById("points").textContent = points;
+        document.getElementById("message").textContent = "Bonne réponse !";
+        document.getElementById("message").classList.remove("error");
+        document.getElementById("message").classList.add("success");
+        document.getElementById("message").style.display = "block";
+
+        // Jouer le son de réussite
+        successSound.play();
+
+        // Afficher la bulle "Bonne Réponse !"
+        showGoodAnswerBubble();
+
+        spin(); // Recharger un nouveau verbe
+    } else {
+        attemptsLeft -= 1;
+        if (attemptsLeft > 0) {
+            document.getElementById("message").textContent = "Mauvaise réponse. Réessayez.";
+        } else {
+            document.getElementById("message").textContent = `Mauvaise réponse. La bonne réponse était : ${expectedAnswer}`;
+            attemptsLeft = 3;
+            spin();
+        }
+        document.getElementById("message").classList.remove("success");
+        document.getElementById("message").classList.add("error");
+        document.getElementById("message").style.display = "block";
+
+        // Jouer le son d'erreur
+        wrongSound.play();
+    }
+
+    document.getElementById("user-input").value = "";
+    document.getElementById("attempts").textContent = attemptsLeft;
+}
 // Fonction pour vérifier la réponse
 function checkAnswer() {
     let userInput = document.getElementById("user-input").value.trim().toLowerCase();
