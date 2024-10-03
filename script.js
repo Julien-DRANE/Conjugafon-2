@@ -18,7 +18,7 @@ const normalTenses = [
     "futur simple"
 ];
 const extremeTenses = [
-    "imparfait du subjonctif", // Correction ici
+    "imparfait du subjonctif", // Correction du nom
     "subjonctif passé",
     "conditionnel présent",
     "plus-que-parfait",
@@ -27,36 +27,9 @@ const extremeTenses = [
     "conditionnel passé première forme"
 ];
 
-// Liste des pronoms personnels
-const pronouns = ["je", "tu", "il/elle", "nous", "vous", "ils/elles"];
-
 // Fonction pour normaliser les chaînes (supprimer les accents et mettre en minuscules)
 function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-}
-
-// Fonction pour obtenir la clé de conjugaison basée sur le pronom et le temps
-function getConjugationKey(pronoun, tense) {
-    const requiresQue = tense.includes("subjonctif"); // Détecte les temps nécessitant "que"
-    if (requiresQue) {
-        switch(pronoun) {
-            case "je":
-                return "que je";
-            case "tu":
-                return "que tu";
-            case "il/elle":
-                return "qu’il/elle";
-            case "nous":
-                return "que nous";
-            case "vous":
-                return "que vous";
-            case "ils/elles":
-                return "qu’ils/elles";
-            default:
-                return pronoun;
-        }
-    }
-    return pronoun; // Pour les temps n'exigeant pas "que"
 }
 
 // Charger les données JSON
@@ -105,8 +78,24 @@ function spinReels() {
         let tenses = modeExtreme ? extremeTenses : normalTenses;
         currentTense = tenses[Math.floor(Math.random() * tenses.length)];
 
-        // Sélectionner un pronom aléatoire
-        currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+        // Vérifier si le verbe a des conjugaisons pour ce temps
+        if (!currentVerb.conjugations[currentTense]) {
+            console.error(`Le verbe "${currentVerb.infinitive}" n'a pas de conjugaison pour le temps "${currentTense}".`);
+            spinReels(); // Relancer les rouleaux
+            return;
+        }
+
+        // Récupérer les pronoms disponibles pour ce temps
+        const availablePronouns = Object.keys(currentVerb.conjugations[currentTense]);
+
+        if (availablePronouns.length === 0) {
+            console.error(`Aucun pronom disponible pour le verbe "${currentVerb.infinitive}" au temps "${currentTense}".`);
+            spinReels(); // Relancer les rouleaux
+            return;
+        }
+
+        // Sélectionner un pronom aléatoire parmi les disponibles
+        currentPronoun = availablePronouns[Math.floor(Math.random() * availablePronouns.length)];
 
         // Mettre à jour les rouleaux avec les nouvelles valeurs
         verbSlot.textContent = currentVerb.infinitive;
@@ -135,22 +124,14 @@ function spinReels() {
 
 // Fonction pour formater le pronom affiché
 function formatPronoun(pronoun, tense) {
-    // Gestion des contractions pour "je" devant une voyelle ou un 'h' muet
-    if (pronoun === "je") {
-        const firstLetter = currentVerb.infinitive.charAt(0).toLowerCase();
-        if (['a', 'e', 'i', 'o', 'u', 'h'].includes(firstLetter)) {
-            return "j’";
-        }
+    // Si le pronom commence par "que", on peut le retirer pour l'affichage
+    // ou ajuster selon les besoins
+    if (pronoun.startsWith("que ")) {
+        return pronoun.replace("que ", "") + " ";
     }
-
-    // Gestion des pronoms spécifiques pour le subjonctif
-    if (tense.includes("subjonctif")) {
-        if (pronoun === "je") return "que je ";
-        if (pronoun === "il/elle") return "qu’il ";
-        if (pronoun === "ils/elles") return "qu’ils/elles ";
+    if (pronoun.startsWith("qu’")) { // Gestion des apostrophes
+        return pronoun.replace("qu’", "qu’") + " ";
     }
-
-    // Autres pronoms
     return pronoun + " ";
 }
 
@@ -163,22 +144,14 @@ function checkAnswer() {
     }
 
     // Récupérer la conjugaison correcte pour le pronom et le temps sélectionnés
-    let conjugation = currentVerb.conjugations[currentTense];
+    let conjugation = currentVerb.conjugations[currentTense][currentPronoun];
     if (!conjugation) {
-        showMessage('error', "Le temps sélectionné n'est pas disponible.");
-        return;
-    }
-
-    // Obtenir la clé de conjugaison basée sur le pronom et le temps
-    let conjugationKey = getConjugationKey(currentPronoun, currentTense);
-    let correctAnswer = conjugation[conjugationKey];
-    if (!correctAnswer) {
         showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
         return;
     }
 
     // Comparaison insensible à la casse et sans accents
-    if (normalizeString(userInput) === normalizeString(correctAnswer)) {
+    if (normalizeString(userInput) === normalizeString(conjugation)) {
         // Réponse correcte
         let pointsEarned = modeExtreme ? 3 : 1;
         points += pointsEarned;
@@ -194,7 +167,7 @@ function checkAnswer() {
         if (attempts > 0) {
             showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
         } else {
-            showMessage('error', `Incorrect. La bonne réponse était : ${correctAnswer}`);
+            showMessage('error', `Incorrect. La bonne réponse était : ${conjugation}`);
             spinReels();
         }
     }
@@ -224,22 +197,14 @@ function toggleMode() {
 // Fonction pour afficher la réponse correcte
 function showCorrectAnswer() {
     // Récupérer la conjugaison correcte pour le pronom et le temps sélectionnés
-    let conjugation = currentVerb.conjugations[currentTense];
+    let conjugation = currentVerb.conjugations[currentTense][currentPronoun];
     if (!conjugation) {
-        showMessage('error', "Le temps sélectionné n'est pas disponible.");
-        return;
-    }
-
-    // Obtenir la clé de conjugaison basée sur le pronom et le temps
-    let conjugationKey = getConjugationKey(currentPronoun, currentTense);
-    let correctAnswer = conjugation[conjugationKey];
-    if (!correctAnswer) {
         showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
         return;
     }
 
     // Afficher la réponse dans un message
-    showMessage('success', `La bonne réponse était : ${correctAnswer}`);
+    showMessage('success', `La bonne réponse était : ${conjugation}`);
 }
 
 // Fonction pour afficher un message intégré
