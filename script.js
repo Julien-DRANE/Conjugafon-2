@@ -1,233 +1,194 @@
-// script.js
-
-// Variables globales
-let verbsData = [];
-let currentVerb = null;
-let currentTense = null;
-let currentPronoun = null;
-let modeExtreme = false;
+// Variables Globales
+let verbs = []; // Liste des verbes chargés depuis le JSON
+let currentVerbIndex = 0;
+let currentQuestionNumber = 0;
 let points = 0;
-let attempts = 3;
+let verbsRemaining = 0;
+let isExtremeMode = false;
+let isCompetitionMode = false;
 
-// Définition des temps pour les modes normal et extrême
-const normalTenses = [
-    "présent",
-    "passé composé",
-    "imparfait",
-    "passé simple",
-    "futur simple"
-];
-const extremeTenses = [
-    "imparfait du subjonctif", // Correction du nom
-    "subjonctif passé",
-    "conditionnel présent",
-    "plus-que-parfait",
-    "passé antérieur",
-    "futur antérieur",
-    "conditionnel passé première forme"
-];
-
-// Fonction pour normaliser les chaînes (supprimer les accents et mettre en minuscules)
-function normalizeString(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-}
-
-// Charger les données JSON
+// Chargement du JSON des verbes (Assurez-vous que le chemin est correct)
 fetch('verbs.json')
     .then(response => response.json())
     .then(data => {
-        verbsData = data.verbs;
-        initializeGame();
+        verbs = data.verbs;
+        verbsRemaining = verbs.length;
+        document.getElementById('verbs-remaining').textContent = verbsRemaining;
+        loadNextQuestion();
     })
-    .catch(error => console.error('Error loading JSON:', error));
+    .catch(error => console.error('Erreur de chargement du JSON:', error));
 
-// Initialiser le jeu
-function initializeGame() {
-    spinReels();
-    document.getElementById('submit-btn').addEventListener('click', checkAnswer);
-    document.getElementById('spin-btn').addEventListener('click', spinReels);
-    document.getElementById('toggle-mode-btn').addEventListener('click', toggleMode);
-    document.getElementById('show-answer-btn').addEventListener('click', showCorrectAnswer);
-    
-    // Ajouter l'écouteur d'événement pour la touche Entrée sur le champ de saisie
-    document.getElementById('user-input').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Empêcher tout comportement par défaut
-            checkAnswer();
-        }
-    });
-}
-
-// Fonction pour lancer les rouleaux avec animation
-function spinReels() {
-    const verbSlot = document.getElementById('verb-slot');
-    const tenseSlot = document.getElementById('tense-slot');
-    const pronounSlot = document.getElementById('pronoun-slot');
-
-    // Ajouter la classe 'spinning' pour lancer l'animation
-    verbSlot.classList.add('spinning');
-    tenseSlot.classList.add('spinning');
-    pronounSlot.classList.add('spinning');
-
-    // Temporisation correspondant à la durée de l'animation CSS
-    setTimeout(() => {
-        // Sélectionner un verbe aléatoire
-        currentVerb = verbsData[Math.floor(Math.random() * verbsData.length)];
-
-        // Sélectionner un temps aléatoire basé sur le mode
-        let tenses = modeExtreme ? extremeTenses : normalTenses;
-        currentTense = tenses[Math.floor(Math.random() * tenses.length)];
-
-        // Vérifier si le verbe a des conjugaisons pour ce temps
-        if (!currentVerb.conjugations[currentTense]) {
-            console.error(`Le verbe "${currentVerb.infinitive}" n'a pas de conjugaison pour le temps "${currentTense}".`);
-            spinReels(); // Relancer les rouleaux
-            return;
-        }
-
-        // Récupérer les pronoms disponibles pour ce temps
-        const availablePronouns = Object.keys(currentVerb.conjugations[currentTense]);
-
-        if (availablePronouns.length === 0) {
-            console.error(`Aucun pronom disponible pour le verbe "${currentVerb.infinitive}" au temps "${currentTense}".`);
-            spinReels(); // Relancer les rouleaux
-            return;
-        }
-
-        // Sélectionner un pronom aléatoire parmi les disponibles
-        currentPronoun = availablePronouns[Math.floor(Math.random() * availablePronouns.length)];
-
-        // Mettre à jour les rouleaux avec les nouvelles valeurs
-        verbSlot.textContent = currentVerb.infinitive;
-        tenseSlot.textContent = currentTense;
-        pronounSlot.textContent = currentPronoun;
-
-        // Mettre à jour l'affichage du pronom
-        document.getElementById('display-pronoun').textContent = formatPronoun(currentPronoun, currentTense);
-
-        // Réinitialiser l'input et les tentatives si nécessaire
-        document.getElementById('user-input').value = '';
-        if (attempts === 0 || attempts === 3) {
-            attempts = 3;
-            updateStatus();
-        }
-
-        // Retirer la classe 'spinning' après l'animation
-        verbSlot.classList.remove('spinning');
-        tenseSlot.classList.remove('spinning');
-        pronounSlot.classList.remove('spinning');
-
-        // Masquer tout message affiché précédemment
-        hideMessage();
-    }, 500); // Durée de l'animation en millisecondes (à ajuster si nécessaire)
-}
-
-// Fonction pour formater le pronom affiché
-function formatPronoun(pronoun, tense) {
-    // Si le pronom commence par "que", on peut le retirer pour l'affichage
-    // ou ajuster selon les besoins
-    if (pronoun.startsWith("que ")) {
-        return pronoun.replace("que ", "") + " ";
+// Fonction pour Charger la Prochaine Question
+function loadNextQuestion() {
+    if (currentVerbIndex >= verbs.length) {
+        currentVerbIndex = 0; // Réinitialiser ou gérer la fin du jeu
     }
-    if (pronoun.startsWith("qu’")) { // Gestion des apostrophes
-        return pronoun.replace("qu’", "qu’") + " ";
+
+    let verb = verbs[currentVerbIndex];
+    let conjugations = Object.keys(verb.conjugations);
+    let randomTense = conjugations[Math.floor(Math.random() * conjugations.length)];
+    let tenseConjugations = verb.conjugations[randomTense];
+    let pronouns = Object.keys(tenseConjugations);
+
+    let randomPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+    let correctAnswer = tenseConjugations[randomPronoun].toLowerCase();
+
+    // Afficher les informations dans les slots
+    document.getElementById('verb-slot').textContent = verb.infinitive;
+    document.getElementById('tense-slot').textContent = randomTense;
+    document.getElementById('pronoun-slot').textContent = randomPronoun;
+
+    // Afficher le pronom dans le prompt
+    let displayPronoun = randomPronoun.split(' ')[0]; // Ex: "que je" -> "je"
+    if (displayPronoun.startsWith("qu’")) {
+        displayPronoun = displayPronoun.replace("qu’", "je");
     }
-    return pronoun + " ";
+    document.getElementById('display-pronoun').textContent = displayPronoun + ' ';
+
+    // Stocker la réponse correcte
+    document.getElementById('submit-btn').dataset.correctAnswer = correctAnswer;
+
+    currentQuestionNumber++;
+    currentVerbIndex++;
+    verbsRemaining--;
+    document.getElementById('verbs-remaining').textContent = verbsRemaining;
+
+    // Vérifier si on doit activer le mode Extrême
+    if (isCompetitionMode && (currentQuestionNumber === 6 || currentQuestionNumber === 13)) {
+        activateExtremeMode();
+    }
 }
 
-// Fonction pour vérifier la réponse de l'utilisateur
+// Fonction pour Vérifier la Réponse
 function checkAnswer() {
-    const userInput = document.getElementById('user-input').value.trim();
-    if (userInput === "") {
-        showMessage('error', "Veuillez entrer une conjugaison.");
-        return;
-    }
+    let userInput = document.getElementById('user-input').value.trim().toLowerCase();
+    let correctAnswer = document.getElementById('submit-btn').dataset.correctAnswer;
 
-    // Récupérer la conjugaison correcte pour le pronom et le temps sélectionnés
-    let conjugation = currentVerb.conjugations[currentTense][currentPronoun];
-    if (!conjugation) {
-        showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
-        return;
-    }
-
-    // Comparaison insensible à la casse et sans accents
-    if (normalizeString(userInput) === normalizeString(conjugation)) {
-        // Réponse correcte
-        let pointsEarned = modeExtreme ? 3 : 1;
-        points += pointsEarned;
+    if (userInput === correctAnswer) {
+        points++;
         document.getElementById('points').textContent = points;
+        showMessage('Bonne réponse !', 'success');
         playSound('success-sound');
-        showMessage('success', `Correct ! +${pointsEarned} point(s).`);
-        spinReels();
-    } else {
-        // Réponse incorrecte
-        attempts--;
-        updateStatus();
-        playSound('wrong-sound'); // Jouer le son "wrong"
-        if (attempts > 0) {
-            showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
-        } else {
-            showMessage('error', `Incorrect. La bonne réponse était : ${conjugation}`);
-            spinReels();
+
+        if (isCompetitionMode && points >= 15) {
+            showMessage('Félicitations ! Vous avez gagné la compétition !', 'success');
+            // Désactiver les interactions du jeu
+            disableGame();
+            return;
         }
-    }
-}
-
-// Fonction pour mettre à jour l'affichage des points et des tentatives
-function updateStatus() {
-    document.getElementById('points').textContent = points;
-    document.getElementById('attempts').textContent = attempts;
-}
-
-// Fonction pour basculer entre le mode normal et extrême
-function toggleMode() {
-    modeExtreme = !modeExtreme;
-    const container = document.querySelector('.container');
-    if (modeExtreme) {
-        container.classList.add('extreme-mode');
-        showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
-        spinReels(); // Recharger un nouveau verbe et temps en mode extrême
     } else {
-        container.classList.remove('extreme-mode');
-        showMessage('success', "Mode Extrême désactivé.");
-        spinReels(); // Recharger un nouveau verbe et temps en mode normal
-    }
-}
-
-// Fonction pour afficher la réponse correcte
-function showCorrectAnswer() {
-    // Récupérer la conjugaison correcte pour le pronom et le temps sélectionnés
-    let conjugation = currentVerb.conjugations[currentTense][currentPronoun];
-    if (!conjugation) {
-        showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
-        return;
+        showMessage(`Mauvaise réponse. La bonne réponse était "${correctAnswer}".`, 'error');
+        playSound('wrong-sound');
     }
 
-    // Afficher la réponse dans un message
-    showMessage('success', `La bonne réponse était : ${conjugation}`);
+    document.getElementById('user-input').value = '';
+    loadNextQuestion();
 }
 
-// Fonction pour afficher un message intégré
-function showMessage(type, text) {
-    const messageDiv = document.getElementById('message');
-    messageDiv.className = `message ${type}`;
+// Fonction pour Afficher les Messages
+function showMessage(text, type) {
+    let messageDiv = document.getElementById('message');
     messageDiv.textContent = text;
+    messageDiv.className = `message ${type}`;
     messageDiv.style.display = 'block';
+
     // Masquer le message après 3 secondes
     setTimeout(() => {
         messageDiv.style.display = 'none';
     }, 3000);
 }
 
-// Fonction pour masquer le message
-function hideMessage() {
-    const messageDiv = document.getElementById('message');
-    messageDiv.style.display = 'none';
-}
-
-// Fonction pour jouer un son spécifique
+// Fonction pour Jouer les Sons
 function playSound(soundId) {
-    const sound = document.getElementById(soundId);
-    sound.currentTime = 0; // Réinitialiser le son
+    let sound = document.getElementById(soundId);
+    sound.currentTime = 0;
     sound.play();
 }
+
+// Fonction pour Activer le Mode Extrême
+function activateExtremeMode() {
+    isExtremeMode = true;
+    document.querySelector('.container').classList.add('extreme-mode');
+    showMessage('Mode Extrême Activé !', 'success');
+}
+
+// Fonction pour Désactiver le Mode Extrême
+function deactivateExtremeMode() {
+    isExtremeMode = false;
+    document.querySelector('.container').classList.remove('extreme-mode');
+}
+
+// Fonction pour Activer le Mode Compétition
+function activateCompetitionMode() {
+    if (isCompetitionMode) {
+        showMessage('Mode Compétition déjà actif.', 'error');
+        return;
+    }
+    isCompetitionMode = true;
+    points = 0;
+    currentQuestionNumber = 0;
+    verbsRemaining = verbs.length;
+    document.getElementById('points').textContent = points;
+    document.getElementById('verbs-remaining').textContent = verbsRemaining;
+    showMessage('Mode Compétition Activé !', 'success');
+
+    // Désactiver le bouton de toggle du mode Extrême
+    document.getElementById('toggle-mode-btn').disabled = true;
+
+    // Charger la première question
+    loadNextQuestion();
+}
+
+// Fonction pour Désactiver le Mode Compétition (si nécessaire)
+function deactivateCompetitionMode() {
+    isCompetitionMode = false;
+    points = 0;
+    currentQuestionNumber = 0;
+    verbsRemaining = verbs.length;
+    document.getElementById('points').textContent = points;
+    document.getElementById('verbs-remaining').textContent = verbsRemaining;
+    showMessage('Mode Compétition Désactivé.', 'success');
+
+    // Activer le bouton de toggle du mode Extrême
+    document.getElementById('toggle-mode-btn').disabled = false;
+
+    // Recharger la question
+    loadNextQuestion();
+}
+
+// Fonction pour Désactiver le Jeu (après victoire)
+function disableGame() {
+    // Désactiver les boutons et les entrées
+    document.getElementById('user-input').disabled = true;
+    document.getElementById('submit-btn').disabled = true;
+    document.getElementById('spin-btn').disabled = true;
+    document.getElementById('show-answer-btn').disabled = true;
+    document.getElementById('toggle-mode-btn').disabled = true;
+    document.getElementById('competition-mode-btn').disabled = true;
+}
+
+// Événements des Boutons
+document.getElementById('submit-btn').addEventListener('click', checkAnswer);
+document.getElementById('spin-btn').addEventListener('click', () => {
+    // Logique de rotation des slots
+    document.querySelectorAll('.slot').forEach(slot => {
+        slot.classList.add('spinning');
+        setTimeout(() => {
+            slot.classList.remove('spinning');
+            // Logique pour changer le contenu des slots aléatoirement
+            // Vous pouvez personnaliser cette partie selon votre logique actuelle
+        }, 500);
+    });
+});
+document.getElementById('show-answer-btn').addEventListener('click', () => {
+    let correctAnswer = document.getElementById('submit-btn').dataset.correctAnswer;
+    showMessage(`La bonne réponse était "${correctAnswer}".`, 'error');
+});
+document.getElementById('toggle-mode-btn').addEventListener('click', () => {
+    if (isExtremeMode) {
+        deactivateExtremeMode();
+    } else {
+        activateExtremeMode();
+    }
+});
+document.getElementById('competition-mode-btn').addEventListener('click', activateCompetitionMode);
