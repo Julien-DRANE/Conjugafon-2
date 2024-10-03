@@ -83,7 +83,7 @@ h1.logo {
     font-size: 1.4em;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
 }
 
 .slot.spinning {
@@ -219,6 +219,7 @@ button {
 .extreme-mode .slot {
     background-color: #ff5722;
     color: #fff;
+    font-size: 1.2em; /* Réduction de la taille de la police pour les temps */
 }
 
 .extreme-mode button {
