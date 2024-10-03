@@ -85,22 +85,6 @@ function checkAnswer() {
         document.getElementById("message").classList.remove("error");
         document.getElementById("message").classList.add("success");
         document.getElementById("message").style.display = "block";
-        document.getElementById("success-sound").play();
-
-        // Afficher l'image "Bonne Réponse !" avec un effet de zoom
-        const goodAnswerImg = document.getElementById("good-answer-img");
-        goodAnswerImg.style.display = "block";   // Affiche l'image
-        goodAnswerImg.classList.add("zoom");     // Ajoute l'effet de zoom
-
-        // Retire l'effet de zoom après 1 seconde
-        setTimeout(() => {
-            goodAnswerImg.classList.remove("zoom");
-        }, 1000);
-
-        // Cache l'image après 1,3 seconde
-        setTimeout(() => {
-            goodAnswerImg.style.display = "none";
-        }, 1300);
 
         spin(); // Recharger un nouveau verbe
     } else {
@@ -115,7 +99,6 @@ function checkAnswer() {
         document.getElementById("message").classList.remove("success");
         document.getElementById("message").classList.add("error");
         document.getElementById("message").style.display = "block";
-        document.getElementById("wrong-sound").play();
     }
 
     document.getElementById("user-input").value = "";
