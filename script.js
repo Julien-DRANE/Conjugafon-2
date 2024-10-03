@@ -66,6 +66,10 @@ function spin() {
 
     // Afficher le pronom dans la zone de saisie
     document.getElementById("display-pronoun").textContent = currentPronoun;
+
+    // Réinitialiser le champ de saisie et les messages d'état
+    document.getElementById("user-input").value = "";
+    document.getElementById("message").style.display = "none";
 }
 
 // Fonction pour vérifier la réponse
@@ -97,6 +101,9 @@ function checkAnswer() {
         document.getElementById("message").style.display = "block";
         document.getElementById("wrong-sound").play();
     }
+
+    // Réinitialiser le champ de saisie après la vérification
+    document.getElementById("user-input").value = "";
 
     document.getElementById("attempts").textContent = attemptsLeft;
 }
