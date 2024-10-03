@@ -416,12 +416,12 @@
           "ils/elles": "vont"
         },
         "passé composé": {
-          "je": "suis allé(e)",
-          "tu": "es allé(e)",
-          "il/elle": "est allé(e)",
-          "nous": "sommes allé(e)s",
-          "vous": "êtes allé(e)(s)",
-          "ils/elles": "sont allé(e)s"
+          "je": "suis allé",
+          "tu": "es allé",
+          "il": "est allé",
+          "nous": "sommes allés",
+          "vous": "êtes allés",
+          "ils": "sont allés"
         },
         "imparfait": {
           "je": "allais",
@@ -456,12 +456,12 @@
           "ils/elles": "allassent"
         },
         "subjonctif passé": {
-          "je": "sois allé(e)",
-          "tu": "sois allé(e)",
-          "il/elle": "soit allé(e)",
-          "nous": "soyons allé(e)s",
-          "vous": "soyez allé(e)s",
-          "ils/elles": "soient allé(e)s"
+          "je": "sois allé",
+          "tu": "sois allé",
+          "il": "soit allé",
+          "nous": "soyons allés",
+          "vous": "soyez allés",
+          "ils/elles": "soient allés"
         },
         "conditionnel présent": {
           "je": "irais",
@@ -472,36 +472,36 @@
           "ils/elles": "iraient"
         },
         "plus-que-parfait": {
-          "je": "étais allé(e)",
-          "tu": "étais allé(e)",
-          "il/elle": "était allé(e)",
-          "nous": "étions allé(e)s",
-          "vous": "étiez allé(e)s",
-          "ils/elles": "étaient allé(e)s"
+          "je": "étais allé",
+          "tu": "étais allé",
+          "il": "était allé",
+          "nous": "étions allés",
+          "vous": "étiez allés",
+          "ils": "étaient allés"
         },
         "passé antérieur": {
-          "je": "fus allé(e)",
-          "tu": "fus allé(e)",
-          "il/elle": "fut allé(e)",
-          "nous": "fûmes allé(e)s",
-          "vous": "fûtes allé(e)s",
-          "ils/elles": "furent allé(e)s"
+          "je": "fus allé",
+          "tu": "fus allé",
+          "il": "fut allé",
+          "nous": "fûmes allés",
+          "vous": "fûtes allés",
+          "ils": "furent allés"
         },
         "futur antérieur": {
-          "je": "serai allé(e)",
-          "tu": "seras allé(e)",
-          "il/elle": "sera allé(e)",
-          "nous": "serons allé(e)s",
-          "vous": "serez allé(e)s",
-          "ils/elles": "seront allé(e)s"
+          "je": "serai allé",
+          "tu": "seras allé",
+          "il": "sera allé",
+          "nous": "serons allés",
+          "vous": "serez allés",
+          "ils": "seront allés"
         },
         "conditionnel passé première forme": {
-          "je": "serais allé(e)",
-          "tu": "serais allé(e)",
-          "il/elle": "serait allé(e)",
-          "nous": "serions allé(e)s",
-          "vous": "seriez allé(e)s",
-          "ils/elles": "seraient allé(e)s"
+          "je": "serais allé",
+          "tu": "serais allé",
+          "il": "serait allé",
+          "nous": "serions allés",
+          "vous": "seriez allés",
+          "ils": "seraient allés"
         }
       }
     },
@@ -719,12 +719,12 @@
           "ils/elles": "viennent"
         },
         "passé composé": {
-          "je": "suis venu(e)",
-          "tu": "es venu(e)",
-          "il/elle": "est venu(e)",
-          "nous": "sommes venu(e)s",
-          "vous": "êtes venu(e)(s)",
-          "ils/elles": "sont venu(e)s"
+          "je": "suis venu",
+          "tu": "es venu",
+          "il": "est venu",
+          "nous": "sommes venus",
+          "vous": "êtes venu(s)",
+          "ils": "sont venus"
         },
         "imparfait": {
           "je": "venais",
@@ -759,12 +759,12 @@
           "ils/elles": "vîntissent"
         },
         "subjonctif passé": {
-          "je": "aie venu(e)",
-          "tu": "aies venu(e)",
-          "il/elle": "ait venu(e)",
-          "nous": "ayons venu(e)",
-          "vous": "ayez venu(e)",
-          "ils/elles": "aient venu(e)"
+          "je": "aie venu",
+          "tu": "aies venu",
+          "il": "ait venu",
+          "nous": "ayons venu",
+          "vous": "ayez venu",
+          "ils": "aient venu"
         },
         "conditionnel présent": {
           "je": "viendrais",
@@ -775,36 +775,36 @@
           "ils/elles": "viendraient"
         },
         "plus-que-parfait": {
-          "je": "avais venu(e)",
-          "tu": "avais venu(e)",
-          "il/elle": "avait venu(e)",
-          "nous": "avions venu(e)s",
-          "vous": "aviez venu(e)s",
-          "ils/elles": "avaient venu(e)s"
+          "je": "avais venu",
+          "tu": "avais venu",
+          "il/elle": "avait venu",
+          "nous": "avions venus",
+          "vous": "aviez venus",
+          "ils/elles": "avaient venus"
         },
         "passé antérieur": {
-          "je": "eus venu(e)",
-          "tu": "eus venu(e)",
-          "il/elle": "eut venu(e)",
-          "nous": "eûmes venu(e)s",
-          "vous": "eûtes venu(e)s",
-          "ils/elles": "eurent venu(e)s"
+          "je": "eus venu",
+          "tu": "eus venu",
+          "il": "eut venu",
+          "nous": "eûmes venus",
+          "vous": "eûtes venus",
+          "ils": "eurent venus"
         },
         "futur antérieur": {
-          "je": "aurai venu(e)",
-          "tu": "auras venu(e)",
-          "il/elle": "aura venu(e)",
-          "nous": "aurons venu(e)s",
-          "vous": "aurez venu(e)s",
-          "ils/elles": "auront venu(e)s"
+          "je": "aurai venu",
+          "tu": "auras venu",
+          "il": "aura venu",
+          "nous": "aurons venus",
+          "vous": "aurez venus",
+          "ils": "auront venus"
         },
         "conditionnel passé première forme": {
-          "je": "aurais venu(e)",
-          "tu": "aurais venu(e)",
-          "il/elle": "aurait venu(e)",
-          "nous": "aurions venu(e)s",
-          "vous": "auriez venu(e)s",
-          "ils/elles": "auraient venu(e)s"
+          "je": "aurais venu",
+          "tu": "aurais venu",
+          "il": "aurait venu",
+          "nous": "aurions venus",
+          "vous": "auriez venus",
+          "ils": "auraient venus"
         }
       }
     },
