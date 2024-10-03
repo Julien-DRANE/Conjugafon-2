@@ -210,3 +210,14 @@ body.extreme-mode .slot {
         width: 150px;
     }
 }
+/* Style général pour centrer le contenu des slots */
+.slot {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center;     /* Centrer verticalement */
+    text-align: center;
+    font-size: 24px; /* Ajuste cette valeur pour changer la taille du texte */
+    height: 80px; /* Ajuste la hauteur si nécessaire */
+    width: 100%; /* Assure que les slots occupent toute la largeur */
+    margin: 10px auto; /* Centre les slots dans leur conteneur */
+}
