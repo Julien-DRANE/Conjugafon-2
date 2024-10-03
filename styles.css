@@ -418,3 +418,34 @@ button {
         grid-column: 1 / 1;
     }
 }
+/* Bouton Compétition */
+.secondary-button {
+    background-color: #9c27b0; /* Violet */
+}
+
+.secondary-button:hover {
+    background-color: #7b1fa2;
+    transform: scale(1.05);
+}
+
+/* Compteurs */
+.score-grid {
+    margin-top: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.score-grid p {
+    margin: 5px 0;
+    padding: 8px 12px;
+    background-color: #fffde7;
+    border: 1px solid #f57f17;
+    border-radius: 5px;
+    display: inline-block;
+    color: #6050dc; /* Bleu Majorelle */
+    font-size: 18px;
+    font-weight: bold;
+}
