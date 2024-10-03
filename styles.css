@@ -237,3 +237,17 @@ body.extreme-mode .slot {
     transform: scale(1); /* Taille initiale */
     transition: transform 1.3s ease-in-out; /* Transition pour l'animation */
 }
+#good-answer-img {
+    position: fixed; /* Fixe l'image par rapport à la fenêtre */
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%) scale(1); /* Ajuste le positionnement et la mise à l'échelle */
+    z-index: 1000; /* S'assurer que l'image est au-dessus de tout */
+    max-width: 300px; /* Limite la taille de l'image */
+    max-height: 300px; /* Limite la hauteur */
+    width: auto; /* Conserve les proportions */
+    height: auto; /* Conserve les proportions */
+    opacity: 0; /* Par défaut, l'image est transparente */
+    display: none; /* Par défaut, l'image n'est pas visible */
+    transition: transform 1.3s ease-in-out, opacity 0.3s ease-in-out; /* Animation de transition */
+}
