@@ -49,6 +49,60 @@ function toggleExtremeMode() {
     document.getElementById("toggle-mode-btn").textContent = extremeMode ? "Désactiver Mode Extrême" : "Mode Extrême";
     spin(); // Recharger un verbe avec les temps extrêmes
 }
+// Ajout des temps pour le mode duo
+const duoTenses = [
+    "passé simple",
+    "imparfait du subjonctif"
+];
+
+// Ajout d'une nouvelle variable pour le mode duo
+let duoMode = false;
+
+// Fonction pour activer/désactiver le mode duo
+function toggleDuoMode() {
+    duoMode = !duoMode;
+    document.body.classList.toggle("duo-mode", duoMode);
+    document.getElementById("toggle-duo-btn").textContent = duoMode ? "Désactiver Mode Duo" : "Mode Duo";
+    spin(); // Recharger un verbe avec les temps du mode duo
+}
+
+// Modifier la fonction `spin()` pour prendre en compte le mode duo
+function spin() {
+    let verbs = verbData.verbs;
+    if (!verbs || verbs.length === 0) {
+        console.error("Aucun verbe chargé dans le JSON");
+        return;
+    }
+
+    let randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
+    currentVerb = randomVerb.infinitive;
+
+    // Choisir les temps en fonction du mode activé
+    let tenses;
+    if (duoMode) {
+        tenses = duoTenses;
+    } else if (extremeMode) {
+        tenses = extremeTenses;
+    } else {
+        tenses = normalTenses;
+    }
+
+    currentTense = tenses[Math.floor(Math.random() * tenses.length)];
+
+    let pronouns = Object.keys(randomVerb.conjugations[currentTense]);
+    currentPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
+
+    document.getElementById("verb-slot").textContent = currentVerb;
+    document.getElementById("tense-slot").textContent = currentTense;
+    document.getElementById("pronoun-slot").textContent = currentPronoun;
+    document.getElementById("display-pronoun").textContent = currentPronoun;
+
+    document.getElementById("user-input").value = "";
+    document.getElementById("message").style.display = "none";
+}
+
+// Ajouter un écouteur d'événement pour le bouton "Mode Duo"
+document.getElementById("toggle-duo-btn").addEventListener("click", toggleDuoMode);
 
 // Fonction pour faire tourner les slots
 function spin() {
