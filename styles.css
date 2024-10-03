@@ -5,16 +5,19 @@ body, html {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #f0f4c3, #e1bee7);
     height: 100%;
-    display: flex;
+    /* Suppression du Flexbox pour éviter le centrage */
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Évite le défilement horizontal */
+    align-items: center; */
+    /* Autoriser le défilement vertical si nécessaire */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
+/* Container étendu */
 .container {
-    width: 95%;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%; /* Occupe toute la largeur */
+    /* max-width: 800px; */ /* Supprimé pour permettre l'expansion complète */
+    /* margin: 0 auto; */ /* Supprimé pour éliminer le centrage */
     background-color: #fffde7;
     border: 2px solid #f57f17;
     border-radius: 15px;
@@ -22,9 +25,9 @@ body, html {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-height: 100vh; /* Limite la hauteur à la hauteur de la fenêtre */
-    overflow-y: auto; /* Ajoute le défilement vertical si nécessaire */
+    align-items: center; /* Centrage des éléments internes */
+    /* max-height: 100vh; */ /* Supprimé pour permettre l'expansion verticale */
+    overflow-y: auto; /* Ajout de défilement vertical si nécessaire */
     box-sizing: border-box;
 }
 
@@ -40,14 +43,14 @@ header {
 
 h1.logo {
     margin: 0;
-    font-size: 24px; /* Réduction de la taille de la police pour les petits écrans */
+    font-size: 24px; /* Ajustable selon vos préférences */
     color: #333;
 }
 
 /* Grille des points */
 .score-grid {
     margin-top: 10px;
-    font-size: 16px; /* Ajustement de la taille de la police */
+    font-size: 16px;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -60,7 +63,7 @@ h1.logo {
     border: 1px solid #f57f17;
     border-radius: 5px;
     display: inline-block;
-    color: #6050dc; /* Bleu Majorelle */
+    color: #6050dc;
     font-size: 18px;
     font-weight: bold;
 }
@@ -82,12 +85,12 @@ h1.logo {
     gap: 10px;
     margin: 10px 0;
     width: 100%;
-    flex-wrap: wrap; /* Permet aux slots de s'adapter à la largeur */
+    flex-wrap: wrap;
 }
 
 .slot {
-    width: 100px; /* Réduction de la largeur pour les petits écrans */
-    height: 60px; /* Réduction de la hauteur */
+    width: 100px;
+    height: 60px;
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
@@ -95,7 +98,7 @@ h1.logo {
     justify-content: center;
     background-color: #fff9c4;
     font-weight: bold;
-    font-size: 1.2em; /* Ajustement de la taille de la police */
+    font-size: 1.2em;
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
@@ -174,8 +177,8 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     color: white;
-    width: 30%; /* Ajustement de la largeur des boutons */
-    min-width: 100px; /* Largeur minimale */
+    width: 30%;
+    min-width: 100px;
 }
 
 #spin-btn {
