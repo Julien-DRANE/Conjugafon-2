@@ -1179,7 +1179,7 @@
           "ils/elles": "parleraient"
         },
         "plus-que-parfait": {
-          "je": "avais parlé",
+          "j'": "avais parlé",
           "tu": "avais parlé",
           "il/elle": "avait parlé",
           "nous": "avions parlé",
@@ -1187,7 +1187,7 @@
           "ils/elles": "avaient parlé"
         },
         "passé antérieur": {
-          "je": "eus parlé",
+          "j'": "eus parlé",
           "tu": "eus parlé",
           "il/elle": "eut parlé",
           "nous": "eûmes parlé",
@@ -1195,7 +1195,7 @@
           "ils/elles": "eurent parlé"
         },
         "futur antérieur": {
-          "je": "aurai parlé",
+          "j'": "aurai parlé",
           "tu": "auras parlé",
           "il/elle": "aura parlé",
           "nous": "aurons parlé",
@@ -1203,7 +1203,7 @@
           "ils/elles": "auront parlé"
         },
         "conditionnel passé première forme": {
-          "je": "aurais parlé",
+          "j'": "aurais parlé",
           "tu": "aurais parlé",
           "il/elle": "aurait parlé",
           "nous": "aurions parlé",
@@ -1216,7 +1216,7 @@
       "infinitive": "aimer",
       "conjugations": {
         "présent": {
-          "je": "aime",
+          "j'": "aime",
           "tu": "aimes",
           "il/elle": "aime",
           "nous": "aimons",
@@ -1224,7 +1224,7 @@
           "ils/elles": "aiment"
         },
         "passé composé": {
-          "je": "ai aimé",
+          "j'": "ai aimé",
           "tu": "as aimé",
           "il/elle": "a aimé",
           "nous": "avons aimé",
@@ -1232,7 +1232,7 @@
           "ils/elles": "ont aimé"
         },
         "imparfait": {
-          "je": "aimais",
+          "j'": "aimais",
           "tu": "aimais",
           "il/elle": "aimait",
           "nous": "aimions",
@@ -1240,7 +1240,7 @@
           "ils/elles": "aimaient"
         },
         "passé simple": {
-          "je": "aimai",
+          "j'": "aimai",
           "tu": "aimas",
           "il/elle": "aima",
           "nous": "aimâmes",
@@ -1248,7 +1248,7 @@
           "ils/elles": "aimèrent"
         },
         "futur simple": {
-          "je": "aimerai",
+          "j'": "aimerai",
           "tu": "aimeras",
           "il/elle": "aimera",
           "nous": "aimerons",
@@ -1256,7 +1256,7 @@
           "ils/elles": "aimeront"
         },
         "imparfait du subjonctif": {
-          "que je": "aimasse",
+          "que j'": "aimasse",
           "que tu": "aimasses",
           "qu’il/elle": "aimât",
           "que nous": "aimassions",
@@ -1264,7 +1264,7 @@
           "qu’ils/elles": "aimassent"
         },
         "subjonctif passé": {
-          "que je": "aie aimé",
+          "que j'": "aie aimé",
           "que tu": "aies aimé",
           "qu’il/elle": "ait aimé",
           "que nous": "ayons aimé",
@@ -1272,7 +1272,7 @@
           "qu’ils/elles": "aient aimé"
         },
         "conditionnel présent": {
-          "je": "aimerais",
+          "j'": "aimerais",
           "tu": "aimerais",
           "il/elle": "aimerait",
           "nous": "aimerions",
@@ -1280,7 +1280,7 @@
           "ils/elles": "aimeraient"
         },
         "plus-que-parfait": {
-          "je": "avais aimé",
+          "j'": "avais aimé",
           "tu": "avais aimé",
           "il/elle": "avait aimé",
           "nous": "avions aimé",
@@ -1288,7 +1288,7 @@
           "ils/elles": "avaient aimé"
         },
         "passé antérieur": {
-          "je": "eus aimé",
+          "j'": "eus aimé",
           "tu": "eus aimé",
           "il/elle": "eut aimé",
           "nous": "eûmes aimé",
@@ -1296,7 +1296,7 @@
           "ils/elles": "eurent aimé"
         },
         "futur antérieur": {
-          "je": "aurai aimé",
+          "j'": "aurai aimé",
           "tu": "auras aimé",
           "il/elle": "aura aimé",
           "nous": "aurons aimé",
@@ -1304,7 +1304,7 @@
           "ils/elles": "auront aimé"
         },
         "conditionnel passé première forme": {
-          "je": "aurais aimé",
+          "j'": "aurais aimé",
           "tu": "aurais aimé",
           "il/elle": "aurait aimé",
           "nous": "aurions aimé",
@@ -1325,7 +1325,7 @@
           "ils/elles": "peuvent"
         },
         "passé composé": {
-          "je": "ai pu",
+          "j'": "ai pu",
           "tu": "as pu",
           "il/elle": "a pu",
           "nous": "avons pu",
@@ -1365,7 +1365,7 @@
           "qu'ils/elles": "pussent"
         },
         "subjonctif passé": {
-          "que je": "aie pu",
+          "que j'": "aie pu",
           "que tu": "aies pu",
           "qu'il/elle": "ait pu",
           "que nous": "ayons pu",
@@ -1381,7 +1381,7 @@
           "ils/elles": "pourraient"
         },
         "plus-que-parfait": {
-          "je": "avais pu",
+          "j'": "avais pu",
           "tu": "avais pu",
           "il/elle": "avait pu",
           "nous": "avions pu",
@@ -1389,7 +1389,7 @@
           "ils/elles": "avaient pu"
         },
         "passé antérieur": {
-          "je": "eus pu",
+          "j'": "eus pu",
           "tu": "eus pu",
           "il/elle": "eut pu",
           "nous": "eûmes pu",
@@ -1397,7 +1397,7 @@
           "ils/elles": "eurent pu"
         },
         "futur antérieur": {
-          "je": "aurai pu",
+          "j'": "aurai pu",
           "tu": "auras pu",
           "il/elle": "aura pu",
           "nous": "aurons pu",
@@ -1405,7 +1405,7 @@
           "ils/elles": "auront pu"
         },
         "conditionnel passé première forme": {
-          "je": "aurais pu",
+          "j'": "aurais pu",
           "tu": "aurais pu",
           "il/elle": "aurait pu",
           "nous": "aurions pu",
