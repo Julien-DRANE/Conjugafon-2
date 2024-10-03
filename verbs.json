@@ -404,6 +404,511 @@
         }
       }
     },
+	{
+      "infinitive": "aller",
+      "conjugations": {
+        "présent": {
+          "je": "vais",
+          "tu": "vas",
+          "il/elle": "va",
+          "nous": "allons",
+          "vous": "allez",
+          "ils/elles": "vont"
+        },
+        "passé composé": {
+          "je": "suis allé(e)",
+          "tu": "es allé(e)",
+          "il/elle": "est allé(e)",
+          "nous": "sommes allé(e)s",
+          "vous": "êtes allé(e)(s)",
+          "ils/elles": "sont allé(e)s"
+        },
+        "imparfait": {
+          "je": "allais",
+          "tu": "allais",
+          "il/elle": "allait",
+          "nous": "allions",
+          "vous": "alliez",
+          "ils/elles": "allaient"
+        },
+        "passé simple": {
+          "je": "allai",
+          "tu": "allas",
+          "il/elle": "alla",
+          "nous": "allâmes",
+          "vous": "allâtes",
+          "ils/elles": "allèrent"
+        },
+        "futur simple": {
+          "je": "irai",
+          "tu": "iras",
+          "il/elle": "ira",
+          "nous": "irons",
+          "vous": "irez",
+          "ils/elles": "iront"
+        },
+        "imparfait du subjonctif": {
+          "je": "allasse",
+          "tu": "allasses",
+          "il/elle": "allât",
+          "nous": "allassions",
+          "vous": "allassiez",
+          "ils/elles": "allassent"
+        },
+        "subjonctif passé": {
+          "je": "sois allé(e)",
+          "tu": "sois allé(e)",
+          "il/elle": "soit allé(e)",
+          "nous": "soyons allé(e)s",
+          "vous": "soyez allé(e)s",
+          "ils/elles": "soient allé(e)s"
+        },
+        "conditionnel présent": {
+          "je": "irais",
+          "tu": "irais",
+          "il/elle": "irait",
+          "nous": "irions",
+          "vous": "iriez",
+          "ils/elles": "iraient"
+        },
+        "plus-que-parfait": {
+          "je": "étais allé(e)",
+          "tu": "étais allé(e)",
+          "il/elle": "était allé(e)",
+          "nous": "étions allé(e)s",
+          "vous": "étiez allé(e)s",
+          "ils/elles": "étaient allé(e)s"
+        },
+        "passé antérieur": {
+          "je": "fus allé(e)",
+          "tu": "fus allé(e)",
+          "il/elle": "fut allé(e)",
+          "nous": "fûmes allé(e)s",
+          "vous": "fûtes allé(e)s",
+          "ils/elles": "furent allé(e)s"
+        },
+        "futur antérieur": {
+          "je": "serai allé(e)",
+          "tu": "seras allé(e)",
+          "il/elle": "sera allé(e)",
+          "nous": "serons allé(e)s",
+          "vous": "serez allé(e)s",
+          "ils/elles": "seront allé(e)s"
+        },
+        "conditionnel passé première forme": {
+          "je": "serais allé(e)",
+          "tu": "serais allé(e)",
+          "il/elle": "serait allé(e)",
+          "nous": "serions allé(e)s",
+          "vous": "seriez allé(e)s",
+          "ils/elles": "seraient allé(e)s"
+        }
+      }
+    },
+    {
+      "infinitive": "voir",
+      "conjugations": {
+        "présent": {
+          "je": "vois",
+          "tu": "vois",
+          "il/elle": "voit",
+          "nous": "voyons",
+          "vous": "voyez",
+          "ils/elles": "voient"
+        },
+        "passé composé": {
+          "je": "ai vu",
+          "tu": "as vu",
+          "il/elle": "a vu",
+          "nous": "avons vu",
+          "vous": "avez vu",
+          "ils/elles": "ont vu"
+        },
+        "imparfait": {
+          "je": "voyais",
+          "tu": "voyais",
+          "il/elle": "voyait",
+          "nous": "voyions",
+          "vous": "voyiez",
+          "ils/elles": "voyaient"
+        },
+        "passé simple": {
+          "je": "vis",
+          "tu": "vis",
+          "il/elle": "vit",
+          "nous": "vîmes",
+          "vous": "vîtes",
+          "ils/elles": "virent"
+        },
+        "futur simple": {
+          "je": "verrai",
+          "tu": "verras",
+          "il/elle": "verra",
+          "nous": "verrons",
+          "vous": "verrez",
+          "ils/elles": "verront"
+        },
+        "imparfait du subjonctif": {
+          "je": "visse",
+          "tu": "visses",
+          "il/elle": "vît",
+          "nous": "vissions",
+          "vous": "vissiez",
+          "ils/elles": "vissent"
+        },
+        "subjonctif passé": {
+          "je": "aie vu",
+          "tu": "aies vu",
+          "il/elle": "ait vu",
+          "nous": "ayons vu",
+          "vous": "ayez vu",
+          "ils/elles": "aient vu"
+        },
+        "conditionnel présent": {
+          "je": "verrais",
+          "tu": "verrais",
+          "il/elle": "verrait",
+          "nous": "verrions",
+          "vous": "verriez",
+          "ils/elles": "verraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais vu",
+          "tu": "avais vu",
+          "il/elle": "avait vu",
+          "nous": "avions vu",
+          "vous": "aviez vu",
+          "ils/elles": "avaient vu"
+        },
+        "passé antérieur": {
+          "je": "eus vu",
+          "tu": "eus vu",
+          "il/elle": "eut vu",
+          "nous": "eûmes vu",
+          "vous": "eûtes vu",
+          "ils/elles": "eurent vu"
+        },
+        "futur antérieur": {
+          "je": "aurai vu",
+          "tu": "auras vu",
+          "il/elle": "aura vu",
+          "nous": "aurons vu",
+          "vous": "aurez vu",
+          "ils/elles": "auront vu"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais vu",
+          "tu": "aurais vu",
+          "il/elle": "aurait vu",
+          "nous": "aurions vu",
+          "vous": "auriez vu",
+          "ils/elles": "auraient vu"
+        }
+      }
+    },
+    {
+      "infinitive": "vouloir",
+      "conjugations": {
+        "présent": {
+          "je": "veux",
+          "tu": "veux",
+          "il/elle": "veut",
+          "nous": "voulons",
+          "vous": "voulez",
+          "ils/elles": "veulent"
+        },
+        "passé composé": {
+          "je": "ai voulu",
+          "tu": "as voulu",
+          "il/elle": "a voulu",
+          "nous": "avons voulu",
+          "vous": "avez voulu",
+          "ils/elles": "ont voulu"
+        },
+        "imparfait": {
+          "je": "voulais",
+          "tu": "voulais",
+          "il/elle": "voulait",
+          "nous": "voulions",
+          "vous": "vouliez",
+          "ils/elles": "voulaient"
+        },
+        "passé simple": {
+          "je": "voulais",
+          "tu": "voulais",
+          "il/elle": "voulut",
+          "nous": "voulûmes",
+          "vous": "voulûtes",
+          "ils/elles": "voulurent"
+        },
+        "futur simple": {
+          "je": "voudrai",
+          "tu": "voudras",
+          "il/elle": "voudra",
+          "nous": "voudrons",
+          "vous": "voudrez",
+          "ils/elles": "voudront"
+        },
+        "imparfait du subjonctif": {
+          "je": "voulusse",
+          "tu": "voulusses",
+          "il/elle": "voulût",
+          "nous": "voulussions",
+          "vous": "voulussiez",
+          "ils/elles": "voulussent"
+        },
+        "subjonctif passé": {
+          "je": "aie voulu",
+          "tu": "aies voulu",
+          "il/elle": "ait voulu",
+          "nous": "ayons voulu",
+          "vous": "ayez voulu",
+          "ils/elles": "aient voulu"
+        },
+        "conditionnel présent": {
+          "je": "voudrais",
+          "tu": "voudrais",
+          "il/elle": "voudrait",
+          "nous": "voudrions",
+          "vous": "voudriez",
+          "ils/elles": "voudraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais voulu",
+          "tu": "avais voulu",
+          "il/elle": "avait voulu",
+          "nous": "avions voulu",
+          "vous": "aviez voulu",
+          "ils/elles": "avaient voulu"
+        },
+        "passé antérieur": {
+          "je": "eus voulu",
+          "tu": "eus voulu",
+          "il/elle": "eut voulu",
+          "nous": "eûmes voulu",
+          "vous": "eûtes voulu",
+          "ils/elles": "eurent voulu"
+        },
+        "futur antérieur": {
+          "je": "aurai voulu",
+          "tu": "auras voulu",
+          "il/elle": "aura voulu",
+          "nous": "aurons voulu",
+          "vous": "aurez voulu",
+          "ils/elles": "auront voulu"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais voulu",
+          "tu": "aurais voulu",
+          "il/elle": "aurait voulu",
+          "nous": "aurions voulu",
+          "vous": "auriez voulu",
+          "ils/elles": "auraient voulu"
+        }
+      }
+    },
+    {
+      "infinitive": "venir",
+      "conjugations": {
+        "présent": {
+          "je": "viens",
+          "tu": "viens",
+          "il/elle": "vient",
+          "nous": "venons",
+          "vous": "venez",
+          "ils/elles": "viennent"
+        },
+        "passé composé": {
+          "je": "suis venu(e)",
+          "tu": "es venu(e)",
+          "il/elle": "est venu(e)",
+          "nous": "sommes venu(e)s",
+          "vous": "êtes venu(e)(s)",
+          "ils/elles": "sont venu(e)s"
+        },
+        "imparfait": {
+          "je": "venais",
+          "tu": "venais",
+          "il/elle": "venait",
+          "nous": "venions",
+          "vous": "veniez",
+          "ils/elles": "venaient"
+        },
+        "passé simple": {
+          "je": "vins",
+          "tu": "vins",
+          "il/elle": "vint",
+          "nous": "vînmes",
+          "vous": "vîntes",
+          "ils/elles": "vinrent"
+        },
+        "futur simple": {
+          "je": "viendrai",
+          "tu": "viendras",
+          "il/elle": "viendra",
+          "nous": "viendrons",
+          "vous": "viendrez",
+          "ils/elles": "viendront"
+        },
+        "imparfait du subjonctif": {
+          "je": "vîntisse",
+          "tu": "vîntisses",
+          "il/elle": "vîntît",
+          "nous": "vîntissions",
+          "vous": "vîntissiez",
+          "ils/elles": "vîntissent"
+        },
+        "subjonctif passé": {
+          "je": "aie venu(e)",
+          "tu": "aies venu(e)",
+          "il/elle": "ait venu(e)",
+          "nous": "ayons venu(e)",
+          "vous": "ayez venu(e)",
+          "ils/elles": "aient venu(e)"
+        },
+        "conditionnel présent": {
+          "je": "viendrais",
+          "tu": "viendrais",
+          "il/elle": "viendrait",
+          "nous": "viendrions",
+          "vous": "viendriez",
+          "ils/elles": "viendraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais venu(e)",
+          "tu": "avais venu(e)",
+          "il/elle": "avait venu(e)",
+          "nous": "avions venu(e)s",
+          "vous": "aviez venu(e)s",
+          "ils/elles": "avaient venu(e)s"
+        },
+        "passé antérieur": {
+          "je": "eus venu(e)",
+          "tu": "eus venu(e)",
+          "il/elle": "eut venu(e)",
+          "nous": "eûmes venu(e)s",
+          "vous": "eûtes venu(e)s",
+          "ils/elles": "eurent venu(e)s"
+        },
+        "futur antérieur": {
+          "je": "aurai venu(e)",
+          "tu": "auras venu(e)",
+          "il/elle": "aura venu(e)",
+          "nous": "aurons venu(e)s",
+          "vous": "aurez venu(e)s",
+          "ils/elles": "auront venu(e)s"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais venu(e)",
+          "tu": "aurais venu(e)",
+          "il/elle": "aurait venu(e)",
+          "nous": "aurions venu(e)s",
+          "vous": "auriez venu(e)s",
+          "ils/elles": "auraient venu(e)s"
+        }
+      }
+    },
+    {
+      "infinitive": "devoir",
+      "conjugations": {
+        "présent": {
+          "je": "dois",
+          "tu": "dois",
+          "il/elle": "doit",
+          "nous": "devons",
+          "vous": "devez",
+          "ils/elles": "doivent"
+        },
+        "passé composé": {
+          "je": "ai dû",
+          "tu": "as dû",
+          "il/elle": "a dû",
+          "nous": "avons dû",
+          "vous": "avez dû",
+          "ils/elles": "ont dû"
+        },
+        "imparfait": {
+          "je": "devais",
+          "tu": "devais",
+          "il/elle": "devait",
+          "nous": "devions",
+          "vous": "deviez",
+          "ils/elles": "devaient"
+        },
+        "passé simple": {
+          "je": "dus",
+          "tu": "dus",
+          "il/elle": "dut",
+          "nous": "dûmes",
+          "vous": "dûtes",
+          "ils/elles": "durent"
+        },
+        "futur simple": {
+          "je": "devrai",
+          "tu": "devras",
+          "il/elle": "devra",
+          "nous": "devrons",
+          "vous": "devrez",
+          "ils/elles": "devront"
+        },
+        "imparfait du subjonctif": {
+          "je": "devisse",
+          "tu": "devisses",
+          "il/elle": "devît",
+          "nous": "devissions",
+          "vous": "devissiez",
+          "ils/elles": "devissent"
+        },
+        "subjonctif passé": {
+          "je": "aie dû",
+          "tu": "aies dû",
+          "il/elle": "ait dû",
+          "nous": "ayons dû",
+          "vous": "ayez dû",
+          "ils/elles": "aient dû"
+        },
+        "conditionnel présent": {
+          "je": "devrais",
+          "tu": "devrais",
+          "il/elle": "devrait",
+          "nous": "devrions",
+          "vous": "devriez",
+          "ils/elles": "devraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais dû",
+          "tu": "avais dû",
+          "il/elle": "avait dû",
+          "nous": "avions dû",
+          "vous": "aviez dû",
+          "ils/elles": "avaient dû"
+        },
+        "passé antérieur": {
+          "je": "eus dû",
+          "tu": "eus dû",
+          "il/elle": "eut dû",
+          "nous": "eûmes dû",
+          "vous": "eûtes dû",
+          "ils/elles": "eurent dû"
+        },
+        "futur antérieur": {
+          "je": "aurai dû",
+          "tu": "auras dû",
+          "il/elle": "aura dû",
+          "nous": "aurons dû",
+          "vous": "aurez dû",
+          "ils/elles": "auront dû"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais dû",
+          "tu": "aurais dû",
+          "il/elle": "aurait dû",
+          "nous": "aurions dû",
+          "vous": "auriez dû",
+          "ils/elles": "auraient dû"
+        }
+      }
+    },
     {
       "infinitive": "pouvoir",
       "conjugations": {
@@ -502,6 +1007,511 @@
           "nous": "aurions pu",
           "vous": "auriez pu",
           "ils/elles": "auraient pu"
+        }
+      }
+    },
+	{
+      "infinitive": "prendre",
+      "conjugations": {
+        "présent": {
+          "je": "prends",
+          "tu": "prends",
+          "il/elle": "prend",
+          "nous": "prenons",
+          "vous": "prenez",
+          "ils/elles": "prennent"
+        },
+        "passé composé": {
+          "je": "ai pris",
+          "tu": "as pris",
+          "il/elle": "a pris",
+          "nous": "avons pris",
+          "vous": "avez pris",
+          "ils/elles": "ont pris"
+        },
+        "imparfait": {
+          "je": "prenais",
+          "tu": "prenais",
+          "il/elle": "prenait",
+          "nous": "prenions",
+          "vous": "preniez",
+          "ils/elles": "prenaient"
+        },
+        "passé simple": {
+          "je": "pris",
+          "tu": "pris",
+          "il/elle": "prit",
+          "nous": "prîmes",
+          "vous": "prîtes",
+          "ils/elles": "prirent"
+        },
+        "futur simple": {
+          "je": "prendrai",
+          "tu": "prendras",
+          "il/elle": "prendra",
+          "nous": "prendrons",
+          "vous": "prendrez",
+          "ils/elles": "prendront"
+        },
+        "imparfait du subjonctif": {
+          "je": "prisse",
+          "tu": "prisses",
+          "il/elle": "prît",
+          "nous": "prissions",
+          "vous": "prissiez",
+          "ils/elles": "prissent"
+        },
+        "subjonctif passé": {
+          "je": "aie pris",
+          "tu": "aies pris",
+          "il/elle": "ait pris",
+          "nous": "ayons pris",
+          "vous": "ayez pris",
+          "ils/elles": "aient pris"
+        },
+        "conditionnel présent": {
+          "je": "prendrais",
+          "tu": "prendrais",
+          "il/elle": "prendrait",
+          "nous": "prendrions",
+          "vous": "prendriez",
+          "ils/elles": "prendraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais pris",
+          "tu": "avais pris",
+          "il/elle": "avait pris",
+          "nous": "avions pris",
+          "vous": "aviez pris",
+          "ils/elles": "avaient pris"
+        },
+        "passé antérieur": {
+          "je": "eus pris",
+          "tu": "eus pris",
+          "il/elle": "eut pris",
+          "nous": "eûmes pris",
+          "vous": "eûtes pris",
+          "ils/elles": "eurent pris"
+        },
+        "futur antérieur": {
+          "je": "aurai pris",
+          "tu": "auras pris",
+          "il/elle": "aura pris",
+          "nous": "aurons pris",
+          "vous": "aurez pris",
+          "ils/elles": "auront pris"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais pris",
+          "tu": "aurais pris",
+          "il/elle": "aurait pris",
+          "nous": "aurions pris",
+          "vous": "auriez pris",
+          "ils/elles": "auraient pris"
+        }
+      }
+    },
+    {
+      "infinitive": "trouver",
+      "conjugations": {
+        "présent": {
+          "je": "trouve",
+          "tu": "trouves",
+          "il/elle": "trouve",
+          "nous": "trouvons",
+          "vous": "trouvez",
+          "ils/elles": "trouvent"
+        },
+        "passé composé": {
+          "je": "ai trouvé",
+          "tu": "as trouvé",
+          "il/elle": "a trouvé",
+          "nous": "avons trouvé",
+          "vous": "avez trouvé",
+          "ils/elles": "ont trouvé"
+        },
+        "imparfait": {
+          "je": "trouvais",
+          "tu": "trouvais",
+          "il/elle": "trouvait",
+          "nous": "trouvions",
+          "vous": "trouviez",
+          "ils/elles": "trouvaient"
+        },
+        "passé simple": {
+          "je": "trouvai",
+          "tu": "trouvas",
+          "il/elle": "trouva",
+          "nous": "trouvâmes",
+          "vous": "trouvâtes",
+          "ils/elles": "trouvèrent"
+        },
+        "futur simple": {
+          "je": "trouverai",
+          "tu": "trouveras",
+          "il/elle": "trouvera",
+          "nous": "trouverons",
+          "vous": "trouverez",
+          "ils/elles": "trouveront"
+        },
+        "imparfait du subjonctif": {
+          "je": "trouvasse",
+          "tu": "trouvasses",
+          "il/elle": "trouvât",
+          "nous": "trouvassions",
+          "vous": "trouvassiez",
+          "ils/elles": "trouvassent"
+        },
+        "subjonctif passé": {
+          "je": "aie trouvé",
+          "tu": "aies trouvé",
+          "il/elle": "ait trouvé",
+          "nous": "ayons trouvé",
+          "vous": "ayez trouvé",
+          "ils/elles": "aient trouvé"
+        },
+        "conditionnel présent": {
+          "je": "trouverais",
+          "tu": "trouverais",
+          "il/elle": "trouverait",
+          "nous": "trouverions",
+          "vous": "trouveriez",
+          "ils/elles": "trouveraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais trouvé",
+          "tu": "avais trouvé",
+          "il/elle": "avait trouvé",
+          "nous": "avions trouvé",
+          "vous": "aviez trouvé",
+          "ils/elles": "avaient trouvé"
+        },
+        "passé antérieur": {
+          "je": "eus trouvé",
+          "tu": "eus trouvé",
+          "il/elle": "eut trouvé",
+          "nous": "eûmes trouvé",
+          "vous": "eûtes trouvé",
+          "ils/elles": "eurent trouvé"
+        },
+        "futur antérieur": {
+          "je": "aurai trouvé",
+          "tu": "auras trouvé",
+          "il/elle": "aura trouvé",
+          "nous": "aurons trouvé",
+          "vous": "aurez trouvé",
+          "ils/elles": "auront trouvé"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais trouvé",
+          "tu": "aurais trouvé",
+          "il/elle": "aurait trouvé",
+          "nous": "aurions trouvé",
+          "vous": "auriez trouvé",
+          "ils/elles": "auraient trouvé"
+        }
+      }
+    },
+    {
+      "infinitive": "donner",
+      "conjugations": {
+        "présent": {
+          "je": "donne",
+          "tu": "donnes",
+          "il/elle": "donne",
+          "nous": "donnons",
+          "vous": "donnez",
+          "ils/elles": "donnent"
+        },
+        "passé composé": {
+          "je": "ai donné",
+          "tu": "as donné",
+          "il/elle": "a donné",
+          "nous": "avons donné",
+          "vous": "avez donné",
+          "ils/elles": "ont donné"
+        },
+        "imparfait": {
+          "je": "donnais",
+          "tu": "donnais",
+          "il/elle": "donnait",
+          "nous": "donnions",
+          "vous": "donniez",
+          "ils/elles": "donnaient"
+        },
+        "passé simple": {
+          "je": "donnai",
+          "tu": "donnas",
+          "il/elle": "donna",
+          "nous": "donnâmes",
+          "vous": "donnâtes",
+          "ils/elles": "donnèrent"
+        },
+        "futur simple": {
+          "je": "donnerai",
+          "tu": "donneras",
+          "il/elle": "donnera",
+          "nous": "donnerons",
+          "vous": "donnerez",
+          "ils/elles": "donneront"
+        },
+        "imparfait du subjonctif": {
+          "je": "donnasse",
+          "tu": "donnasses",
+          "il/elle": "donnât",
+          "nous": "donnassions",
+          "vous": "donnassiez",
+          "ils/elles": "donnassent"
+        },
+        "subjonctif passé": {
+          "je": "aie donné",
+          "tu": "aies donné",
+          "il/elle": "ait donné",
+          "nous": "ayons donné",
+          "vous": "ayez donné",
+          "ils/elles": "aient donné"
+        },
+        "conditionnel présent": {
+          "je": "donnerais",
+          "tu": "donnerais",
+          "il/elle": "donnerait",
+          "nous": "donnerions",
+          "vous": "donneriez",
+          "ils/elles": "donneraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais donné",
+          "tu": "avais donné",
+          "il/elle": "avait donné",
+          "nous": "avions donné",
+          "vous": "aviez donné",
+          "ils/elles": "avaient donné"
+        },
+        "passé antérieur": {
+          "je": "eus donné",
+          "tu": "eus donné",
+          "il/elle": "eut donné",
+          "nous": "eûmes donné",
+          "vous": "eûtes donné",
+          "ils/elles": "eurent donné"
+        },
+        "futur antérieur": {
+          "je": "aurai donné",
+          "tu": "auras donné",
+          "il/elle": "aura donné",
+          "nous": "aurons donné",
+          "vous": "aurez donné",
+          "ils/elles": "auront donné"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais donné",
+          "tu": "aurais donné",
+          "il/elle": "aurait donné",
+          "nous": "aurions donné",
+          "vous": "auriez donné",
+          "ils/elles": "auraient donné"
+        }
+      }
+    },
+    {
+      "infinitive": "parler",
+      "conjugations": {
+        "présent": {
+          "je": "parle",
+          "tu": "parles",
+          "il/elle": "parle",
+          "nous": "parlons",
+          "vous": "parlez",
+          "ils/elles": "parlent"
+        },
+        "passé composé": {
+          "je": "ai parlé",
+          "tu": "as parlé",
+          "il/elle": "a parlé",
+          "nous": "avons parlé",
+          "vous": "avez parlé",
+          "ils/elles": "ont parlé"
+        },
+        "imparfait": {
+          "je": "parlais",
+          "tu": "parlais",
+          "il/elle": "parlait",
+          "nous": "parlions",
+          "vous": "parliez",
+          "ils/elles": "parlaient"
+        },
+        "passé simple": {
+          "je": "parlai",
+          "tu": "parlas",
+          "il/elle": "parla",
+          "nous": "parlâmes",
+          "vous": "parlâtes",
+          "ils/elles": "parlèrent"
+        },
+        "futur simple": {
+          "je": "parlerai",
+          "tu": "parleras",
+          "il/elle": "parlera",
+          "nous": "parlerons",
+          "vous": "parlerez",
+          "ils/elles": "parleront"
+        },
+        "imparfait du subjonctif": {
+          "je": "parlasse",
+          "tu": "parlasses",
+          "il/elle": "parlât",
+          "nous": "parlassions",
+          "vous": "parlassiez",
+          "ils/elles": "parlassent"
+        },
+        "subjonctif passé": {
+          "je": "aie parlé",
+          "tu": "aies parlé",
+          "il/elle": "ait parlé",
+          "nous": "ayons parlé",
+          "vous": "ayez parlé",
+          "ils/elles": "aient parlé"
+        },
+        "conditionnel présent": {
+          "je": "parlerais",
+          "tu": "parlerais",
+          "il/elle": "parlerait",
+          "nous": "parlerions",
+          "vous": "parleriez",
+          "ils/elles": "parleraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais parlé",
+          "tu": "avais parlé",
+          "il/elle": "avait parlé",
+          "nous": "avions parlé",
+          "vous": "aviez parlé",
+          "ils/elles": "avaient parlé"
+        },
+        "passé antérieur": {
+          "je": "eus parlé",
+          "tu": "eus parlé",
+          "il/elle": "eut parlé",
+          "nous": "eûmes parlé",
+          "vous": "eûtes parlé",
+          "ils/elles": "eurent parlé"
+        },
+        "futur antérieur": {
+          "je": "aurai parlé",
+          "tu": "auras parlé",
+          "il/elle": "aura parlé",
+          "nous": "aurons parlé",
+          "vous": "aurez parlé",
+          "ils/elles": "auront parlé"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais parlé",
+          "tu": "aurais parlé",
+          "il/elle": "aurait parlé",
+          "nous": "aurions parlé",
+          "vous": "auriez parlé",
+          "ils/elles": "auraient parlé"
+        }
+      }
+    },
+    {
+      "infinitive": "aimer",
+      "conjugations": {
+        "présent": {
+          "je": "aime",
+          "tu": "aimes",
+          "il/elle": "aime",
+          "nous": "aimons",
+          "vous": "aimez",
+          "ils/elles": "aiment"
+        },
+        "passé composé": {
+          "je": "ai aimé",
+          "tu": "as aimé",
+          "il/elle": "a aimé",
+          "nous": "avons aimé",
+          "vous": "avez aimé",
+          "ils/elles": "ont aimé"
+        },
+        "imparfait": {
+          "je": "aimais",
+          "tu": "aimais",
+          "il/elle": "aimait",
+          "nous": "aimions",
+          "vous": "aimiez",
+          "ils/elles": "aimaient"
+        },
+        "passé simple": {
+          "je": "aimai",
+          "tu": "aimas",
+          "il/elle": "aima",
+          "nous": "aimâmes",
+          "vous": "aimâtes",
+          "ils/elles": "aimèrent"
+        },
+        "futur simple": {
+          "je": "aimerai",
+          "tu": "aimeras",
+          "il/elle": "aimera",
+          "nous": "aimerons",
+          "vous": "aimerez",
+          "ils/elles": "aimeront"
+        },
+        "imparfait du subjonctif": {
+          "je": "aimasse",
+          "tu": "aimasses",
+          "il/elle": "aimât",
+          "nous": "aimassions",
+          "vous": "aimassiez",
+          "ils/elles": "aimassent"
+        },
+        "subjonctif passé": {
+          "je": "aie aimé",
+          "tu": "aies aimé",
+          "il/elle": "ait aimé",
+          "nous": "ayons aimé",
+          "vous": "ayez aimé",
+          "ils/elles": "aient aimé"
+        },
+        "conditionnel présent": {
+          "je": "aimerais",
+          "tu": "aimerais",
+          "il/elle": "aimerait",
+          "nous": "aimerions",
+          "vous": "aimeriez",
+          "ils/elles": "aimeraient"
+        },
+        "plus-que-parfait": {
+          "je": "avais aimé",
+          "tu": "avais aimé",
+          "il/elle": "avait aimé",
+          "nous": "avions aimé",
+          "vous": "aviez aimé",
+          "ils/elles": "avaient aimé"
+        },
+        "passé antérieur": {
+          "je": "eus aimé",
+          "tu": "eus aimé",
+          "il/elle": "eut aimé",
+          "nous": "eûmes aimé",
+          "vous": "eûtes aimé",
+          "ils/elles": "eurent aimé"
+        },
+        "futur antérieur": {
+          "je": "aurai aimé",
+          "tu": "auras aimé",
+          "il/elle": "aura aimé",
+          "nous": "aurons aimé",
+          "vous": "aurez aimé",
+          "ils/elles": "auront aimé"
+        },
+        "conditionnel passé première forme": {
+          "je": "aurais aimé",
+          "tu": "aurais aimé",
+          "il/elle": "aurait aimé",
+          "nous": "aurions aimé",
+          "vous": "auriez aimé",
+          "ils/elles": "auraient aimé"
         }
       }
     }
