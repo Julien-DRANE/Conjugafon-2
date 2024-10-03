@@ -6,8 +6,27 @@ let attemptsLeft = 3;
 let points = 0;
 let extremeMode = false;
 
-// JSON des conjugaisons de verbes
-let verbData = {}; // Remplir avec votre fichier JSON des conjugaisons
+// JSON des conjugaisons de verbes (A remplir avec votre JSON des conjugaisons)
+let verbData = {};
+
+// Définition des temps pour les modes normal et extrême
+const normalTenses = [
+    "présent",
+    "passé composé",
+    "imparfait",
+    "passé simple",
+    "futur simple"
+];
+
+const extremeTenses = [
+    "imparfait du subjonctif", // Nom corrigé selon votre fichier JSON
+    "subjonctif passé",
+    "conditionnel présent",
+    "plus-que-parfait",
+    "passé antérieur",
+    "futur antérieur",
+    "conditionnel passé première forme"
+];
 
 // Charger le JSON depuis un fichier local
 fetch('verbs.json')
@@ -24,16 +43,17 @@ function toggleExtremeMode() {
     extremeMode = !extremeMode;
     document.body.classList.toggle("extreme-mode", extremeMode);
     document.getElementById("toggle-mode-btn").textContent = extremeMode ? "Désactiver Mode Extrême" : "Mode Extrême";
+    spin(); // Recharger un verbe avec les temps extrêmes
 }
 
 // Fonction pour faire tourner les slots
 function spin() {
-    // Sélectionner aléatoirement un verbe, un temps et un pronom
+    // Sélectionner aléatoirement un verbe et un temps en fonction du mode
     let verbs = verbData.verbs;
     let randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
     currentVerb = randomVerb.infinitive;
 
-    let tenses = Object.keys(randomVerb.conjugations);
+    let tenses = extremeMode ? extremeTenses : normalTenses; // Choisir les temps selon le mode
     currentTense = tenses[Math.floor(Math.random() * tenses.length)];
 
     let pronouns = Object.keys(randomVerb.conjugations[currentTense]);
@@ -54,7 +74,7 @@ function checkAnswer() {
     let expectedAnswer = verbData.verbs.find(v => v.infinitive === currentVerb).conjugations[currentTense][currentPronoun].toLowerCase();
 
     if (userInput === expectedAnswer) {
-        points += extremeMode ? 3 : 1; // Points doublés en mode extrême
+        points += extremeMode ? 3 : 1; // Points triplés en mode extrême
         attemptsLeft = 3;
         document.getElementById("points").textContent = points;
         document.getElementById("message").textContent = "Bonne réponse !";
