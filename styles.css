@@ -5,20 +5,24 @@ body, html {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #f0f4c3, #e1bee7);
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
     background-color: #fffde7;
     border: 2px solid #f57f17;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* En-tête */
@@ -60,6 +64,8 @@ h1.logo {
     flex-direction: column;
     padding: 20px;
     align-items: center;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 /* Machine à sous */
@@ -230,6 +236,23 @@ button {
     transform: scale(1.05);
 }
 
+/* Symbole X3 pour Mode Extrême */
+.x3-symbol {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5722;
+    animation: blink 1s infinite;
+    display: none; /* Masqué par défaut */
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.5; }
+}
+
 /* Son Spinning Animation */
 @keyframes spin-animation {
     0% { transform: rotate(0deg); }
@@ -277,43 +300,5 @@ button {
 
     .status p {
         margin-bottom: 10px;
-    }
-}
-/* Symbole Multiplicateur X3 */
-.multiplier-symbol {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #f44336;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 1000;
-}
-
-/* Animation pour le symbole X3 */
-.multiplier-symbol.show {
-    opacity: 1;
-    transform: scale(1);
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 5px #f44336;
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 20px #f44336;
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 5px #f44336;
     }
 }
