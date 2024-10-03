@@ -3,53 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conjugafond</title>
+    <title>Jeu de Conjugaison</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 class="logo">Conjugafond</h1>
+            <h1 class="logo">Jeu de Conjugaison</h1>
         </header>
         
-        <!-- Score et Tentatives -->
-        <div class="score-grid">
-            <p>Points : <span id="points">0</span></p>
-            <p>Tentatives restantes : <span id="attempts">3</span></p>
-        </div>
-        
-        <!-- Machine à sous des conjugaisons -->
         <div class="game-area">
             <div class="slot-machine">
                 <div class="slot" id="verb-slot">Verbe</div>
                 <div class="slot" id="tense-slot">Temps</div>
                 <div class="slot" id="pronoun-slot">Pronom</div>
             </div>
-            
-            <!-- Zone de saisie du joueur -->
+
             <div class="prompt">
-                <span id="display-pronoun">Je </span>
-                <input type="text" id="user-input" placeholder="Conjuguez le verbe">
+                <div id="display-pronoun">je</div>
+                <input type="text" id="user-input" placeholder="Écris la conjugaison">
+                <button id="submit-btn" class="primary-button">Vérifier</button>
             </div>
             
-            <!-- Bouton Vérifier -->
-            <button id="submit-btn" class="primary-button">Vérifier</button>
-            
-            <!-- Boutons de contrôle du jeu -->
+            <!-- Image de bonne réponse -->
+            <img id="good-answer-img" src="images/bonne_reponse.png" alt="Bonne Réponse !" class="good-answer" style="display: none;">
+
+            <!-- Boutons de contrôle -->
             <div class="buttons">
-                <button id="spin-btn">Tourner</button>
-                <button id="show-answer-btn">Réponse</button>
+                <button id="spin-btn">Spin</button>
+                <button id="show-answer-btn">Voir la Réponse</button>
                 <button id="toggle-mode-btn">Mode Extrême</button>
             </div>
-            
-            <!-- Messages de succès ou d'erreur -->
-            <div class="message" id="message"></div>
+
+            <!-- Message de validation -->
+            <div id="message" class="message"></div>
+
+            <!-- Affichage des points -->
+            <div class="score-grid">
+                <p>Points : <span id="points">0</span></p>
+                <p>Tentatives restantes : <span id="attempts">3</span></p>
+            </div>
         </div>
-        
-        <!-- Sons -->
-        <audio id="success-sound" src="success.mp3"></audio>
-        <audio id="wrong-sound" src="wrong.mp3"></audio>
+
+        <audio id="success-sound" src="sounds/success.mp3"></audio>
+        <audio id="wrong-sound" src="sounds/wrong.mp3"></audio>
     </div>
 
     <script src="script.js"></script>
