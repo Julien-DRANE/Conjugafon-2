@@ -152,11 +152,6 @@ button:hover {
     transition: transform 1s ease; /* Animation de zoom */
 }
 
-/* Classe pour l'effet de zoom */
-.zoom {
-    transform: scale(1.5); /* Augmentation de la taille */
-}
-
 /* Mode Extrême */
 body.extreme-mode {
     background: linear-gradient(to right, #ff9800, #ff5722);
