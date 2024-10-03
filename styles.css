@@ -1,420 +1,64 @@
-/* Style général */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f0f4c3, #e1bee7);
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Évite le défilement horizontal */
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu de Conjugaison</title>
+    <link rel="stylesheet" href="styles.css">
 
-/* Conteneur principal occupant toute la largeur */
-.container {
-    width: 100%;
-    background-color: #fffde7;
-    border: 2px solid #f57f17;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh; /* Assure que le conteneur prend au moins la hauteur de la fenêtre */
-    box-sizing: border-box;
-}
+    <!-- Meta Tag pour la Responsivité -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* En-tête */
-header {
-    background-color: #ffcccb;
-    padding: 10px;
-    text-align: center;
-    border-bottom: 2px solid #f48fb1;
-    border-radius: 10px;
-    width: 100%;
-}
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-h1.logo {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-}
+    <!-- Optionnel : Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Manifest (optionnel, si utilisé) -->
+    <link rel="manifest" href="site.webmanifest">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">Jeu de Conjugaison</h1>
+            <div class="extreme-bonus" id="extreme-bonus">X3</div>
+        </header>
+        
+        <div class="score-grid">
+            <p>Points : <span id="points">0</span></p>
+            <p>Tentatives restantes : <span id="attempts">3</span></p>
+        </div>
+        
+        <div class="game-area">
+            <div class="slot-machine">
+                <div class="slot" id="verb-slot">Verbe</div>
+                <div class="slot" id="tense-slot">Temps</div>
+                <div class="slot" id="pronoun-slot">Pronom</div>
+            </div>
+            
+            <div class="prompt">
+                <span id="display-pronoun">Je </span>
+                <input type="text" id="user-input" placeholder="Conjuguez le verbe">
+            </div>
+            
+            <button id="submit-btn" class="primary-button">Vérifier</button>
+            
+            <div class="buttons">
+                <button id="spin-btn">Tourner</button>
+                <button id="show-answer-btn">Réponse</button>
+                <button id="toggle-mode-btn">Mode Extrême</button>
+            </div>
+            
+            <div class="message" id="message"></div>
+        </div>
+        
+        <!-- Sons -->
+        <audio id="success-sound" src="success.mp3"></audio>
+        <audio id="wrong-sound" src="wrong.mp3"></audio>
+    </div>
 
-/* Grille des points */
-.score-grid {
-    margin-top: 10px;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.score-grid p {
-    margin: 5px 0;
-    padding: 8px 12px;
-    background-color: #fffde7;
-    border: 1px solid #f57f17;
-    border-radius: 5px;
-    display: inline-block;
-    color: #6050dc;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Zone de jeu */
-.game-area {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
-    align-items: center;
-    width: 100%;
-}
-
-/* Machine à sous */
-.slot-machine {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
-    width: 100%;
-    flex-wrap: wrap; /* Permet aux slots de s'adapter à la largeur */
-    justify-content: center;
-}
-
-.slot {
-    width: 100px;
-    height: 60px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff9c4;
-    font-weight: bold;
-    font-size: 1.2em;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
-}
-
-/* Prompt */
-.prompt {
-    margin: 20px 0;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-#display-pronoun {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #f57f17;
-    font-size: 1.1em;
-}
-
-#user-input {
-    padding: 10px;
-    font-size: 1em;
-    width: 90%;
-    max-width: 300px;
-    border: 2px solid #f57f17;
-    border-radius: 5px;
-    text-align: center;
-}
-
-/* Bouton Vérifier */
-.primary-button {
-    padding: 12px 24px;
-    margin-top: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    color: white;
-    background-color: #4CAF50;
-    width: 90%;
-    max-width: 300px;
-}
-
-.primary-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Boutons secondaires */
-.buttons {
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    color: white;
-    width: 30%;
-    min-width: 100px;
-}
-
-#spin-btn {
-    background-color: #008CBA;
-}
-
-#spin-btn:hover {
-    background-color: #007bb5;
-    transform: scale(1.05);
-}
-
-#show-answer-btn {
-    background-color: #ff9800;
-}
-
-#show-answer-btn:hover {
-    background-color: #e68900;
-    transform: scale(1.05);
-}
-
-#toggle-mode-btn {
-    background-color: #f44336;
-}
-
-#toggle-mode-btn:hover {
-    background-color: #da190b;
-    transform: scale(1.05);
-}
-
-/* Status */
-.status {
-    margin-top: 20px;
-    font-size: 1em;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.status p {
-    margin: 5px 0;
-    padding: 8px 12px;
-    background-color: #e0f7fa;
-    border: 1px solid #81d4fa;
-    border-radius: 5px;
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Messages */
-.message {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    display: none;
-    font-size: 1em;
-    width: 90%;
-    max-width: 300px;
-    text-align: center;
-}
-
-.message.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 2px solid #28a745;
-}
-
-.message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 2px solid #dc3545;
-}
-
-/* Mode Extrême */
-.extreme-mode {
-    background: linear-gradient(to right, #3f51b5, #2196f3);
-    transition: background 0.5s;
-}
-
-.extreme-mode .slot {
-    background-color: #2196f3;
-    color: #fff;
-    font-size: 1.1em;
-}
-
-.extreme-mode .primary-button {
-    background-color: #1e88e5;
-}
-
-.extreme-mode .primary-button:hover {
-    background-color: #1565c0;
-    transform: scale(1.05);
-}
-
-.extreme-mode button {
-    background-color: #1e88e5;
-}
-
-.extreme-mode button:hover {
-    background-color: #1565c0;
-    transform: scale(1.05);
-}
-
-.extreme-mode .extreme-bonus {
-    background-color: #1e88e5;
-    color: white;
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1.logo {
-        font-size: 20px;
-    }
-
-    .score-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .score-grid p {
-        font-size: 16px;
-    }
-
-    .slot-machine {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .slot {
-        width: 80px;
-        height: 50px;
-        font-size: 1em;
-    }
-
-    .prompt {
-        width: 100%;
-    }
-
-    #user-input {
-        width: 95%;
-    }
-
-    .primary-button {
-        width: 95%;
-        max-width: none;
-    }
-
-    .buttons button {
-        width: 45%; /* Deux boutons côte à côte */
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .status {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .status p {
-        font-size: 14px;
-    }
-
-    .message {
-        width: 95%;
-    }
-
-    /* Réorganisation des slots sur mobile */
-    .slot-machine {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .slot:nth-child(3) {
-        grid-column: 1 / -1; /* Le troisième slot occupe toute la largeur */
-    }
-}
-
-@media (max-width: 480px) {
-    h1.logo {
-        font-size: 18px;
-    }
-
-    .score-grid p {
-        font-size: 14px;
-    }
-
-    .slot-machine {
-        gap: 6px;
-    }
-
-    .slot {
-        width: 70px;
-        height: 45px;
-        font-size: 0.9em;
-    }
-
-    #display-pronoun {
-        font-size: 1em;
-    }
-
-    #user-input {
-        padding: 8px;
-    }
-
-    .primary-button {
-        padding: 10px 18px;
-        font-size: 14px;
-    }
-
-    .buttons button {
-        width: 90%;
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .status p {
-        font-size: 12px;
-    }
-
-    .message {
-        font-size: 0.9em;
-    }
-
-    /* Réorganisation des slots sur très petits écrans */
-    .slot-machine {
-        grid-template-columns: 1fr; /* Tous les slots sur une seule colonne */
-    }
-
-    .slot:nth-child(1),
-    .slot:nth-child(2) {
-        grid-column: 1 / 1;
-    }
-
-    .slot:nth-child(3) {
-        grid-column: 1 / 1;
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
