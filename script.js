@@ -179,13 +179,15 @@ function checkAnswer() {
         let pointsEarned = modeExtreme ? 3 : 1;
         points += pointsEarned;
         document.getElementById('points').textContent = points;
-        playSound();
+        playSound('success-sound');
         showMessage('success', `Correct ! +${pointsEarned} point(s).`);
         spinReels();
     } else {
         // Réponse incorrecte
         attempts--;
         updateStatus();
+        playSound('wrong-sound'); // Jouer le son "wrong"
+
         if (attempts > 0) {
             showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
         } else {
@@ -208,9 +210,11 @@ function toggleMode() {
     if (modeExtreme) {
         container.classList.add('extreme-mode');
         showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
+        spinReels(); // Recharger un nouveau verbe et temps en mode extrême
     } else {
         container.classList.remove('extreme-mode');
         showMessage('success', "Mode Extrême désactivé.");
+        spinReels(); // Recharger un nouveau verbe et temps en mode normal
     }
 }
 
@@ -273,9 +277,9 @@ function hideMessage() {
     messageDiv.style.display = 'none';
 }
 
-// Fonction pour jouer le son de succès
-function playSound() {
-    const sound = document.getElementById('success-sound');
+// Fonction pour jouer un son
+function playSound(soundId) {
+    const sound = document.getElementById(soundId);
     sound.currentTime = 0; // Réinitialiser le son
     sound.play();
 }
