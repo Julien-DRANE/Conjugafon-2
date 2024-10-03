@@ -42,7 +42,7 @@ fetch('verbs.json')
         verbsData = data.verbs;
         initializeGame();
     })
-    .catch(error => console.error('Error loading JSON:', error));
+    .catch(error => console.error('Erreur lors du chargement du JSON:', error));
 
 // Initialiser le jeu
 function initializeGame() {
@@ -151,20 +151,8 @@ function checkAnswer() {
         return;
     }
 
-    // Extraire uniquement la forme du verbe conjugué
-    let correctVerb = "";
-
-    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
-        // Ces temps utilisent un auxiliaire + participe passé
-        let parts = correctAnswer.split(' ');
-        correctVerb = parts.slice(1).join(' ');
-    } else {
-        // Temps simples
-        correctVerb = correctAnswer;
-    }
-
-    // Nettoyer la réponse correcte des parenthèses et apostrophes
-    correctVerb = correctVerb
+    // Nettoyer la réponse correcte des parenthèses et apostrophes sans retirer l'auxiliaire
+    let cleanCorrectAnswer = correctAnswer
         .replace(/\(e\)/g, '')
         .replace(/\(s\)/g, '')
         .replace(/’/g, '')
@@ -174,7 +162,7 @@ function checkAnswer() {
         .trim();
 
     // Comparaison insensible à la casse et sans accents
-    if (normalizeString(userInput) === normalizeString(correctVerb)) {
+    if (normalizeString(userInput) === normalizeString(cleanCorrectAnswer)) {
         // Réponse correcte
         let pointsEarned = modeExtreme ? 3 : 1;
         points += pointsEarned;
@@ -190,7 +178,7 @@ function checkAnswer() {
         if (attempts > 0) {
             showMessage('error', `Incorrect. Il vous reste ${attempts} tentative(s).`);
         } else {
-            showMessage('error', `Incorrect. La bonne réponse était : ${correctVerb}`);
+            showMessage('error', `Incorrect. La bonne réponse était : ${cleanCorrectAnswer}`);
             spinReels();
         }
     }
@@ -206,17 +194,13 @@ function updateStatus() {
 function toggleMode() {
     modeExtreme = !modeExtreme;
     const container = document.querySelector('.container');
-    const multiplierSymbol = document.getElementById('multiplier-symbol');
-
     if (modeExtreme) {
         container.classList.add('extreme-mode');
         showMessage('success', "Mode Extrême activé ! Vous marquez trois fois plus de points.");
-        multiplierSymbol.classList.add('show'); // Afficher le symbole X3
         spinReels(); // Recharger un nouveau verbe et temps en mode extrême
     } else {
         container.classList.remove('extreme-mode');
         showMessage('success', "Mode Extrême désactivé.");
-        multiplierSymbol.classList.remove('show'); // Masquer le symbole X3
         spinReels(); // Recharger un nouveau verbe et temps en mode normal
     }
 }
@@ -236,20 +220,8 @@ function showCorrectAnswer() {
         return;
     }
 
-    // Extraire uniquement la forme du verbe conjugué
-    let correctVerb = "";
-
-    if (["passé composé", "plus-que-parfait", "passé antérieur", "futur antérieur", "subjonctif passé", "conditionnel passé première forme"].includes(currentTense)) {
-        // Ces temps utilisent un auxiliaire + participe passé
-        let parts = correctAnswer.split(' ');
-        correctVerb = parts.slice(1).join(' ');
-    } else {
-        // Temps simples
-        correctVerb = correctAnswer;
-    }
-
-    // Nettoyer la réponse correcte des parenthèses et apostrophes
-    correctVerb = correctVerb
+    // Nettoyer la réponse correcte des parenthèses et apostrophes sans retirer l'auxiliaire
+    let cleanCorrectAnswer = correctAnswer
         .replace(/\(e\)/g, '')
         .replace(/\(s\)/g, '')
         .replace(/’/g, '')
@@ -259,7 +231,7 @@ function showCorrectAnswer() {
         .trim();
 
     // Afficher la réponse dans un message
-    showMessage('success', `La bonne réponse était : ${correctVerb}`);
+    showMessage('success', `La bonne réponse était : ${cleanCorrectAnswer}`);
 }
 
 // Fonction pour afficher un message intégré
