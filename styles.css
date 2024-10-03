@@ -246,7 +246,7 @@ button {
 
 /* Mode Extrême */
 .extreme-mode {
-    background: linear-gradient(to right, #ffeb3b, #ff5722);
+    background: linear-gradient(to right, #3f51b5, #2196f3);
     transition: background 0.5s;
 }
 
