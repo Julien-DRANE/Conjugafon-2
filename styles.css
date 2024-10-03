@@ -251,3 +251,32 @@ body.extreme-mode .slot {
     display: none; /* Par défaut, l'image n'est pas visible */
     transition: transform 1.3s ease-in-out, opacity 0.3s ease-in-out; /* Animation de transition */
 }
+/* Bulle de bonne réponse */
+.answer-bubble {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00c853; /* Couleur verte pour signaler une bonne réponse */
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Masquer la bulle par défaut */
+    z-index: 1000; /* Assurez-vous que la bulle est au-dessus des autres éléments */
+    animation: bubble-zoom 1.3s ease-out;
+}
+
+/* Animation pour agrandir la bulle */
+@keyframes bubble-zoom {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
