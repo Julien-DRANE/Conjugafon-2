@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <title>Jeu de Conjugaison</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Lien vers le Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Optionnel : Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Manifest (optionnel, si utilisé) -->
+    <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
     <div class="container">
@@ -30,7 +35,8 @@
             </div>
             
             <div class="prompt">
-                <span id="display-pronoun">Je </span><input type="text" id="user-input" placeholder="Conjuguez le verbe">
+                <span id="display-pronoun">Je </span>
+                <input type="text" id="user-input" placeholder="Conjuguez le verbe">
             </div>
             
             <div class="buttons">
