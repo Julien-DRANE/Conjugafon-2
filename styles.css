@@ -295,13 +295,23 @@ button {
 .slot {
     animation: spin-animation 1s ease-in-out;
 }
-/* Image de bonne réponse */
-.good-answer {
-    position: absolute;
+/* Styles pour l'image de bonne réponse */
+#good-answer-img-container {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px; /* Taille de l'image */
+    display: none; /* Cacher l'image par défaut */
     z-index: 1000;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#good-answer-img {
+    width: 200px;
+    height: auto;
+    transition: transform 1s ease; /* Animation de zoom */
+}
+
+/* Classe pour l'effet de zoom */
+.zoom {
+    transform: scale(1.5); /* Augmentation de la taille */
 }
