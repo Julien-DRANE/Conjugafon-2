@@ -5,19 +5,14 @@ body, html {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #f0f4c3, #e1bee7);
     height: 100%;
-    /* Suppression du Flexbox pour éviter le centrage */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* Autoriser le défilement vertical si nécessaire */
-    overflow-x: hidden; /* Empêche le défilement horizontal */
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Évite le défilement horizontal */
 }
 
-/* Container étendu */
+/* Conteneur principal occupant toute la largeur */
 .container {
-    width: 100%; /* Occupe toute la largeur */
-    /* max-width: 800px; */ /* Supprimé pour permettre l'expansion complète */
-    /* margin: 0 auto; */ /* Supprimé pour éliminer le centrage */
+    width: 100%;
     background-color: #fffde7;
     border: 2px solid #f57f17;
     border-radius: 15px;
@@ -25,9 +20,8 @@ body, html {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrage des éléments internes */
-    /* max-height: 100vh; */ /* Supprimé pour permettre l'expansion verticale */
-    overflow-y: auto; /* Ajout de défilement vertical si nécessaire */
+    align-items: center;
+    min-height: 100vh; /* Assure que le conteneur prend au moins la hauteur de la fenêtre */
     box-sizing: border-box;
 }
 
@@ -43,7 +37,7 @@ header {
 
 h1.logo {
     margin: 0;
-    font-size: 24px; /* Ajustable selon vos préférences */
+    font-size: 24px;
     color: #333;
 }
 
@@ -54,10 +48,11 @@ h1.logo {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .score-grid p {
-    margin: 0;
+    margin: 5px 0;
     padding: 8px 12px;
     background-color: #fffde7;
     border: 1px solid #f57f17;
@@ -85,7 +80,8 @@ h1.logo {
     gap: 10px;
     margin: 10px 0;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permet aux slots de s'adapter à la largeur */
+    justify-content: center;
 }
 
 .slot {
@@ -102,15 +98,6 @@ h1.logo {
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s, transform 0.3s, font-size 0.3s;
-}
-
-.slot.spinning {
-    animation: spin 0.5s ease-out;
-}
-
-@keyframes spin {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100px); }
 }
 
 /* Prompt */
@@ -286,10 +273,6 @@ button {
 .extreme-mode .extreme-bonus {
     background-color: #1e88e5;
     color: white;
-}
-
-/* Symbole "X3" Animation */
-.extreme-mode .extreme-bonus {
     animation: pulse 1s infinite;
 }
 
@@ -316,8 +299,9 @@ button {
     }
 
     .slot-machine {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 8px;
     }
 
@@ -341,8 +325,9 @@ button {
     }
 
     .buttons button {
-        width: 80%;
-        max-width: none;
+        width: 45%; /* Deux boutons côte à côte */
+        padding: 8px 16px;
+        font-size: 14px;
     }
 
     .status {
@@ -357,6 +342,19 @@ button {
 
     .message {
         width: 95%;
+    }
+
+    /* Réorganisation des slots sur mobile */
+    .slot-machine {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .slot:nth-child(3) {
+        grid-column: 1 / -1; /* Le troisième slot occupe toute la largeur */
     }
 }
 
@@ -404,5 +402,19 @@ button {
 
     .message {
         font-size: 0.9em;
+    }
+
+    /* Réorganisation des slots sur très petits écrans */
+    .slot-machine {
+        grid-template-columns: 1fr; /* Tous les slots sur une seule colonne */
+    }
+
+    .slot:nth-child(1),
+    .slot:nth-child(2) {
+        grid-column: 1 / 1;
+    }
+
+    .slot:nth-child(3) {
+        grid-column: 1 / 1;
     }
 }
