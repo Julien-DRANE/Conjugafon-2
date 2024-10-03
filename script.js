@@ -35,6 +35,30 @@ function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
+// Fonction pour obtenir la clé de conjugaison basée sur le pronom et le temps
+function getConjugationKey(pronoun, tense) {
+    const requiresQue = tense.includes("subjonctif"); // Détecte les temps nécessitant "que"
+    if (requiresQue) {
+        switch(pronoun) {
+            case "je":
+                return "que je";
+            case "tu":
+                return "que tu";
+            case "il/elle":
+                return "qu’il/elle";
+            case "nous":
+                return "que nous";
+            case "vous":
+                return "que vous";
+            case "ils/elles":
+                return "qu’ils/elles";
+            default:
+                return pronoun;
+        }
+    }
+    return pronoun; // Pour les temps n'exigeant pas "que"
+}
+
 // Charger les données JSON
 fetch('verbs.json')
     .then(response => response.json())
@@ -120,7 +144,7 @@ function formatPronoun(pronoun, tense) {
     }
 
     // Gestion des pronoms spécifiques pour le subjonctif
-    if (tense.includes("subjonctif") || tense.includes("imparfait du subjonctif")) { // Ajustement ici
+    if (tense.includes("subjonctif")) {
         if (pronoun === "je") return "que je ";
         if (pronoun === "il/elle") return "qu’il ";
         if (pronoun === "ils/elles") return "qu’ils/elles ";
@@ -145,7 +169,9 @@ function checkAnswer() {
         return;
     }
 
-    let correctAnswer = conjugation[currentPronoun];
+    // Obtenir la clé de conjugaison basée sur le pronom et le temps
+    let conjugationKey = getConjugationKey(currentPronoun, currentTense);
+    let correctAnswer = conjugation[conjugationKey];
     if (!correctAnswer) {
         showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
         return;
@@ -204,7 +230,9 @@ function showCorrectAnswer() {
         return;
     }
 
-    let correctAnswer = conjugation[currentPronoun];
+    // Obtenir la clé de conjugaison basée sur le pronom et le temps
+    let conjugationKey = getConjugationKey(currentPronoun, currentTense);
+    let correctAnswer = conjugation[conjugationKey];
     if (!correctAnswer) {
         showMessage('error', "Le pronom sélectionné n'est pas disponible pour ce temps.");
         return;
