@@ -118,8 +118,8 @@ h1.logo {
 }
 
 #user-input {
-    padding: 10px;
-    font-size: 1em;
+    padding: 15px; /* Augmentation du padding pour une meilleure utilisation tactile */
+    font-size: 1.2em; /* Augmentation de la taille de la police */
     width: 60%;
     border: 2px solid #f57f17;
     border-radius: 5px;
@@ -134,9 +134,9 @@ h1.logo {
 }
 
 button {
-    padding: 10px 20px;
+    padding: 15px 25px; /* Augmentation du padding pour une meilleure accessibilité tactile */
     margin: 10px;
-    font-size: 1em;
+    font-size: 1.2em; /* Augmentation de la taille de la police */
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -304,6 +304,8 @@ button {
 
     #user-input {
         width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
     }
 
     .buttons {
@@ -313,6 +315,8 @@ button {
     button {
         width: 100%;
         margin: 5px 0;
+        padding: 15px 0;
+        font-size: 1.2em;
     }
 
     .status {
